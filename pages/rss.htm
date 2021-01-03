@@ -1,0 +1,54 @@
+title = "rss"
+url = "/rss"
+description = "Анонс новостей | Vietnews.ru"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "xml"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 50
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:yandex="http://news.yandex.ru" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:turbo="http://turbo.yandex.ru" version="2.0">
+    <channel>
+        <title>VietNews.ru | Все о Вьетнаме</title>
+        <link>https://vietnews.ru</link>
+        <description>VietNews.ru | Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме...</description>
+        <image>
+            <url>https://vietnews.ru/favicon.ico</url>
+            <title>VietNews.ru | Все о Вьетнаме</title>
+            <link>https://vietnews.ru</link>
+        </image>
+		<atom:link href="https://vietnews.ru/rss" rel="self" type="application/rss+xml" />
+        <language>ru-RU</language>
+        {% set posts = blogPosts.posts %}
+        {% for post in posts %} 
+          <item turbo="true">
+            <link>{{ post.url }}</link>
+            <title>{{ post.title }}</title>
+            <pubDate>{{ post.published_at }}</pubDate>
+            <turbo:content>
+              <![CDATA[
+                <header>
+                  <h1>{{ post.title }}</h1>
+                </header>
+                <description>
+                  {{ post.summary|raw }}
+                </description>
+                <figure>{% if post.subtitle == true %}
+                    <img src="{{ post.subtitle }}">{% endif %}
+                </figure>
+              ]]>
+            </turbo:content>
+            <guid>{{ post.url }}</guid>
+          </item>
+        {% endfor %}
+    </channel>
+</rss>

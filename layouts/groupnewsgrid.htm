@@ -1,0 +1,163 @@
+==
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+	<meta name="keywords" content="{{ this.page.meta_keywords }}">
+    <meta name="author" content="Vietnews.ru - Все о Вьетнаме">
+    <meta property="og:site_name" content="Vietnews.ru - Все о Вьетнаме">
+	<meta property="og:title" content="Рубрика: {{ category.name }} | {{ html_strip(category.description) }} | Vietnews.ru - Все о Вьетнаме">
+	<meta property="og:url" content="https://vietnews.ru/">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+	{% if post.featured_images.count %}{% for image in post.featured_images %}
+	<meta property="og:image" content="{{ image.path }}">{% endfor %}{% endif %}
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	{% if post.featured_images.count %}{% for image in post.featured_images %}
+	<meta name="twitter:image" content="{{ image.path }}">
+	<meta property="vk:image" content="{{ image.path }}">
+	{% endfor %}{% endif %}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Vietnews.ru - Все о Вьетнаме">
+	<meta name="twitter:description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+    <link rel="alternate" type="application/rss+xml" title="Vietnews.ru - Все о Вьетнаме" href="/rss" />
+    <title>Рубрика: {{ category.name }} | {{ html_strip(category.description) }} | Vietnews.ru - Все о Вьетнаме</title>
+    
+<link href="{{ 'assets/vendor/bootstrap/css/bootstrap.min.css'|theme }}" rel="stylesheet">
+    
+     <style>
+body {
+  background: #001628;
+  color: #777;
+  padding: 4em;
+  font-family: sans-serif;
+  line-height: 1.15;
+}
+
+hr { /*dummy content*/
+  height: 6px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+} 
+
+hr:last-child {  /*dummy content*/
+  margin-right: 60%;
+}
+
+hr.image { /*dummy content*/
+  padding-bottom: 50%;
+} 
+
+.page {
+  padding: 2em;
+  background: #cecece;
+  max-width: 1100px;
+}
+
+.archive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 1em;
+  grid-auto-flow: dense;
+}
+
+.article {
+  padding: 1em;
+  background: #fff;
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.1),
+    0 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+.article:nth-child(1) {
+  grid-column: 1 / 3;
+  background: rgba(200,200,255,0.3)
+}
+
+.article:nth-child(1)>hr:last-child {
+  margin-right: 20%;
+  height: 28px
+}
+
+.article:nth-child(1):after {
+  content: "grid-column: 1 / 3";
+}
+
+.article:nth-child(8) {
+  grid-column: -3 / -1;
+  background: rgba(255,200,255,0.3)
+}
+.article:nth-child(8):after {
+  content: "grid-column: -3 / -1";
+}
+
+.article:nth-child(12) {
+  grid-column: 1 / 3;
+  background: rgba(255,200,255,0.3)
+}
+.article:nth-child(12):after {
+  content: "grid-column: 1 / 3";
+}
+
+.article:after {
+  color: #808;
+  font-weight: bold;
+  font-family: courier;
+}
+</style>
+    
+    {% styles %}
+	<link rel="shortcut icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
+	<link rel="icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
+    <link rel="shortcut icon" href="{{ 'assets/images/favicon.ico'|theme }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'assets/images/icons/vietnews-ico-144.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'assets/images/icons/vietnews-ico-114.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'assets/images/icons/vietnews-ico-72.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ 'assets/images/icons/vietnews-ico-57.png'|theme }}">
+    <link rel="manifest" href="{{ 'assets/images/favicon.png'|theme }}">
+	<link rel="mask-icon" href="{{ 'assets/images/favicon.png'|theme }}" color="#1e2831">
+	
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2JTTJ2');</script>
+<!-- End Google Tag Manager -->
+	
+</head>
+<body class="animsition">
+	
+
+
+ {% page %}
+
+
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+ <script src="{{ 'assets/js/lazysizes.min.js'|theme }}"></script>
+ <script src="{{ 'assets/vendor/bootstrap/js/bootstrap.min.js'|theme }}"></script>
+
+
+    {% framework extras %}
+    {% scripts %}
+
+</body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2JTTJ2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

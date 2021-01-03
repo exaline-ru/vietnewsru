@@ -1,0 +1,99 @@
+title = "Компания"
+url = "/test/company/:item_slug"
+layout = "portfolio"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[item]
+item = "{{ :item_slug }}"
+itemSlug = "{{ :item_slug }}"
+catListPage = "test/companies"
+tagListPage = "news/category"
+==
+<!-- Body Inner -->
+    <div class="body-inner">
+        <!-- Header -->
+        {#<header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">#}
+        <header id="header" data-fullwidth="true">
+            <div class="header-inner">
+                <div class="container">
+                    <!--Logo-->
+                    
+                    <div id="logo">
+                        <a href="/">
+                            <span class="logo-default"><img src="{{'assets/images/logo_ru.png'|theme }}" style="width: 115px; height: 30px" alt="VietNews.ru"></span>
+                            <span class="logo-dark"><img src="{{'assets/images/icons/vietnews-ico-32.png'|theme }}" alt="VietNews.ru"></span>
+                        </a>
+                    </div>
+                    <!--End: Logo-->
+                    <!-- Search -->
+                    <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
+                        <form class="search-form" method="GET" action="{{ searchForm.resultPage|page }}">
+                            <input class="form-control" name="q" type="text" name="search" placeholder="Введите и выполните поиск" />
+                            <span class="text-muted">Начало ввода - нажмите "Enter" или "ESC" для закрытия</span>
+                        </form>
+                    </div>
+                    <!-- end: search -->
+                    <!--Header Extras-->
+                    <div class="header-extras">
+                        <ul>
+                            <li>
+                                <a id="btn-search" href="#"> <i class="icon-search"></i></a>
+                            </li>
+                            <li>
+                                <div class="p-dropdown">
+                                    <a href="{{ 'home'|theme }}"><i class="icon-globe"></i><span>RU</span></a>
+                                    <ul class="p-dropdown-content">
+                                        <li><a href="https://vn.vietnews.ru">Tiếng Việt</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--end: Header Extras-->
+                    <!--Navigation Resposnive Trigger-->
+                    <div id="mainMenu-trigger">
+                        <a class="lines-button x"><span class="lines"></span></a>
+                    </div>
+                    <!--end: Navigation Resposnive Trigger-->
+                    <!--Navigation-->
+                    {% partial 'navigation' %}
+                    <!--END: NAVIGATION-->
+                </div>
+            </div>
+        </header>
+        <!-- end: Header -->
+
+{% set item = item.item %}
+<div class="container">
+    <div class="row">        
+        <div class="col-lg-6">
+            {#<h1>Portfolio Item {{ item.id }}</h1>#}
+            <h2 itemprop="headline">{{ item.title }}</h2>
+            {#<small>posted {{ item.created_at|date('j m Y') }} in <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a></small>#}
+            <div>
+                {% for tag in item.tags %}
+                <a href="{{ tag.pageUrl }}"><span class="label label-default">#{{ tag.name }}</span></a>
+                {% endfor %}
+            </div>
+            <p>{{ item.description|raw }}</p>
+            {% if item.url %}
+                <a href="{{ item.url }}" class="btn btn-default" target="_blank">Посетить сайт</a>
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            {% for image in item.images %}
+            <div>
+               <img src="{{ image.path }}" width="100%" alt="{{ image.title }}"><br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+       <!-- Footer -->
+{% partial 'footer2' %}
+<!-- end: Footer -->

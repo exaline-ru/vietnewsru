@@ -1,0 +1,348 @@
+title = "Рубрики"
+url = "/test/test/:page?"
+layout = "groupnews"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 12
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[CategoryBreadCrumbs]
+categoryPage = "news/category"
+categorySlug = "{{ :slug }}"
+
+[SeoCmsPage]
+
+[searchForm]
+resultPage = "news/search"
+categoryFilter = 0
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 5
+postPage = "news/news"
+slug = "{{ :slug }}"
+
+[formSubscribe]
+urlToUnsubscribe = "unsubscribe"
+urlToProfile = "subscriber-profile"
+geo = "disabled"
+thanksMessage = "Спасибо за подписку!"
+errorMessage = "Электронная почта уже существует!"
+
+[tagList]
+orderBy = "posts_count desc"
+postSlug = "{{ :slug }}"
+limit = 10
+exposeTotalCount = 1
+enableTagFilter = "never"
+tagPage = "news/tag"
+tagsPage = "news/tags"
+
+[galleryId]
+idGallery = 1
+lang = "Галерея"
+jqueryinject = "yes"
+thumbnail = "true"
+caption = "true"
+desc = "true"
+counter = "true"
+controls = "true"
+preload = 1
+mode = "lg-slide"
+speed = 600
+loop = "true"
+auto = "false"
+pause = 2000
+escKey = "true"
+height = 70
+width = 100
+resizer = "auto"
+
+[randomImages]
+sourcePath = "/fotoday"
+limit = 1
+==
+<?php
+function onEnd()
+{
+    // Optional - set the page title to the category name
+    if ($this->category)
+        $this->page->title = $this->category->name;
+}
+?>
+==
+<!-- Breadcrumb -->{% component 'SeoCmsPage' %}
+{% partial 'headline' %}
+{% partial 'headline2' %}
+	<div class="container">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 m-tb-6">
+				<a href="/" class="breadcrumb-item f1-s-3 cl9">
+					Главная
+				</a>
+
+				<a href="{{ category.url }}" class="breadcrumb-item f1-s-3 cl9">
+					{{ category.name }}
+				</a>
+
+				<span class="breadcrumb-item f1-s-3 cl9">
+					
+				</span>
+			</div>
+<form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
+			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Поиск">
+				{% if searchForm.categoryFilter %}
+                <select name="cat[]" class="form-control">
+                {% for key,cat in searchForm.categories %}
+                    <option value="{{ key }}">{{ cat }}</option>
+                {% endfor %}
+                </select>
+                {% endif %}
+				<button type="submit" class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+					<i class="zmdi zmdi-search"></i>
+				</button>
+			</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Page heading -->
+	<div class="container p-t-4 p-b-40">
+		<h2 class="f1-l-1 cl2">
+			Рубрика: {{ category.name }}
+		</h2>
+	</div>
+		
+{% partial 'feature' %}
+
+
+	<!-- Post -->
+	<section class="bg0 p-t-70 p-b-55">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8 p-b-80">
+					<div class="row">{% set posts = blogPosts.posts %}
+					{% for post in posts %}
+						<div class="col-sm-6 p-r-25 p-r-15-sr991">
+							<!-- Item latest -->	
+							<div class="m-b-45">{% if post.featured_images.count %}
+								<a href="{{ post.url }}" class="wrap-pic-w hov1 trans-03"> {% for image in post.featured_images %}
+									<picture><img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}"
+                    style="max-width: 100%" /></picture>{% endfor %}</a>
+                    
+                   
+                    
+                    {% elseif post.subtitle == true %}
+								<a href="{{ post.url }}" class="wrap-pic-w hov1 trans-03"> 
+									<picture><img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                    style="max-width: 100%" /></picture></a>{% endif %}                   
+							
+
+								<div class="p-t-16">
+									<h5 class="p-b-5">
+										<a href="{{ post.url }}" class="f1-m-3 cl2 hov-cl10 trans-03">
+											{{ post.title }}
+										</a>
+									</h5>  
+
+									<span class="cl8">									
+											{% if post.categories.count %} {% endif %}
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}" class="f1-s-4 cl8 hov-cl10 trans-03">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+										
+
+										<span class="f1-s-3 m-rl-3">
+											|
+										</span>
+
+										<span class="f1-s-3">
+											{{ post.published_at|date('d.m.Y') }}  <i class="fa fa-eye"></i> {{post.views}}
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>{% endfor %}
+						
+					</div>
+					
+					{% partial 'newslist' %}
+
+					<!-- Pagination -->
+					<div class="flex-wr-s-c m-rl--7 p-t-15">
+					{% partial 'pagination' %}				
+					</div>
+					
+					
+					
+				</div>
+				
+
+				<div class="col-md-10 col-lg-4 p-b-80">
+					<div class="p-l-10 p-rl-0-sr991">							
+						<!-- Subscribe -->
+						<div class="bg10 p-rl-35 p-t-28 p-b-35 m-b-50">
+							<h5 class="f1-m-5 cl0 p-b-10">
+								Подписка
+							</h5>
+
+							<p class="f1-s-1 cl0 p-b-25">
+								Получите все последние материалы, доставленные на электронную почту несколько раз в месяц.
+							</p>
+
+							<div>
+							<form class="size-a-9 pos-relative" name="form-subscribe-andradedev" id="form-subscribe-andradedev" data-request="{{ formSubscribe }}::onAddSubscriber" data-request-update="'{{formSubscribe}}::alert': '#result'">
+								<input class="s-full f1-m-6 cl6 plh9 p-l-20 p-r-55" type="email" name="email" placeholder="Э.почта" required>
+
+								<button class="size-a-10 flex-c-c ab-t-r fs-16 cl9 hov-cl10 trans-03" form="form-subscribe-andradedev">
+									<i class="fa fa-arrow-right"></i>
+								</button>
+							</form>
+							<div id="result"></div>
+							</div>
+						</div>
+						<!-- Most Popular -->
+						<div class="p-b-23">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Популярные
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+							    
+								{% partial 'home-popular2' %}
+								{% partial 'grid/grid-top' %}
+							</ul>
+						</div>
+						{% partial 'newslist' %}
+						<div class="p-b-30">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Самые читаемые на сегодня
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+							
+							    {% set mostVisitedPosts = topPosts.mostVisitedPosts %}                               
+                                		{% for post in mostVisitedPosts %}
+                                <li class="flex-wr-sb-s p-b-30">{% if post.featured_images.count %}
+                                	<a href="{{ post.url }}" class="size-w-10 wrap-pic-w hov1 trans-03">{% for image in post.featured_images %}	
+                                		<picture><img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}"
+                                                    style="max-width: 100%" /></picture>{% endfor %}
+                                								</a>
+                                		{% elseif post.subtitle == true %}
+								<a href="{{ post.url }}" class="size-w-10 wrap-pic-w hov1 trans-03">
+								<picture><img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                                                    style="max-width: 100%"  /></picture> </a>  
+							{% endif %}							
+                                
+                                	<div class="size-w-11">
+                                		<h6 class="p-b-4">
+                                			<a href="{{ post.url }}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                				{{ post.title }}
+                                			</a>
+                                		</h6>
+                                
+                                		<span class="cl8 txt-center p-b-24"> {% if post.categories.count %}{% for category in post.categories %}
+                                			<a href="{{category.slug}}" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                				{{ category.name }}
+                                			</a>{% if not loop.last %}, {% endif %}
+                                                {% endfor %}{% endif %}
+                                
+                                			<span class="f1-s-3 m-rl-3">
+                                				|
+                                			</span>
+                                
+                                			<span class="f1-s-3">
+                                				{{ post.published_at|date('d.m.Y') }} | <i class="fa fa-eye"></i> {{post.views}}
+                                			</span>
+                                		</span>
+                                	</div>
+                                	</li>	{% endfor %}                                								    
+								
+							</ul>
+						</div>
+
+						<!--  -->
+						<div class="flex-c-s p-b-50">
+							<!--<a href="https://exaline.ru">
+								<img class="max-w-full" src="{{'assets/images/exaline_300x300.jpg'|theme }}" alt="Exaline.ru">
+							</a>-->
+							
+							
+                                <!-- Vietnews-300x250 -->
+                                <ins class="adsbygoogle"
+                                     style="display:inline-block;width:300px;height:250px"
+                                     data-ad-client="ca-pub-8101715655477045"
+                                     data-ad-slot="2143459603"></ins>
+                                
+						</div>
+						
+						<!-- Tag -->
+						<div>
+							<div class="how2 how2-cl4 flex-s-c m-b-30">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Тэги
+								</h3>
+							</div>
+
+							<div class="flex-wr-s-s m-rl--5">								
+								{% partial 'tags' %}
+							</div>
+							
+						</div>
+						
+						<div>
+							<div class="how2 how2-cl4 flex-s-c m-b-30">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Фото Дня
+								</h3>
+							</div>
+
+							<div class="flex-wr-s-s m-rl--5">								
+								{% component 'galleryId' %}
+								
+								{% for image in randomImages.images %}
+    <img src="{{ image.publicUrl | app }}"
+         class="image-{{ image.orientation }}  "
+         alt=""
+         style="max-width: 100%" class="lazyload"
+     />
+{% endfor %}
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>		
+	</section>
+	{% set categories = Worklist.categories %}
+{% set works = Worklist.works %}
+
+{% if categories is not empty %}
+<div class="work-categories">
+    <div class="work-category selected" id="cat-0">all categories</div>
+    {% for cat in categories %}
+    <div class="work-category" id="cat-{{cat.id}}">{{cat.name}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+
+{% partial 'portfolio/travel' %}

@@ -1,0 +1,95 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "economy"
+postsPerPage = 5
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[blogPosts blogPosts2]
+pageNumber = "{{ :page }}"
+categoryFilter = "business"
+postsPerPage = 5
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = 404
+==
+<!-- Component Code -->
+  <div class="grid sm:grid-cols-2 gap-10">
+    
+    <div class="bg-white shadow-lg border p-5">
+      <div class="border-b mb-5 flex justify-between text-sm">
+    <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">      
+      <a href="../category/economy" class="font-semibold inline-block">Экономика</a>
+    </div>
+    <a href="../category/economy">Cмотреть еще</a>
+  </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5"> {% set post = blogPosts.posts.first %}             
+        <div class="w-full">
+          <a href="{{ post.url }}"><div class="h-56 bg-cover text-center overflow-hidden" style="background-image: url('{{ post.subtitle }}')" title="{{ post.title }}">
+            </div></a>
+          <div class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+            <div class="">
+              <a href="{{ post.url }}" class="text-xs text-indigo-600 uppercase font-medium mb-3 flex items-center hover:text-gray-900 transition duration-500 ease-in-out">
+                Экономика
+              </a>
+              <a href="{{ post.url }}" class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">{{ post.title }} </a>
+              <p class="text-gray-700 text-xs mt-2">{{ post.summary }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:border-l lg:pl-4">{% for post in blogPosts.posts %}
+										{% if loop.index > 1 %}
+          <div class="text-md border-b pb-4 mb-4">
+            <a href="{{ post.url }}" class="text-gray-900 hover:text-indigo-600 font-semibold">{{ str_limit(post.title, 50, '...') }}</a>
+            <p class="text-gray-500 text-xs">{{ str_limit(post.summary, 50, '...') }}</p> 
+          </div>{% endif %} {% endfor %}          
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    <div class="bg-white shadow-lg border p-5">
+      <div class="border-b mb-5 flex justify-between text-sm">
+    <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">     
+      <a href="../category/business" class="font-semibold inline-block">Бизнес</a>
+    </div>
+    <a href="../category/business">Смотреть еще</a>
+  </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">              
+        <div class="w-full">{% set post = blogPosts2.posts.first %}
+          <a href="{{ post.url }}"><div class="h-56 bg-cover text-center overflow-hidden" style="background-image: url('{{ post.subtitle }}')" title="Woman holding a mug">
+            </div></a>
+          <div class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+            <div class="">
+              <a href="{{ post.url }}" class="text-xs text-indigo-600 uppercase font-medium mb-3 flex items-center hover:text-gray-900 transition duration-500 ease-in-out">
+                Бизнес
+              </a>
+              <a href="{{ post.url }}" class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">{{ post.title }} </a>
+              <p class="text-gray-700 text-xs mt-2">{{ post.summary }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:border-l lg:pl-4">{% for post in blogPosts2.posts %}
+										{% if loop.index > 1 %}
+          <div class="text-md border-b pb-4 mb-4">
+            <a href="{{ post.url }}" class="text-gray-900 hover:text-indigo-600 font-semibold">{{ str_limit(post.summary, 50, '...') }}</a>
+           <p class="text-gray-500 text-xs">{{ str_limit(post.summary, 50, '...') }}</p> 
+          </div>{% endif %} {% endfor %}
+                    
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>

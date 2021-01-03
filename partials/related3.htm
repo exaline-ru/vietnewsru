@@ -1,0 +1,27 @@
+[relatedPosts]
+slug = "{{ :slug }}"
+limit = 5
+orderBy = "random"
+postPage = "news/news"
+==
+<div class="tab-content" id="tabs-posts-content">
+    <div class="tab-pane fade show active" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+        <div class="post-thumbnail-list">
+            {% if relatedPosts.posts %}
+            {% for post in relatedPosts.posts %}
+            <div class="post-thumbnail-entry">
+                <img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                                                                style="width: 100px; height: auto" class="lazyload" />
+                <div class="post-thumbnail-content">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    <span class="post-date"><i class="icon-clock"></i> {{ post.published_at.diffForHumans() }}</span>
+                    {% if post.categories.count %} {% endif %}
+            														{% for category in post.categories %}
+                    <span class="post-category"><i class="fa fa-tag"></i> {{ category.name }}{% if not loop.last %}, {% endif %}
+            														{% endfor %}</span>
+                </div>
+            </div>
+            {% endfor %}{% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+[SeoCmsPage]
+==
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="ru">
+<head>	
+{% component 'SeoCmsPage' %}
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+	<meta name="keywords" content="{{ this.page.meta_keywords }}">
+    <meta name="author" content="Vietnews.ru - Все о Вьетнаме">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Vietnews.ru - Все о Вьетнаме.">
+    <meta itemprop="description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+    <meta itemprop="image" content="{{'assets/images/icons/logo_ru.png'|theme }}">
+    <meta property="og:site_name" content="Vietnews.ru - Все о Вьетнаме">
+	<meta property="og:title" content="Vietnews.ru - Все о Вьетнаме">
+	<meta property="og:url" content="https://vietnews.ru/">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+	{% if post.featured_images.count %}{% for image in post.featured_images %}
+	<meta property="og:image" content="{{ image.path }}">{% endfor %}{% endif %}
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	{% if post.featured_images.count %}{% for image in post.featured_images %}
+	<meta name="twitter:image" content="{{ image.path }}">
+	<meta property="vk:image" content="{{ image.path }}">
+	{% endfor %}{% endif %}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Vietnews.ru - Все о Вьетнаме">
+	<meta name="twitter:description" content="Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме... | VietNews.ru">
+    <link rel="alternate" type="application/rss+xml" title="Vietnews.ru - Все о Вьетнаме" href="/rss" />
+    <title>{{ this.page.title }} | Vietnews.ru - Все о Вьетнаме</title>
+    
+     {% styles %}
+    {% styles %}
+    <link href="{{ ['assets/vendor/bootstrap/css/bootstrap.min.css',
+        'assets/vendor/animate/animate.css',
+        'assets/vendor/css-hamburgers/hamburgers.min.css',
+        'assets/fonts/fontawesome-5.0.8/css/fontawesome-all.min.css',
+        'assets/fonts/iconic/css/material-design-iconic-font.min.css',
+        'assets/css/util.min.css',
+		'assets/css/main.css'
+    ]|theme }}" rel="stylesheet">     
+   
+	<link rel="shortcut icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
+	<link rel="icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
+    <link rel="shortcut icon" href="{{ 'assets/images/favicon.ico'|theme }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'assets/images/icons/vietnews-ico-144.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'assets/images/icons/vietnews-ico-114.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'assets/images/icons/vietnews-ico-72.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ 'assets/images/icons/vietnews-ico-57.png'|theme }}">
+    <link rel="manifest" href="{{ 'assets/images/favicon.png'|theme }}">
+	<link rel="mask-icon" href="{{ 'assets/images/favicon.png'|theme }}" color="#1e2831">
+	
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2JTTJ2');</script>
+<!-- End Google Tag Manager -->
+
+<script type="application/ld+json">
+[{
+  "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "name" : "SeoLik",
+  "url" : "https://vietnews.ru",
+  "logo": "{{'assets/images/icons/logo_ru.png'|theme }}"
+  "sameAs" : [
+    "https://vk.com/vietnewsru",
+    "https://www.facebook.com/vietnews.ru",
+    "https://tưitter.com/vietnewsru",
+    "https://www.instagram.com/vietnewsru"
+  ]
+},
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "https://vietnews.ru",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://vietnews.ru/news/search/{url}",
+    "query-input": "required name=url" }
+	
+}]
+</script>
+
+	
+</head>
+<body class="animsition">
+	
+{% partial 'header2' %}	
+
+ {% page %}
+
+{% partial 'footer' %}
+
+    <script src="{{ [
+      'assets/vendor/jquery/jquery-3.2.1.min.js',
+      'assets/vendor/bootstrap/js/popper.js',
+      'assets/vendor/bootstrap/js/bootstrap.min.js',
+      'assets/js/lazysizes.min.js',
+      'assets/js/main.js'
+    ]|theme }}"></script>
+    
+     <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="{{ 'assets/js/app.js'|theme }}"></script>
+
+    {% framework extras %}
+    {% scripts %}
+
+</body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2JTTJ2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

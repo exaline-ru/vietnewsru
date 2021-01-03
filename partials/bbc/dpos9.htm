@@ -1,0 +1,24 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "culture"
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/category"
+==
+{% set posts = blogPosts.posts %}{% for post in posts %}
+<div class="fb-av__main-img"> <a href="{{ post.url }}"><img src="{{ post.subtitle }}" alt="bg" border="0"> </a>
+      </div>
+      <div class="fb-av__main-copy"> <a href="{{ post.url }}" class="text-secondary">{{ str_limit(post.summary, 50, '...') }}</a> </div>
+      <p class="sub-copy-text "> {{ str_words(post.summary, 10, '...') }} </p>
+
+      </div>  
+{% endfor %}

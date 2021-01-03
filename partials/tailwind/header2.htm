@@ -1,0 +1,192 @@
+[viewBag]
+==
+<nav class="relative bg-white border-b-2 bg-white p-4 mt-0 w-full">
+        <div class="container mx-auto flex items-center">
+		    <div class="flex text-white font-extrabold">
+				<a class="flex text-white text-base no-underline hover:text-white hover:no-underline" href="{{ 'home'|page }}"> 
+					<span class="hidden w-0 sm:w-auto md:w-auto md:block pl-1"><img src="{{'assets/images/icons/logo_ru_200x30.png'|theme }}" alt="Vietnews.ru"></span>
+				</a>
+            </div>
+			<div class="flex pl-4 text-sm">
+				<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+				  <li class="mr-2"> 
+				   {{ node.getCreatedTime()|localizeddate('long', 'none', 'ru', 'Europe/Moscow', 'EEEE, dd MMMM YYYY') }}
+				  </li> 
+				 {# <li class="mr-2">
+					<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2" href="#">LINK</a>
+				  </li>
+				  <li class="mr-2">
+					<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2" href="#">LINK</a>
+				  </li>
+					<li class="mr-2">
+					<a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2" href="#">LINK</a>
+				  </li> #}
+				   <!--Hoverable Link-->
+          <li class="z-50 top-0 hoverable hover:bg-teal-700 hover:text-white">
+            <a href="#" class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-bold hover:bg-teal-700 hover:text-white">Все рубрики</a>
+            <div class="p-6 mega-menu mb-16 sm:mb-0 shadow-xl bg-teal-700">
+              <div class="container mx-auto w-full flex flex-wrap justify-between mx-2">
+                <div class="w-full text-white mb-8 text-center">
+                  <h2 class="font-bold text-2xl">Все новости VietNews.ru</h2>
+                  <p></p>
+                </div>
+                <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
+                  <div class="flex items-center">
+                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M3 6c0-1.1.9-2 2-2h8l4-4h2v16h-2l-4-4H5a2 2 0 0 1-2-2H1V6h2zm8 9v5H8l-1.67-5H5v-2h8v2h-2z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl text-white text-bold mb-2">Экономика</h3>
+                  </div>
+                  <li><a href="../category/economy">Экономика </a></li>
+                        <li><a href="../category/business" >Бизнес</a></li>
+                        <li><a href="../category/science-and-technology">Наука и технология</a></li>
+                  <div class="flex items-center py-3">
+                    <svg class="h-6 pr-3 fill-current text-teal-300"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z"/>
+                    </svg>
+                    <a href="../category/economy" class="text-white bold border-b-2 border-teal-300 hover:text-teal-900">Читать все...</a>
+                  </div>
+                </ul>
+                <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r-0 lg:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
+                  <div class="flex items-center">
+                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M4.13 12H4a2 2 0 1 0 1.8 1.11L7.86 10a2.03 2.03 0 0 0 .65-.07l1.55 1.55a2 2 0 1 0 3.72-.37L15.87 8H16a2 2 0 1 0-1.8-1.11L12.14 10a2.03 2.03 0 0 0-.65.07L9.93 8.52a2 2 0 1 0-3.72.37L4.13 12zM0 4c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl text-white text-bold mb-2">Общество</h3>
+                  </div>
+                  <li><a href="../category/russia-and-vietnam">Россия-Вьетнам</a></li>
+                        <li><a href="../category/zdorove">Здоровье</a></li>  
+                        <li><a href="../category/zdorove">Здоровье</a></li>
+                        <li><a href="../category/law">Закон</a></li>
+                        <li><a href="../category/history">История</a></li>
+                        <li><a href="../category/sport">Спорт</a></li>
+                        <li><a href="../category/media-about-vietnam">СМИ о Вьетнаме</a></li>
+                    <li><a href="../category/politic">Политика</a></li>
+                  <div class="flex items-center py-3">
+                    <svg class="h-6 pr-3 fill-current text-teal-300"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z"/>
+                    </svg>
+                    <a href="../category/society" class="text-white bold border-b-2 border-teal-300 hover:text-teal-900">Читать все...</a>
+                  </div>
+                </ul>
+                <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-b-0 sm:border-r md:border-b-0 pb-6 pt-6 lg:pt-3">
+                  <div class="flex items-center">
+                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M2 4v14h14v-6l2-2v10H0V2h10L8 4H2zm10.3-.3l4 4L8 16H4v-4l8.3-8.3zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl text-white text-bold mb-2">Туризм</h3>
+                  </div>
+                  <li><a href="../category/travel">Туризм</a></li>
+                    <li><a href="../category/culture">Культура</a></li>
+                    <li><a href="../category/video">Видео</a><li>
+                    <li><a href="../category/photo">Фото</a></li>
+                  <div class="flex items-center py-3">
+                    <svg class="h-6 pr-3 fill-current text-teal-300"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z"/>
+                    </svg>
+                    <a href="../category/travel" class="text-white bold border-b-2 border-teal-300 hover:text-teal-900">Читать все...</a>
+                  </div>
+                </ul>
+                <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 pb-6 pt-6 lg:pt-3">
+                  <div class="flex items-center">
+                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl text-white text-bold mb-2">Контакты</h3>
+                  </div>
+                  <li class="dropdown"><a href="{{ 'contact'|page }}">Контакты</a>
+                                    </li>
+                  <div class="flex items-center py-3">
+                    <svg class="h-6 pr-3 fill-current text-teal-300"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z"/>
+                    </svg>
+                    <a href="{{ 'contact'|page }}" class="text-white bold border-b-2 border-teal-300 hover:text-teal-900">Контакты</a>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </li>
+      <!--end Hoverable Link-->
+          <li class="hover:bg-teal-700 hover:text-white">
+            <a href="{{ 'contact'|page }}" class="relative block py-6 px-2 lg:p-6 text-sm lg:text-base font-bold">Контакты</a>
+          </li>
+          <li class="hover:bg-teal-700 hover:text-white">
+            <a href="https://vn.vietnews.ru" class="relative block py-6 px-2 lg:p-6 text-sm lg:text-base font-bold">VN</a>
+          </li>
+				</ul>
+			</div>
+        </div>
+	</nav>
+	
+	<!--slide in nav-->
+	<div id="header" class="bg-white fixed w-full z-10 top-0 hidden animated" style="opacity: .95;">
+		<div class="bg-white">
+			<div class="flex flex-wrap items-center content-center">
+				<div class="flex w-1/2 justify-start text-white font-extrabold">
+					<a class="flex text-gray-900 no-underline hover:text-gray-900 hover:no-underline pl-2" href="/">
+						<span class="hidden w-0 md:w-auto md:block pl-1"><img src="{{'assets/images/logo_ru_small.png'|theme }}" alt="Vietnews.ru"></span>
+					</a>
+				</div>
+				<div class="flex w-1/2 justify-end content-center">		
+					  <p class="hidden sm:block mr-3 text-center h-14 p-4 text-xs"><span class="pr-2">Поделиться</span> 👉</p>
+						<a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4" href="https://twitter.com/intent/tweet?url=#" style="background-color:#4dc0b5;">
+							<svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M484.7 132c3.56-11.28 0-19.48-15.75-19.48h-52.37c-13.21 0-19.31 7.18-22.87 14.86c0 0-26.94 65.6-64.56 108.13c-12.2 12.3-17.79 16.4-24.4 16.4c-3.56 0-8.14-4.1-8.14-15.37V131.47c0-13.32-4.06-19.47-15.25-19.47H199c-8.14 0-13.22 6.15-13.22 12.3c0 12.81 18.81 15.89 20.84 51.76V254c0 16.91-3 20-9.66 20c-17.79 0-61-66.11-86.92-141.44C105 117.64 99.88 112 86.66 112H33.79C18.54 112 16 119.17 16 126.86c0 13.84 17.79 83.53 82.86 175.77c43.21 63 104.72 96.86 160.13 96.86c33.56 0 37.62-7.69 37.62-20.5v-47.66c0-15.37 3.05-17.93 13.73-17.93c7.62 0 21.35 4.09 52.36 34.33C398.28 383.6 404.38 400 424.21 400h52.36c15.25 0 22.37-7.69 18.3-22.55c-4.57-14.86-21.86-36.38-44.23-62c-12.2-14.34-30.5-30.23-36.09-37.92c-7.62-10.25-5.59-14.35 0-23.57c-.51 0 63.55-91.22 70.15-122"></path></svg>
+						</a>
+						<a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4" href="https://twitter.com/intent/tweet?url=#" style="background-color:#33b1ff;">
+							<svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+						</a>
+						<a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4" href="https://www.facebook.com/sharer/sharer.php?u=#" style="background-color:#005e99">
+							<svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+						</a>
+				</div>
+			</div>
+			
+		</div>
+		<!--Progress bar-->
+		<div id="progress" class="h-1 bg-white shadow" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
+    </div>
+    
+    
+<script>
+	/* Progress bar */
+	//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+	var h = document.documentElement,
+		  b = document.body,
+		  st = 'scrollTop',
+		  sh = 'scrollHeight',
+		  progress = document.querySelector('#progress'),
+		  scroll;
+	var scrollpos = window.scrollY;
+	var header = document.getElementById("header");
+
+	document.addEventListener('scroll', function() {
+
+		/*Refresh scroll % width*/
+		scroll = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+		progress.style.setProperty('--scroll', scroll + '%');
+
+		/*Apply classes for slide in bar*/
+		scrollpos = window.scrollY;
+
+    if(scrollpos > 100){
+      header.classList.remove("hidden");
+	  header.classList.remove("fadeOutUp");
+	  header.classList.add("slideInDown");
+    }
+    else {
+	  header.classList.remove("slideInDown");
+      header.classList.add("fadeOutUp");
+	  header.classList.add("hidden");
+    }
+
+	});
+
+</script>

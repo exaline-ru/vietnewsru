@@ -1,0 +1,52 @@
+title = "Tailwind CSS"
+url = "/tailwind"
+layout = "tailwind"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[AllProducer]
+limit = 0
+producer_page_slug = "slug"
+==
+{% partial 'tailwind/header5' %} 
+{% partial 'tailwind/block-top2' %}
+{% partial 'tailwind/block-top3' %}
+{% partial 'tailwind/block-top' %}
+{% partial 'tailwind/block-category1' %}
+{% partial 'tailwind/block-category2' %}
+{% partial 'tailwind/block-category3' %}
+{% partial 'tailwind/block-category4' %}
+{% partial 'tailwind/block-category5' %}
+{% partial 'tailwind/block-category6' %}
+{% partial 'tailwind/business' %}
+{% partial 'youtube1' %}
+
+
+
+{% if producers.count() > 0 %}
+    {% for producer in producers %}
+        <a href="{{ AllProducer.getProducerPageUrl(producer.slug) }}" target="_blank"  class="d-flex flex-grow-1 text-decoration-none">
+            <producer-card
+                width="320px"
+                origin="{{ producer.origin }}"
+                name="{{ producer.name }}"
+                image="{{ producer.featured_image | media }}"
+                data-image="{{producer.featured_image | media}}"
+
+            >
+            </producer-card>
+        </a>
+    {% endfor %}
+{% else %}
+    <div class="alert alert-info d-flex flex-column w-100">
+        <h3>Info</h3>
+        There is no producers right now, you can add it via producers management  page.
+    </div>
+
+{% endif %}
+
+
+{% partial 'tailwind/footer2' %}

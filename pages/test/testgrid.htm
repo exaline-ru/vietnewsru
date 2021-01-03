@@ -1,0 +1,36 @@
+title = "Test Testgrid"
+url = "/test/testgrid/:page?"
+layout = "groupnewsgrid"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 17
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<div class="page">
+<h1>LATEST NEWS</h1>
+<div class="archive">
+{% set posts = blogPosts.posts %}
+					{% for post in posts %}
+<article class="article">
+<a href="{{ post.url }}" class="wrap-pic-w hov1 trans-03">
+<img src="{{ post.subtitle}}" alt="{{ image.description }}"
+                    style="max-width: 100%" class="lazyload" /></a><br>
+                    <span class="cl8">									
+											{% if post.categories.count %} {% endif %}
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}" class="f1-s-4 cl8 hov-cl10 trans-03">{{ category.name }}</a>{% if not loop.last %}, {% endif %} - {{ post.published_at|date('d.m.Y') }}
+                {% endfor %} <hr>
+<span class="cl8"><a href="{{ post.url }}" class="f1-s-4 cl8 hov-cl10 trans-03">{{ post.title }}</a></span></b><br>
+</article>{% endfor %}
+
+</div>
+</div>

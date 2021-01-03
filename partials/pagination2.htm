@@ -1,0 +1,19 @@
+==
+{% set posts = blogPosts.posts %}
+{% if posts.lastPage > 1 %}
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+        <li class="page-item"><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}" aria-label="Previous" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7"><span aria-hidden="Previous">«</span><span class="sr-only"><< </span></a></li>
+        {% endif %}
+        
+
+        {% if posts.lastPage > posts.currentPage %}
+        <li class="page-item">
+            <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only"> >></span></a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

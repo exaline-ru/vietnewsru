@@ -1,0 +1,266 @@
+title = "Поиск на сайте"
+url = "/search"
+layout = "tailwind-category"
+description = "Поиск на сайте"
+meta_title = "Поиск на сайте"
+meta_description = "Поиск на сайте"
+is_hidden = 0
+seo_keywords = "Поиск на сайте"
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[viewBag]
+localeUrl[en] = "/poisk-na-sajte"
+localeUrl[vn] = "/poisk-na-sajte"
+
+[siteSearchInclude]
+
+[searchResults]
+resultsPerPage = 20
+showProviderBadge = 0
+noResultsMessage = "По Вашему запросу нет результатов."
+visitPageMessage = "Посетить страницу"
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 10
+showProviderBadge = 1
+searchPage = "search.htm"
+
+[searchInput searchInput2]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "news/search.htm"
+==
+{#{% partial 'tailwind/header' %} #}
+{% partial 'tailwind/header5' %}
+<div class="max-w-screen-xl mx-auto bg-white">
+<!-- component -->
+<div class="max-w-screen-xl mx-auto bg-white">
+
+   <main class="mt-10" itemscope itemtype="http://schema.org/NewsArticle">
+   <!-- Page heading -->	
+		<h2 class="text-4xl font-semibold text-gray-700 leading-tight">
+			{{ 'Результат поиска'|_ }} {{ searchInput.query }}
+		</h2>
+
+      <div class="block lg:flex lg:space-x-2 px-2 lg:p-0 mt-10 mb-10">
+        <!-- post cards -->
+        <div class="w-full lg:w-2/3">         
+          
+          <div class="" x-bind:class="{'w-full m-4 mb-0': layout === 'list', 'w-1/4 p-2': layout === 'grid'}">
+      <article class="bg-white p-4 shadow">
+        <!-- Component Code -->
+<div class="relative">
+  
+ {# <span itemprop="datePublished" content="{{ post.published_at|date('yy-m-d') }}">{{ post.published_at|date('yy-m-d') }}</span>
+                                    <span itemprop="dateModified" content="{{ post.updated_at|date('yy-m-d') }}">{{ post.updated_at|date('yy-m-d') }}</span>
+                                    <span itemprop="description">{{ post.summary|raw }}</span>                                    
+                                    <span itemprop="author">Vietnews.ru</span><br>
+                                    <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ post.url }}"/>
+#}
+                                    
+                                    <div class="post-video" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                    <meta itemprop="height" content="180">
+                                    <meta itemprop="width" content="250">
+                                    <meta itemprop="url" content="{{ post.subtitle }}">
+                                    
+  <div class="max-w-3xl mx-auto">
+  
+    <div class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+    {% component 'siteSearchInclude' %}
+    
+    {% component 'searchInput2' %}
+        
+   {% set results = searchResults.results %}
+{% for result in results %}
+<div class="rounded w-full lg:flex mb-10"><a href="{{ result.url }}">
+    <div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+      style="background-image: url('{{ result.model.subtitle }}')" title="{{ result.title|raw }}">
+    </div></a>
+    <div class="bg-white rounded px-4 flex flex-col justify-between leading-normal">
+      <div>
+        <div class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">
+          <a href="{{ result.url }}">{{ result.title | raw }}</a>
+        </div>
+        <p class="text-gray-700 text-base">
+        
+         {{ html_limit(result.excerpt|raw, 200, '...') }}
+        </p>
+        
+       {# {% component 'searchResults' %} #}
+      </div>
+      <div class="flex mt-3">        
+        <div>
+          <a href="{{ result.url  }}" class="font-semibold text-gray-700 text-sm capitalize">Подробнее...</a>
+        </div>
+      </div> 
+      
+      
+      
+    </div>
+</div>
+{% endfor %}
+
+{#
+<!-- Pagination -->
+{% if results.hasPages %}
+   {% if results.lastPage > 1 %}
+<nav aria-label="Page navigation example" class="relative z-0 inline-flex shadow-sm">
+   {% if results.currentPage > 1 %}      
+           <a class="button " href="{{ results.previousPageUrl }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+      
+   {% else %}
+     
+           <a class="button disabled" href="nojavascript...void(0)"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+     
+   {% endif %}
+
+   {% for page in 1..results.lastPage %}
+  
+       <a 
+           class="page {{ results.currentPage == page ? 'active' : null }}" 
+           href="{{ this.page.baseFileName | page }}?q={{ searchResults.query }}&amp;page={{ page }}">
+           {{ page }}
+       </a>
+  
+   {% endfor %}
+
+   {% if results.lastPage > results.currentPage %}
+     
+           <a href="{{ results.nextPageUrl }}" class="button"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      
+   {% else %}
+     
+           <a href="nojavascript...void(0)" class="button disabled"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      
+   {% endif %}
+</nav>
+{% endif %}
+{% endif %}
+#}
+
+{% if results.hasPages %}
+   {% if results.lastPage > 1 %}
+<nav aria-label="Page navigation example" class="relative z-0 inline-flex shadow-sm">
+    {% if results.currentPage > 1 %}
+    <a href="{{ results.previousPageUrl }}" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Previous">
+          <!-- Heroicon name: chevron-left -->
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        {% endif %}
+          ...
+        
+    {% if results.lastPage > results.currentPage %}
+    <a href="{{ results.nextPageUrl }}" class="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Next">
+          <!-- Heroicon name: chevron-right -->
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </a>
+         {% endif %}
+</nav>
+{% endif %}{% endif %}
+                
+               {% partial 'tailwind/right-reclama1' %}
+                <br>
+              
+              
+             
+            <p class="text-gray-600">
+              
+              </p>
+          
+              </div>
+          
+            </div>
+       </div>
+ 
+  
+</div>
+      </article>
+    </div>
+
+        </div>
+
+        <!-- right sidebar -->
+        <div class="w-full lg:w-1/3 px-3"><br>
+        
+                            <form id="widget-search-form-sidebar" class="w-full max-w-sm" method="GET" action="{{ searchInput.searchPage | page }}?q={{ query | url_encode(true) }}">
+						<div class="flex items-center border-b border-teal-500 py-2">
+						  <input name="q" type="text" aria-required="true" name="search" class="form-control appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Поиск ..." value="{{ searchInput.query }}">
+						  <div class="input-group-append">
+							<button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">Поиск</button>
+						  </div>
+						</div>
+					</form>
+          <!-- topics -->
+          <div class="sticky top-0 mb-4">
+          <br>
+            <h5 class="font-bold text-lg uppercase text-gray-700"> Популярные сегодня </h5><br>
+            {% partial 'tab/news-tw' %}<br>
+            
+            <!-- divider -->
+          <div class="border border-dotted"></div>
+
+          <!-- subscribe -->
+          <div class="p-1 mt-4 mb-4">
+            <h5 class="font-bold text-lg uppercase text-gray-700 mb-2"> Подписка </h5>
+            <p class="text-gray-600">
+              Получите все последние материалы, доставленные на электронную почту несколько раз в месяц.
+            </p>
+            <div>
+				<form name="form-subscribe-andradedev" id="form-subscribe-andradedev" data-request="{{ formSubscribe }}::onAddSubscriber" data-request-update="'{{formSubscribe}}::alert': '#result'">
+					<input class="text-gray-700 bg-gray-100 rounded-t hover:outline-none p-2 w-full mt-4 border" type="email" name="email" placeholder="Э.почта" required>
+
+					<button class="px-4 py-2 bg-indigo-600 text-gray-200 rounded-b w-full capitalize tracking-wide">
+						Подписать!
+					</button>
+				</form>
+			<div id="result"></div>            
+          </div>
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+            
+            {% partial 'tailwind/right-reclama1' %}
+                            <br>
+            <h5 class="font-bold text-lg uppercase text-gray-700"> Самые читаемые </h5><br>
+            {% partial 'tab/news-tw2' %}<br>                
+                            
+          </div>
+          
+          
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+
+          <!-- subscribe -->
+         {# <div class="p-1 mt-4 mb-4">
+            <h5 class="font-bold text-lg uppercase text-gray-700 mb-2"> Subscribe </h5>
+            <p class="text-gray-600">
+              Subscribe to our newsletter. We deliver the best health related articles to your inbox
+            </p>
+            <input placeholder="your email address"
+              class="text-gray-700 bg-gray-100 rounded-t hover:outline-none p-2 w-full mt-4 border" />
+            <button class="px-4 py-2 bg-indigo-600 text-gray-200 rounded-b w-full capitalize tracking-wide">
+              Subscribe
+            </button>
+          </div> #}
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+
+        </div>
+
+      </div>
+    </main>
+    <!-- main ends here -->
+</div>
+
+{% partial 'tailwind/footer2' %}

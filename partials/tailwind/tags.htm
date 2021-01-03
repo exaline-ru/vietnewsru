@@ -1,0 +1,40 @@
+[tagList]
+orderBy = "posts_count desc"
+limit = 100
+enableTagFilter = "never"
+tagPage = "news/tag"
+tagsPage = "news/tags"
+
+[viewBag]
+==
+<!-- component --><br>
+<div>{% set tags = tagList.tags %}
+{% if tags | length %}
+        {% for item in tags %}
+            {% set postCount = item.posts_count %}
+  <div
+    class="text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-gray-200 text-gray-700 rounded-full"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="feather feather-arrow-right mr-2"
+    >
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+    <a href="{{ item.url }}"> {{ item.name }}
+                {% if postCount %}
+                    <span class="bg-white p-1 rounded text-gray-600 text-xs ml-2">{{ postCount }}</span>
+                {% endif %}
+       </a>        
+  </div> {% endfor %}
+{% endif %}
+</div><br>

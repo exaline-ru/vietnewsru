@@ -1,0 +1,400 @@
+title = "Новость в детали"
+url = "/test/news-old/:category/:slug"
+layout = "news"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "news/category"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/category"
+
+[PostBreadCrumbs]
+categoryPage = "news/category"
+postSlug = "{{ :slug }}"
+
+[SeoBlogPost]
+post = "post"
+
+[FrontPostEditor]
+
+[seriesList]
+limit = 0
+orderBy = "posts_count desc"
+seriesPage = "news/series"
+
+[searchForm]
+resultPage = "news/search"
+categoryFilter = 0
+
+[timeToRead]
+postSlug = "{{ :slug }}"
+readingSpeed = 70
+isRoundingUpEnabled = 1
+
+[tagList]
+orderBy = "name asc"
+postSlug = "{{ :slug }}"
+limit = 10
+exposeTotalCount = 1
+enableTagFilter = "never"
+tagPage = "news/tag"
+tagsPage = "news/tags"
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 5
+postPage = "news/news"
+slug = "{{ :slug }}"
+
+[relatedPosts]
+slug = "{{ :slug }}"
+limit = 6
+orderBy = "relevance desc"
+postPage = "news/news"
+
+[AllProducer]
+limit = 0
+producer_page_slug = "slug"
+==
+<?php
+function onEnd()
+{
+    if ($this->post) {
+        $this['backendUser'] = BackendAuth::getUser();
+    } 
+}
+?>
+==
+<div itemscope="" itemtype="http://schema.org/Article">
+    <span itemprop="name">Название статьи</span>
+    <span itemprop="description">Описание</span>
+    <span itemprop="author">Автор</span>
+    <link itemprop="url" href="ссылка на страницу">
+    <meta itemprop="datePublished" content="Дата публикации">
+    <div itemprop="articleBody">
+        Основной текст статьи
+    </div>
+</div>
+{% component 'SeoBlogPost' data=post %}
+<!-- Breadcrumb -->
+	<div class="container">{% set post = blogPost.post %}
+		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 m-tb-6">				
+				<a href="/" class="breadcrumb-item f1-s-3 cl9">
+					Главная
+				</a>
+                        {% if post.categories.count %}
+                        {% for category in post.categories %}
+				<a href="{{ category.url }}" class="breadcrumb-item f1-s-3 cl9">
+					{{ category.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %} {% endif %}
+				</a>
+
+				<span class="breadcrumb-item f1-s-3 cl9">
+					 {{ post.title }}
+				</span>
+			</div>
+
+			<form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
+			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Поиск">
+				{% if searchForm.categoryFilter %}
+                <select name="cat[]" class="form-control">
+                {% for key,cat in searchForm.categories %}
+                    <option value="{{ key }}">{{ cat }}</option>
+                {% endfor %}
+                </select>
+                {% endif %}
+				<button type="submit" class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+					<i class="zmdi zmdi-search"></i>
+				</button>
+			</div>
+			</form>
+		</div>
+	</div>
+	
+	{% if post.custom_fields.string==true %}
+<iframe src="https://vietnews.ru/beta/themes/vietnewsru/assets/js/playerjs.html?file={{post.custom_fields.string}}" type="text/html" width="100%" height="100%" frameborder="0" autoplay="1" allowfullscreen default_quality="720p" ></iframe>
+    {% endif %}
+	<!-- Content -->
+	<section class="bg0 p-b-140 p-t-10">
+		<div class="container">		
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8 p-b-30">
+					<div class="p-r-10 p-r-0-sr991">
+					<div class="bg-img1 size-a-3 how1 how-overlay1 lazyload" style="background-image: url({% if post.subtitle==true %}{{ post.subtitle }}{% else %}{{ post.subtitle| resize(720,605,{ mode: 'auto', quality: '80', extension: 'webp' }) }}{% endif%});">
+			<div class="container h-full flex-col-e-c p-b-58">
+							
+
+				<h3 class="f1-l-5 cl0 p-b-16 txt-center respon2">
+					{{ post.title}}
+				</h3>
+
+				<div class="flex-wr-c-s">
+					<span class="f1-s-3 cl8 m-rl-7 txt-center">
+						Рубрика:
+							{% if post.categories.count %}
+                        {% for category in post.categories %}
+				 <a href="{{ category.url }}" class="f1-s-4 cl8 hov-cl10 trans-03">			
+                            {{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                        {% endfor %} {% endif %} 
+						
+
+						<span class="m-rl-3">-</span>
+
+						<span>
+							<span class="date"> {{ post.published_at|date('d.m.Y') }}</span>
+						</span>
+					</span>
+
+					<span class="f1-s-3 cl8 m-rl-7 txt-center">
+						{% if backendUser %}
+	<i class="fa fa-eye"></i> {{post.views}}
+{% endif %}
+					</span>
+
+					<a href="" class="f1-s-3 cl8 m-rl-7 txt-center hov-cl10 trans-03">
+						{{ post.published? '':'<i class="fa fa-lock pl-2"></i>'|raw }} ({{ "Читать :count мин." |_({ count: timeToRead.minutes }) }})
+					</a>
+				</div>
+			</div>
+		</div>
+						<!-- Blog Detail -->
+						<div class="p-b-70"> 
+                             <p class="f1-s-11 cl6 p-b-25">
+                                 {% partial 'related2' %}<br>
+                                {% component 'FrontPostEditor' %}
+                             </p>
+
+							<p class="f1-s-11 cl6 p-b-25">
+							
+							<div class="content">{{ post.content_html|replace({'<pre>': '<pre class = "prettyprint linenums">','<code>':'','</code>':''}) | raw}}</div>
+								
+							</p>							
+
+							<!-- Tag -->
+							<div class="flex-s-s p-t-12 p-b-15">
+								<span class="f1-s-12 cl5 m-r-8">
+									Тэги: 
+								</span>
+								
+								<div class="flex-wr-s-s size-w-0">
+								{% for tag in post.tags %}
+									<a href="https://vietnews.ru/tag/{{ tag.slug }}" class="f1-s-12 cl8 hov-link1 m-r-15">
+										 {{ tag.name }}
+									</a>{% if not loop.last %}{% endif %}
+									{% endfor %}								
+   
+								</div>
+								
+							</div>
+
+							<!-- Share -->
+							<div class="flex-s-s">
+								<span class="f1-s-12 cl5 p-t-1 m-r-15">
+									Поделиться:
+								</span>
+								
+								<div class="flex-wr-s-s size-w-0">
+									<!--<a href="#" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+										<i class="fab fa-facebook-f m-r-7"></i>
+										Facebook
+									</a>-->
+									<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,reddit,linkedin,lj,viber,whatsapp,skype,telegram"></div>
+
+									<!--<a href="https://twitter.com/vietnews.ru" class="dis-block f1-s-13 cl0 bg-twitter borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+										<i class="fab fa-twitter m-r-7"></i>
+										Twitter
+									</a>-->
+
+									<!--<a href="#" class="dis-block f1-s-13 cl0 bg-google borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+										<i class="fab fa-google-plus-g m-r-7"></i>
+										Google+
+									</a>-->
+
+									<!--<a href="#" class="dis-block f1-s-13 cl0 bg-pinterest borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+										<i class="fab fa-pinterest-p m-r-7"></i>
+										Pinterest
+									</a>-->
+								</div>
+							</div>
+						</div>
+						<div>
+						<ins class="adsbygoogle"
+                         style="display:inline-block;width:468px;height:60px"
+                         data-ad-client="ca-pub-8101715655477045"
+                         data-ad-slot="4113402428"></ins>
+                         </div>
+
+						<!-- Leave a comment -->
+						<!--<div>
+							<h4 class="f1-l-4 cl3 p-b-12">
+								Оставить комментарий
+							</h4>
+
+							<p class="f1-s-13 cl8 p-b-40">
+								Ваш адрес электронной почты не будет опубликован. Обязательные поля помечены
+							</p>
+
+							<form>
+								<textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="msg" placeholder="Комментарий..."></textarea>
+
+								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="name" placeholder="Ваше Имя*">
+
+								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="email" placeholder="Email*">
+
+								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="website" placeholder="Сайт">
+
+								<button class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">
+									Отправить комментарий
+								</button>
+							</form>
+						</div>-->
+						
+
+						<hr>
+						<div>
+							<h4 class="f1-l-4 cl3 p-b-12">
+								Похожие новости
+							</h4>
+							
+							<div class="row p-t-35">
+						{% partial 'related' %}
+					</div>
+
+
+
+
+
+</div>
+					</div>
+				</div>
+		
+				
+				<!-- Sidebar -->
+				<div class="col-md-10 col-lg-4 p-b-30">
+					<div class="p-l-10 p-rl-0-sr991 p-t-70">						
+						<!-- Category -->
+						<!--<div class="p-b-60">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Рубрики
+								</h3>
+							</div>							
+							{% partial 'categories' %}
+						</div>-->						
+
+						<!-- Popular Posts -->
+						<div class="p-b-30">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Другие новости рубрики
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+							
+							    {% partial 'new-popular' %}							    
+								
+							</ul>
+						</div>
+						
+						<!-- Popular Posts -->
+						<div class="p-b-30">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Самые читаемые на сегодня
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+							
+							    {% set mostVisitedPosts = topPosts.mostVisitedPosts %}                               
+                                		{% for post in mostVisitedPosts %}
+                                <li class="flex-wr-sb-s p-b-30">{% if post.featured_images.count %}
+                                	<a href="{{ post.url }}" class="size-w-10 wrap-pic-w hov1 trans-03">{% for image in post.featured_images %}	
+                                		<img src="{{ image.path }}" alt="{{ image.description }}"
+                                                    style="max-width: 100%" class="lazyload" />{% endfor %}
+                                								</a>
+                                		{% elseif post.subtitle == true %}
+								<a href="{{ post.url }}" class="size-w-10 wrap-pic-w hov1 trans-03"> 
+									<img src="{{ post.subtitle| resize(140,95,{ mode: 'exact' }) }}" alt="{{ image.description }}"
+                    style="max-width: 100%" class="lazyload" /></a>{% endif %} 						
+                                
+                                	<div class="size-w-11">
+                                		<h6 class="p-b-4">
+                                			<a href="{{ post.url }}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                				{{ post.title }}
+                                			</a>
+                                		</h6>
+                                
+                                		<span class="cl8 txt-center p-b-24"> {% if post.categories.count %}{% for category in post.categories %}
+                                			<a href="../category/{{ category.slug }}" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                				{{ category.name }}
+                                			</a>{% if not loop.last %}, {% endif %}
+                                                {% endfor %}{% endif %}
+                                
+                                			<span class="f1-s-3 m-rl-3">
+                                				-
+                                			</span>
+                                
+                                			<span class="f1-s-3">
+                                				{{ post.published_at|date('d.m.Y') }}
+                                			</span>
+                                		</span>
+                                	</div>
+                                	</li>	{% endfor %}                                								    
+								
+							</ul>
+						</div>
+						
+						<div>
+						   
+						   <div class="flex-c-s p-b-50">
+						   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                    <!-- Vietnews-300x250 -->
+                                    <ins class="adsbygoogle"
+                                         style="display:inline-block;width:300px;height:250px"
+                                         data-ad-client="ca-pub-8101715655477045"
+                                         data-ad-slot="2143459603"></ins> 
+                                         <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                           
+							</div>	
+						</div>
+
+						<!-- Tag -->
+						<div>
+							<div class="how2 how2-cl4 flex-s-c m-b-30">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Тэги
+								</h3>
+							</div>
+
+							<div class="flex-wr-s-s m-rl--5">								
+							{% partial 'tags' %}
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+{% component 'AllProducer' %}
+
+
+	
+	{% if backendUser %}
+	<i class="fa fa-eye"></i> {{post.views}}
+	{% endif %}

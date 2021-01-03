@@ -1,0 +1,25 @@
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "categories"
+==
+{% for category in  __SELF__.categories %}
+    {% set postCount = category.post_count %}
+    <li {% if category.slug == currentCategorySlug %}class="p-rl-4 p-b-19"{% endif %}>
+        <a href="{{ category.url }}" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
+        <span>
+        {{ category.name }}</span> 
+        {% if postCount %}
+            <span class="badge">{{ postCount }}</span>
+        {% endif %}
+        </a>
+        {% if category.children|length > 0 %}
+            <ul>
+                {% partial __SELF__ ~ "::items"
+                    categories=category.children
+                    currentCategorySlug=currentCategorySlug
+                %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}

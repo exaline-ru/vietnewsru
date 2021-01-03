@@ -1,0 +1,32 @@
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<link href="{{ 'assets/css/grid6.css'|theme }}" rel="stylesheet" />
+<div class="container bodygrid">
+<!-- small -->
+{% set posts = blogPosts.posts %}
+{% for post in posts %}
+<div class="o-teaser o-teaser--article o-teaser--smallx1x1 o-teaser--has-image js-teaser">
+  <div class="o-teaser__content">    
+    <div class="o-teaser__heading"><a href="{{ post.url }}" data-trackable="heading-link" class="js-teaser-heading-link"> {{ post.title }} </a></div>
+    <p class="o-teaser__standfirst">{{ post.summary }}</p>
+    <div class="o-teaser__meta">
+      <div class="o-teaser__meta-concept">
+      {% if post.categories.count %} {% endif %}
+                {% for category in post.categories %}
+      <a class="o-teaser__tag" data-trackable="teaser-tag" href="{{ category.url }}"> {{ category.name }} </a>{% if not loop.last %}- {% endif %}
+                {% endfor %}
+        <span class="o-teaser__timestamp"><time class="o-teaser__timestamp-date" datetime="2018-07-25T04:03:39+0000">{{ post.published_at.diffForHumans() }}</time></span> </div>       
+    </div>    
+  </div>
+  {#<div class="o-teaser__image-container js-teaser-image-container">
+    <div class="o-teaser__image-placeholder" style="padding-bottom:56.25%;"><a href="#" data-trackable="image-link" tab-index="-1" aria-hidden="true"><img class="o-teaser__image" src="{{ post.subtitle }}?source=next&amp;fit=scale-down&amp;compression=best&amp;width=340" alt=""></a></div>
+  </div>#}
+</div>
+{% endfor %}
+</div>

@@ -1,0 +1,16 @@
+[popularPosts]
+category = "{{ /category/:slug }}"
+postsLimit = 5
+noPostsMessage = "Записей не найдено"
+postPage = "news/news"
+==
+{% set posts = popularPosts.posts %}
+{% for post in posts %}
+<li class="flex-wr-sb-s p-b-22">
+<div class="size-a-8 flex-c-c borad-3 size-a-8 bg9 f1-m-4 cl0 m-b-6">
+<h6></h6>
+</div>
+<a href="{{ post.url }}" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">										
+{{ post.title }} :: <span class="date">{{ post.published_at|date('d.m.Y') }}</span> 
+</a>
+</li>{% endfor %}

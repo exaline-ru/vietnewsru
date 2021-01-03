@@ -1,0 +1,59 @@
+title = "Home Tailwind CSS"
+url = "/home-tw"
+layout = "tailwind-category"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "topnews"
+postsPerPage = 4
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogPosts blogPosts2]
+pageNumber = "{{ :page }}"
+categoryFilter = "travel"
+postsPerPage = 1
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = 404
+==
+{#{% partial 'tailwind/header' %} #}
+{% partial 'tailwind/header5' %}
+<div class="max-w-screen-xl mx-auto bg-white">
+
+{% partial 'tailwind/top-1' %}  
+
+<div class="max-w-screen-xl mx-auto relative  border-b">
+  <div class="sm:flex items-start">    
+    <div class="md:w-4/12 sm:w-6/12 p-4">
+       {% partial 'tailwind/left-home' %}
+    </div>
+    <div class="md:w-8/12 sm:w-6/12 p-8 sm:border-l">
+        {% partial 'tailwind/right-society' %}
+       
+       {% partial 'tailwind/right-economy' %}
+       {% partial 'tailwind/right-travel' %}
+        {% partial 'tailwind/right-reclama1' %}
+         {% partial 'tailwind/right-ruvn' %}
+         {% partial 'tailwind/events' %}
+         {% partial 'tailwind/right-tech' %}
+        
+      
+    </div>
+  </div>    
+</div>
+{% partial 'tailwind/business' %}
+{% partial 'tailwind/block-category4' %}
+{% partial 'tailwind/block-category4-2' %}
+{% partial 'tailwind/series' %}
+</div>
+
+{% partial 'tailwind/footer2' %}

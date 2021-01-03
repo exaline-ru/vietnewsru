@@ -1,0 +1,22 @@
+[viewBag]
+
+[tagList]
+orderBy = "posts_count desc"
+postSlug = "{{ :slug }}"
+limit = 10
+exposeTotalCount = 1
+enableTagFilter = "never"
+tagPage = "news/tag"
+tagsPage = "news/tags"
+==
+{% set tags = tagList.tags %}
+{% if tags | length %}
+        {% for item in tags %}
+            {% set postCount = item.posts_count %}
+<a href="{{ item.url }}" class="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">                              #{{ item.name }},
+                {% if postCount %}
+                    {#<span class="badge">{{ postCount }}</span>#}
+                {% endif %}
+       </a>
+        {% endfor %}
+{% endif %}

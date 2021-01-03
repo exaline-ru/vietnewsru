@@ -1,0 +1,105 @@
+title = "Test grid13"
+url = "/test/grid13/:category/:slug"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "news/category"
+==
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">{% set post = blogPost.post %}
+  <title>CodePen - Ebook with sticky sections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500,600,700'>
+  <link href="{{ 'assets/css/grid13.css'|theme }}" rel="stylesheet" />
+  <link href="https://vietnews.ru/plugins/reazzon/gutenberg/assets/laraberg.css" rel="stylesheet">
+<script src="https://vietnews.ru/themes/vietnewsru/assets/js/script13.js"></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="ebook" id="take-in-the-view">
+  <header class="ebook__cover">
+    <img src="{{ post.subtitle }}" class="ebook__image">
+    <div class="ebook__header">
+      <span class="ebook__eyebrow">VietNews.ru - Все о Вьетнаме!</span>
+      <h1 class="ebook__title">{{ post.title }}</h1>
+      <p class="ebook__subtitle">{{ post.summary }}</p>
+    </div>
+  </header>
+  <div class="ebook__body">
+    <nav class="ebook__navigation">
+      <a href="#take-in-the-view" class="ebook__navlink ebook__navlink--current">
+        <span class="ebook__chapter">Current chapter</span>
+        <span class="ebook__navtitle">Take in the view</span>
+      </a>
+      <a href="#introduction" class="ebook__navlink ebook__navlink--previous">
+        <span class="ebook__chapter">Introduction</span>
+        <span class="ebook__navtitle">A lighthearted warning</span>
+      </a>
+      <a href="#escalate-and-escape" class="ebook__navlink ebook__navlink--next">
+        <span class="ebook__chapter">Chapter two</span>
+        <span class="ebook__navtitle">Escalate &amp; Escape</span>
+      </a>
+    </nav>
+    <div class="ebook__content">
+      <div class="ebook__lead">
+      <p>{{ post.content_html|raw }}</p>
+    </div>
+    
+    <p> </p>
+    </div>
+  </div>
+</section>
+
+<section class="ebook" id="escalate-and-escape">
+  <header class="ebook__cover">
+    <img src="https://source.unsplash.com/2ozmgnoEQVo/1000x2000" class="ebook__image">
+    <div class="ebook__header">
+      <span class="ebook__eyebrow">Chapter two</span>
+      <h1 class="ebook__title">Escalate &amp; Escape</h1>
+      <p class="ebook__subtitle">When changing fear for passion is the only way to escape.</p>
+    </div>
+  </header>
+  <div class="ebook__body">
+    <nav class="ebook__navigation">
+      <a href="#escalate-and-escape" class="ebook__navlink ebook__navlink--current">
+        <span class="ebook__chapter">Current chapter</span>
+        <span class="ebook__navtitle">Escalate &amp; Escape</span>
+      </a>
+      <a href="#take-in-the-view" class="ebook__navlink ebook__navlink--previous">
+        <span class="ebook__chapter">Chapter one</span>
+        <span class="ebook__navtitle">Take in the view</span>
+      </a>
+      <a href="#nosedive" class="ebook__navlink ebook__navlink--next">
+        <span class="ebook__chapter">Chapter three</span>
+        <span class="ebook__navtitle">Nosedive</span>
+      </a>
+    </nav>
+    <div class="ebook__content">
+      <div class="ebook__lead">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam ad praesentium voluptatibus deleniti dicta debitis quas autem? Nihil sint molestias, facere libero nam aperiam molestiae alias, quos numquam tenetur repudiandae?</p>
+    </div>
+    
+    <p> Tenetur excepturi praesentium illum voluptatibus cum repellat consectetur eum dolor provident modi ad odit quo maxime aliquam harum vitae explicabo autem aspernatur ut, hic voluptas repudiandae incidunt commodi est. Aut nobis vero sapiente et deleniti quam mollitia quia nihil natus suscipit minima, sequi asperiores, earum reprehenderit quas consequatur ipsa officia numquam repellendus saepe similique.</p>
+    
+    <p>Distinctio, nobis. Labore ex, necessitatibus veritatis cumque commodi voluptate amet optio quaerat quos tenetur voluptatum nobis ratione deserunt consequatur, quis explicabo cum? Alias magni amet, iusto aperiam dolorem suscipit adipisci veniam minus quia, cumque, porro voluptatibus dignissimos nihil blanditiis incidunt quo molestias ipsum libero est ea. Distinctio, alias ex aperiam sed fuga quae architecto quasi assumenda soluta illum iusto, quod asperiores consectetur repudiandae quisquam in recusandae, possimus ipsum. </p>
+    
+    <p>Molestiae possimus dolore magnam a corporis, quidem voluptates accusantium nam ea odit, placeat voluptatum consectetur, quibusdam suscipit delectus laborum quisquam. Quis ducimus quo nostrum expedita eligendi possimus consequuntur. Corporis fugit rem velit minus vitae modi quia quas possimus! Consequuntur incidunt quae quibusdam corrupti provident odio placeat enim sunt, nisi ab! Accusamus, magni minima dolorem ad, nam totam ipsa numquam esse unde doloremque corporis ex maxime error mollitia ducimus, deserunt beatae molestias commodi! Doloremque culpa est dolorem quo quae amet tempore et, nam iure a labore soluta quia ducimus repellendus magni rem in impedit debitis. Enim consequuntur eligendi commodi alias molestias sed unde totam aspernatur, atque cupiditate debitis qui nobis, sunt nam dolorum nemo, et ullam incidunt nesciunt itaque? Totam architecto soluta atque dolores recusandae aspernatur, repellat expedita voluptate dignissimos, repudiandae, esse repellendus consectetur numquam ex aperiam dolorum illo est. Error quia similique, quidem voluptatem alias assumenda quas harum, totam quam aliquid magni amet quae vitae. Earum, veniam nemo libero repellendus esse nulla qui dicta, velit error aperiam consectetur repudiandae deleniti illo explicabo consequatur similique, rem enim? </p>
+      
+      <img class="ebook__media" src="https://source.unsplash.com/gvfR7wg292M/800x500">
+    
+    <p>Deserunt obcaecati necessitatibus similique neque optio ex distinctio, dolorum, veritatis atque sint cupiditate laboriosam perferendis architecto libero deleniti fugit! Omnis quam quasi deleniti facere eveniet enim, quidem laborum temporibus sit deserunt velit sed accusamus est modi natus eius ab pariatur ipsam fuga, magni tenetur dolor veniam. Corporis nobis sequi ex, vel excepturi facere qui cumque dolor alias esse sit deleniti porro in temporibus, natus recusandae similique neque, accusamus ducimus quia beatae nulla magnam quod? Praesentium modi expedita sint dolorem voluptatum vitae asperiores quaerat facilis tempore vero debitis, consectetur reprehenderit temporibus dolor. Ipsa impedit maxime temporibus. Minus asperiores illo, adipisci dignissimos ad animi voluptas alias dolore quaerat nesciunt ratione corrupti vero aliquid quasi aspernatur consequatur! Eaque ab reprehenderit magni, fugit itaque repellendus sapiente nulla, voluptate vitae enim sequi voluptatem? Amet maiores eius labore sint deleniti ipsa? Quaerat rem modi cumque nisi repellat laborum culpa tempora repellendus accusamus rerum! Est voluptates quisquam repellendus! Harum libero natus eveniet ab iusto blanditiis inventore quibusdam magni sapiente, sed consequuntur aspernatur ut doloremque, unde facilis expedita laborum quae!</p>
+    </div>
+  </div>
+</section>
+<!-- partial -->
+  
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+[relatedPosts]
+slug = "{{ :slug }}"
+limit = 3
+orderBy = "published_at asc"
+postPage = "news/news"
+==
+<div class="container bg-light">
+  <div class="post-thumbnail-content">
+<strong>См. также:</strong><br>
+<ul>
+{% if relatedPosts.posts %}
+{% for post in relatedPosts.posts %}
+  <li class="item-success">
+	<a href="{{ post.url }}" class="text-secondary">{{ post.title }}</a>
+    </li>
+    {% endfor %}{% endif %}
+</ul>
+</div>
+</div>

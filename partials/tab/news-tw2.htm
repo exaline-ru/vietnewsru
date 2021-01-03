@@ -1,0 +1,21 @@
+[viewBag]
+
+[popularPosts]
+category = "{{ /category/:slug }}"
+postsLimit = 5
+noPostsMessage = "No posts found"
+postPage = "news/news"
+==
+{% set posts = popularPosts.posts %}
+{% for post in posts %}
+
+<div class="">
+      <div class="flex items-start mb-3 pb-3">
+            <a href="{{ post.url }}" class="inline-block mr-3"><div class="w-20 h-20 bg-cover bg-center lazyload" style="background-image:url({{ post.subtitle }});"></div></a>
+            <div class="text-sm">
+              <p class="text-gray-600 text-xs">{{ post.published_at|date('d/m/Y') }} | ({{post.views}})</p>
+              <a href="{{ post.url }}" class="text-gray-900 font-medium hover:text-indigo-600 leading-none">{{ post.title }}</a>
+            </div>
+          </div>
+</div>  
+{% endfor %}

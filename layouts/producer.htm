@@ -1,0 +1,172 @@
+==
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
+    {% placeholder seo %}
+
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Questrial&display=swap" rel="preload"
+          as="font">
+
+    <link rel="stylesheet" href="//vietnews.ru/themes/godspeed-flametree-theme/assets/public/css/override.css">
+    {% partial "theme-style" %}
+
+    <link rel="stylesheet" href="//vietnews.ru/themes/godspeed-flametree-theme/assets/public/css/lib.css">
+    <script type="text/javascript" src="{{ "assets/public/js/jquery.js" | theme }}"></script>
+
+    <link rel="stylesheet" href="//vietnews.ru/themes/godspeed-flametree-theme/assets/public/css/app.css"">
+    {% styles %}
+
+
+</head>
+<body>
+
+<div id="flametree-app" >
+
+    {% partial 'NavBar' %}
+    <div class="min-vh-100">
+    {% page %}{% component 'staticPage' %}
+    </div>
+    <modal name="search-modal" height="150" :adaptive="true"  classes="v--modal animated fadeInUp fadeoutDown fast " :pivot-y="1">
+        <div class="d-flex flex-column m-3 h-100">
+            <h5 class="text-primary font-weight-bold headline-light-bold small">
+                Looking for something?
+            </h5>
+            {% component "flametreemodalsearchinput" %}
+
+        </div>
+    </modal>
+
+    <mega-footer
+        facebook="{{ this.theme.facebook_link | url_encode | default("") }}"
+        twitter="{{ this.theme.twitter_link  | default("") }}"
+        instagram="{{ this.theme.instagram_link  | default("") }}"
+        email="{{ this.theme.email  | default("") }}"
+    >
+        <div class="d-flex flex-row flex-wrap justify-content-end ">
+
+            {% for menu in footerMenu.menuItems %}
+                <div class="col-12 col-lg-6 p-0">
+                    <mega-footer-header title="{{ menu.title }}">
+                        {% for menuItem in menu.items %}
+                            <ul class="mega-footer-menu-list">
+                                <mega-footer-item link="{{ menuItem.url }}">
+                                    {{ menuItem.title }}
+                                </mega-footer-item>
+                            </ul>
+                        {% endfor %}
+                    </mega-footer-header>
+                </div>
+            {% endfor %}
+        </div>
+        <template slot="operating-hours">
+            <mega-footer-header title="OPERATING HOURS">
+                <div class="operating-hour ">
+
+
+                    {% content 'footer/business-operating-hours.md' %}
+                </div>
+            </mega-footer-header>
+        </template>
+        <template slot="newsletter-form">
+            <mega-footer-header title="SUBSCRIBE NEWSLETTER">
+                <div class=" my-2" id="{{ mailSignup.id }}container">
+                    <form
+                        data-request="{{ mailSignup }}::onSignup"
+                        data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'">
+                        <div class="text-field-control my-1">
+                            <label for="subscribe_fullname_newsletter">FULL NAME</label>
+
+                            <input name="fullname" id="subscribe_fullname_newsletter" type="text" class="text-field"/>
+
+                        </div>
+                        <div class="text-field-control my-1">
+                            <label for="subscribe_email_newsletter">EMAIL</label>
+
+                            <input name="email" type="email" id="subscribe_email_newsletter" class="text-field"/>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary w-100 rounded-lg my-1">
+                            SUBSCRIBE NEWSLETTER
+                        </button>
+
+                    </form>
+                </div>
+            </mega-footer-header>
+
+            <div class="d-flex flex-column align-self-start business-contact">
+                <div class="d-flex flex-row justify-content-between align-items-baseline">
+                    <div class="col-2">
+                        <i class="fas fa-phone"></i>
+
+                    </div>
+                    <div class="col-10">
+                        <p>{{ this.theme.phone_number }}</p>
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-baseline">
+                    <div class="col-2">
+                        <i class="fas fa-envelope"></i>
+
+                    </div>
+                    <div class="col-10">
+                        <p>{{ this.theme.email }}</p>
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-baseline">
+                    <div class="col-2">
+
+                        <i class="fas fa-map-marker-alt  mx-auto"></i>
+                    </div>
+                    <div class="col-10">
+                        {{ this.theme.address | raw }}
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-baseline">
+                    <div class="col-2">
+
+                        <i class="fas fa-inbox mx-auto"></i>
+                    </div>
+                    <div class="col-10">
+
+                        <div class="mr-auto">
+
+                            {{ this.theme.po_box_address | raw }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+        <template slot="credit-message">
+            <p>
+                Designed and made with ❤️ by <a target="_blank" href="https://csit321_ft01s.techrino.net">Team
+                    GodSpeed</a>
+            </p>
+            <p>
+                Copyright {{ "now" | date("Y") }} &copy; All Rights Reserved.
+            </p>
+        </template>
+    </mega-footer>
+
+</div>
+{% framework extras %}
+
+
+<script type="text/javascript" src="//vietnews.ru/themes/godspeed-flametree-theme/assets/public/js/index.js"></script>
+
+
+{% scripts %}
+
+
+</body>
+
+</html>

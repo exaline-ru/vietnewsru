@@ -1,0 +1,63 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "photo"
+postsPerPage = 5
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[blogPosts blogPosts2]
+pageNumber = "{{ :page }}"
+categoryFilter = "history"
+postsPerPage = 1
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<!-- Component Code -->
+
+  <div class="grid grid-cols-1 sm:grid-cols-12 gap-10 border-b">
+    
+    <div class="sm:col-span-6 lg:col-span-5">{% set post = blogPosts.posts.first %}
+       <a href="{{ post.url }}"><div class="h-56 bg-cover text-center overflow-hidden lazyload" style="background-image: url('{{ post.subtitle }}')" title="{{ post.title }}">
+            </div></a>
+       <div class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+        <div class="">
+              <a href="../category/photo" class="text-xs text-indigo-600 uppercase font-medium mb-3 flex items-center hover:text-gray-900 transition duration-500 ease-in-out">
+                Фотография
+              </a>
+              <a href="{{ post.url }}" class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">{{ post.title }} </a>
+              <p class="text-gray-700 text-xs mt-2">{{ post.summary }}</p>
+            </div>
+       </div>
+    </div>
+    
+    <div class="sm:col-span-6 lg:col-span-4">{% for post in blogPosts.posts %}{% if loop.index > 1 %}
+      <div class="flex items-start mb-3 pb-3">
+            <a href="{{ post.url }}" class="inline-block mr-3"><div class="w-20 h-20 bg-cover bg-center lazyload" style="background-image:url({{ post.subtitle }});"></div></a>
+            <div class="text-sm">
+              <p class="text-gray-600 text-xs">{{ post.published_at|date('d/m/yy') }}</p>
+              <a href="{{ post.url }}" class="text-gray-900 font-medium hover:text-indigo-600 leading-none">{{ post.title }}</a>
+            </div>
+      </div>{% endif %}{% endfor %}
+    </div>
+    
+    <div class="sm:col-span-12 lg:col-span-3">{% set post = blogPosts2.posts.first %}
+       <a href="{{ post.url }}"><div class="h-56 bg-cover text-center overflow-hidden lazyload" style="background-image: url('{{ post.subtitle }}')" title="{{ post.title }}">
+            </div></a>
+       <div class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+        <div class="">{% for category in post.categories %}{% if loop.first %}
+              <a href="{{ category.url }}" class="text-xs text-indigo-600 uppercase font-medium flex items-center hover:text-gray-900 transition duration-500 ease-in-out">
+                {{ category.name }}
+              </a>{% endif %}{% endfor %}
+              <a href="#" class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">{{ post.title }} </a>
+              <p class="text-gray-700 text-xs mt-2">{{ post.summary| truncate(200) }}</p>
+            </div>
+       </div>
+    </div>
+    
+  </div>

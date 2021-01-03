@@ -1,0 +1,92 @@
+[viewBag]
+==
+<nav class="fixed z-50 w-full bg-white top-0 flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg shadow-lg">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        <a
+          class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-gray-800"
+          href="/">
+          <img src="{{'assets/images/icons/logo_ru_200x30.png'|theme }}" alt="Vietnews.ru" width="110" class="max-w-full h-auto align-middle border-none" />
+        </a>
+        <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                type="button"><i class="fas fa-bars"></i></button>                
+      </div>
+      <div class="lg:flex flex-grow items-center hidden" id="example-navbar-danger">
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold text-gray-800 hover:text-gray-600 py-2 px-4 rounded inline-flex items-center"
+              href="/about">
+              <span class="ml-2">About</span>
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold text-gray-800 hover:text-gray-600"
+              href="#">
+              <span class="ml-2">Services</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold text-gray-800 hover:text-gray-600"
+              href="#">
+              <span class="ml-2">Worker</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold text-gray-800 hover:text-gray-600"
+              href="/fundraising">
+              <span class="ml-2">Fundraiser</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button
+              class="rounded-full bg-red-600 text-white active:bg-red-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+              type="button"
+              style="transition: all 0.15s ease 0s;"
+            >
+              Login <i class="fas fa-arrow-right"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <nav aria-label="primary" class="relative z-20 flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+  
+  <div class="relative group">
+      <button class="flex flex-row items-center w-full px-4 py-4 mt-2 text-base font-bold text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+          <span>First Dropdown</span>
+      </button>
+      <div class="absolute z-10 hidden bg-grey-200 group-hover:block">
+          
+          <div class="px-2 pt-2 pb-4 bg-white bg-gray-200 shadow-lg">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <p>
+                dropdown content here
+              </p>
+            </div>
+          </div>
+      </div>
+  </div>  
+  
+  <div class="relative group">
+      <button class="flex flex-row items-center w-full px-4 py-4 mt-2 text-base font-bold text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+          <span>Second Dropdown</span>
+      </button>
+      <div class="absolute z-10 hidden bg-grey-200 group-hover:block">
+          
+          <div class="px-2 pt-2 pb-4 bg-white bg-gray-200 shadow-lg">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <p>
+                dropdown content here
+              </p>
+            </div>
+          </div>
+      </div>
+  </div>   
+</nav>

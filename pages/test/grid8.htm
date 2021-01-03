@@ -1,0 +1,168 @@
+title = "Test grid8"
+url = "/test/grid8"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[popularPosts]
+category = "{{ :category }}"
+postsLimit = 5
+noPostsMessage = "No posts found"
+postPage = "news/news"
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 5
+postPage = "news/news"
+slug = "{{ :slug }}"
+==
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<link href="{{ 'assets/css/grid8.css'|theme }}" rel="stylesheet" />
+{% set posts = blogPosts.posts %}
+					
+<main>
+  <div class="box recommended">
+    <h2>Популярные сегодня</h2>
+    <ol>{% set mostVisitedPosts = topPosts.mostVisitedPosts %}                               
+                                		{% for post in mostVisitedPosts %}
+    {% if loop.index <= 5 %}
+      <li>
+        <a href="{{post.url}}">{{post.title}}</a>
+        
+      </li>
+      {% endif %}{% endfor %}
+      
+    </ol>
+  </div>
+  <div class="box most_read">
+    <h2>Самые читаемые</h2>
+    <ol>{% set posts = popularPosts.posts %}{% for post in posts %}
+    {% if loop.index <= 5 %}
+      <li><a href="{{post.url}}">{{ post.title }}</a> <span class="views">{{post.views}}</span></li>
+      {% endif %} {% endfor %}      
+    </ol>
+  </div>
+  
+  <div class="box article">{% set post = blogPosts.posts.first %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==2 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==3 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article big-article">{% for post in blogPosts.posts %}{% if loop.index ==4 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article big-article">{% for post in blogPosts.posts %}{% if loop.index ==5 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==6 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==7 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==8 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==9 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+  <div class="box article">{% for post in blogPosts.posts %}{% if loop.index ==10 %}
+    <article style="background-image: url({{ post.subtitle }})">
+      <a href="{{post.url}}">
+        <h2>{{post.title}}</h2>
+        <div class="meta">
+          <span class="genre">Все о Вьетнаме</span><br>
+          <span class="author">VietNews.ru</span>
+        </div>
+      </a>
+    </article>{% endif %}{% endfor %}
+  </div>
+</main>

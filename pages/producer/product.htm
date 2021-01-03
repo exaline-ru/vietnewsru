@@ -1,0 +1,44 @@
+title = "Product"
+url = "/product/:slug"
+layout = "main"
+is_hidden = 0
+meta_title = "{{ product.name }}'s product detail"
+meta_description = "{{ product.description }}"
+robot_index = "index"
+robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "{{ product.name }}'s product detail"
+og_description = "{{ product.description }}"
+og_type = "article"
+
+[Product]
+search_key = "slug"
+search_key_param = "{{:slug}}"
+==
+{% put seo %}
+{% partial "site-title/main" title=product.name  %}
+
+<meta name="description" content="{{ product.name }}"/>
+<meta property="og:type" content="article" />
+
+<meta property="og:description" content="{{ product.name }}" />
+<meta property="og:url" content="{{ '' | page }}" />
+<meta property="og:locale" content="en-GB" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="{{ product.name }}">
+{%  if product.featured_image  %}
+    <meta property="twitter:image" content="{{ product.featured_image | media  }}" />
+    <meta property="og:image" content="{{ product.featured_image | media }}" />
+{%  else %}
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+{% endif %}
+
+<meta name="robots" content="index/follow"/>
+<meta name="keywords" content="{{ producer.name }},{{ product.name }}"/>
+{% endput %}
+
+{% component "Product" %}

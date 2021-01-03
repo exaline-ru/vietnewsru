@@ -1,0 +1,114 @@
+title = "Test Grid14"
+url = "/test/grid14"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/categories"
+postPage = "news/news"
+==
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Test </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link href="{{ 'assets/css/style14.css'|theme }}" rel="stylesheet" />
+
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<p class="warning">
+  You are viewing the fallback version of this layout because your browser doesn't yet support CSS Grid.
+</p>
+
+<div class="promoted-articles__container">
+  <section class="promoted-articles">
+  {% set posts = blogPosts.posts %}
+{% for post in posts %}{% if loop.index ==1 %}
+    <a href="#" class="promoted-articles__article">
+      <img class="promoted-articles__image" src="{{ post.subtitle }}" alt="Woman drinking coffee on the stairs in an apartment">
+      <div class="promoted-articles__content">
+        <h2 class="promoted-articles__title">
+          {{ post.title }}
+        </h2>
+        <footer class="promoted-articles__footer">
+          <span class="promoted-articles__author">
+            <em></em>
+            Vietnews.ru
+          </span>
+        </footer>
+      </div>
+    </a>{% elseif loop.index == 2 %}
+    <a href="#" class="promoted-articles__article promoted-articles__article--short-height">
+      <img class="promoted-articles__image" src="{{ post.subtitle }}" alt="A busy street in a Cuban city">
+      <div class="promoted-articles__content">
+        <h2 class="promoted-articles__title">
+          {{ post.title }}
+        </h2>
+        <footer class="promoted-articles__footer">
+          <span class="promoted-articles__author">
+            <em></em>
+            Vietnews.ru
+          </span>
+        </footer>
+      </div>
+    </a>{% elseif loop.index == 3 %}
+    <a class="promoted-articles__article " href="#">
+      <img class="promoted-articles__image" src="{{ post.subtitle }}" alt="Overhead view of a desk with a laptop and a half eaten salad">
+      <div class="promoted-articles__content">
+        <h2 class="promoted-articles__title">
+          {{ post.title }}
+        </h2>
+        <footer class="promoted-articles__footer">
+          <span class="promoted-articles__author">
+            <em></em>
+            Vietnews.ru
+          </span>
+        </footer>
+      </div>
+    </a>{% elseif loop.index == 4 %}
+    <a class="promoted-articles__article " href="#">
+      <img class="promoted-articles__image" src="{{ post.subtitle }}" alt="A life preserver hanging on the side of a wooden fence">
+      <div class="promoted-articles__content">
+        <h2 class="promoted-articles__title">
+          {{ post.title }}
+        </h2>
+        <footer class="promoted-articles__footer">
+          <span class="promoted-articles__author">
+            <em></em>
+            Vietnews.ru
+          </span>
+        </footer>
+      </div>
+    </a>
+{% elseif loop.index == 5 %}
+  <a href="#" class="promoted-articles__article promoted-articles__article--short-height">
+      <img class="promoted-articles__image" src="{{ post.subtitle }}" alt="New York City skyline">
+      <div class="promoted-articles__content">
+        <h2 class="promoted-articles__title">
+          {{ post.title }}
+        </h2>
+        <footer class="promoted-articles__footer">
+          <span class="promoted-articles__author">
+            <em></em>
+            Vietnews.ru
+          </span>
+        </footer>
+      </div>
+    </a>{% endif %}{% endfor %}
+  </section>
+</div>
+<!-- partial -->
+
+  
+</body>
+</html>

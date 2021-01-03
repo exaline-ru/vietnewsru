@@ -1,0 +1,306 @@
+title = "test grid7"
+url = "/test/grid7"
+layout = "news-v2"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+{#<header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">#}
+        <header id="header" data-fullwidth="true">
+            <div class="header-inner">
+                <div class="container">
+                    <!--Logo-->
+                    
+                    <div id="logo">
+                        <a href="/">
+                            <span class="logo-default"><img src="{{'assets/images/logo_ru.png'|theme }}" style="width: 115px; height: 30px" alt="VietNews.ru"></span>
+                            <span class="logo-dark"><img src="{{'assets/images/icons/vietnews-ico-32.png'|theme }}" alt="VietNews.ru"></span>
+                        </a>
+                    </div>
+                    <!--End: Logo-->
+                    <!-- Search -->
+                    <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
+                        <form class="search-form" method="GET" action="{{ searchForm.resultPage|page }}">
+                            <input class="form-control" name="q" type="text" name="search" placeholder="Введите и выполните поиск" />
+                            <span class="text-muted">Начало ввода - нажмите "Enter" или "ESC" для закрытия</span>
+                        </form>
+                    </div>
+                    <!-- end: search -->
+                    <!--Header Extras-->
+                    <div class="header-extras">
+                        <ul>
+                            <li>
+                                <a id="btn-search" href="#"> <i class="icon-search"></i></a>
+                            </li>
+                            <li>
+                                <div class="p-dropdown">
+                                    <a href="{{ 'home'|theme }}"><i class="icon-globe"></i><span>RU</span></a>
+                                    <ul class="p-dropdown-content">
+                                        <li><a href="https://vn.vietnews.ru">Tiếng Việt</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--end: Header Extras-->
+                    <!--Navigation Resposnive Trigger-->
+                    <div id="mainMenu-trigger">
+                        <a class="lines-button x"><span class="lines"></span></a>
+                    </div>
+                    <!--end: Navigation Resposnive Trigger-->
+                    <!--Navigation-->
+                    {% partial 'navigation' %}
+                    <!--END: NAVIGATION-->
+                </div>
+            </div>
+        </header>
+        <!-- end: Header -->
+        
+<link href="{{ 'assets/css/grid7.css'|theme }}" rel="stylesheet" />
+
+<!-- partial:index.partial.html -->
+
+
+<div class="bbc">{% set posts = blogPosts.posts %}{% for post in posts %}
+  <div class="sport-top-articles__main ">
+    {% partial 'bbc/dpos0' %}
+  </div>
+<hr>
+  <div class="sport-top-articles__sub-wrapper padding">
+    <div class="sport-top-articles__sub sport-top-articles-dpos-1 ">
+      {% partial 'bbc/dpos1' %}
+    </div>
+    <div class="sport-top-articles__sub sport-top-articles-dpos-2">
+      {% partial 'bbc/dpos2' %}
+    </div>
+
+    <div class="sport-top-articles__sub sport-top-articles-dpos-3">
+      {% partial 'bbc/dpos3' %}
+    </div>
+    <div class="sport-top-articles__sub hidden-medium  sport-top-articles-dpos-4">
+      {% partial 'bbc/dpos4' %}
+    </div>
+
+    <div class="sport-top-articles__sub hidden-medium  sport-top-articles-dpos-5">
+      {% partial 'bbc/dpos5' %}
+    </div>
+  </div>
+<hr>
+  <div class="small-card-wrapper padding">
+     {% partial 'bbc/dpos6' %}
+        
+    {% partial 'bbc/dpos7' %}
+
+  </div>
+
+
+  <div class="smaller-card-wrapper hide-on-mobile padding">
+    {% partial 'bbc/dpos8' %}    
+  </div>
+
+
+  <div class="fb-scores padding">
+    <h4 class="fb-scores--title"> Курс валют </h4>
+    <ul class="fb-scores__header">
+      <li> Курс валют </li>
+      <li> Global league </li>
+      <li> European league </li>
+      <li> Champions league </li>
+      <li> Global league </li>
+      <li> European league </li>
+      <div class="fb-scores__more"> More v </div>
+    </ul>
+    <div class="fb-scores__table">
+      <div class="fb-scores--date"> WEDNESDAY 27TH SEPTEMBER 2017 </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+      <div class="fb-scores__item">
+        <div class="fb-scores__item--name-left"> CSKA </div>
+        <div class="fb-scores__item--time"> 19:45 </div>
+        <div class="fb-scores__item--name-right"> Man Utd </div>
+      </div>
+    </div>
+    <h4 class="fb-scores--more"><a href="#"> View all Champions League scores </a> </h4>
+  </div>
+
+
+  <div class="fb-news padding">
+    <div class="fb-news__sub fb-news__sub-main">
+      <div class="fb-news__sub-img">
+        <img src="https://image.ibb.co/jayApQ/bg.jpg" alt="bg" border="0">
+      </div>
+      <div class="fb-news__sub-copy">
+        <h4> Football feature </h4>
+      </div>
+    </div>
+    <div class="fb-news__sub sub-item">
+      <div class="fb-news__sub-img">
+        <img src="{{ post.subtitle }}" alt="bg" border="0">
+      </div>
+      <div class="fb-news__sub-copy">
+        <h4> Football feature </h4>
+      </div>
+    </div>
+    <div class="fb-news__sub sub-item ">
+      <div class="fb-news-img">
+        <img src="{{ post.subtitle }}" alt="bg" border="0">
+      </div>
+      <div class="fb-news__sub-copy">
+        <h4> Football feature </h4>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="fb-fixtures ">
+    <h4 class="fb-fixtures--title"> Scores, Results & Fixtures
+
+      </h4>
+    <ul class="fb-fixtures__tabs">
+      <li> Football
+        <div class="fb-fixtures--meta">
+          <span class="meta-1"> item </span>
+          <span class="meta-1"> item </span>
+        </div>
+      </li>
+      <li> Cricket
+        <div class="fb-fixtures--meta">
+          <span class="meta-1"> item </span>
+          <span class="meta-1"> item </span>
+        </div>
+      </li>
+      <li> Tennis
+        <div class="fb-fixtures--meta">
+          <span class="meta-1"> item  </span>
+        </div>
+      </li>
+      <li> Horse racing v </li>
+      <li> Your essential sports diary v</li>
+    </ul>
+  </div>
+
+
+  <div class="fb-av padding">
+    <h4 class="fb-av--title"> Последние Новости </h4>
+    <div class="fb-av__main">
+      {% partial 'bbc/dpos9' %}
+      
+      {% partial 'bbc/dpos10' %}
+    
+  </div>
+
+
+  <div class="fb-comm padding">
+    <h4 class="fb-comm--title">  Sport Commentaries </h4>
+    <ul class="fb-comm__list">
+      <li class="fb-comm-item"> item </li>
+      <li class="fb-comm-item"> item </li>
+      <li class="fb-comm-item"> item </li>
+      <li class="fb-comm-item"> item </li>
+      <li class="fb-comm-item"> item </li>
+      <li class="fb-comm-item"> item </li>
+      <li class="fb-comm--last"> All commentaries </li>
+    </ul>
+  </div>
+
+<br>
+  <div class="fb-feature padding">
+    <h4 class="fb-feature--title"> Туризм </h4>
+    {% partial 'bbc/dpos11' %}
+    
+  </div>
+
+
+  <div class="fb-inspired ">
+    <div class="fb-inspired__copy">
+      <h4 class="fb-inspired--title"> GET INSPIRED </h4>
+      <span class="fb-inspired--sub-title"> RUN BY THE PARTNERS </span>
+      <span class="fb-inspired--sub-title"> Find ways to get active near you: </span>
+      <input type="text" name="FirstName" value="input box">
+    </div>
+    <div class="fb-inspired__sub-wrap padding ">
+    
+      {% partial 'bbc/dpos12' %}
+      
+      <h5 class="fb-inspired__sub-title"> For more ideas, information and inspiration, visit <a href="#"> co.uk/getinspired </a></h5>
+
+    </div>
+  </div>
+
+  <div class="fb-feature-2 padding">
+    <h4 class="fb-feature--title"> Наука и Технология</h4>
+
+    {% partial 'bbc/dpos13' %}
+    
+  </div>
+
+
+  <div class="fb-feature-sidebar ">
+    <h4 class="fb-feature-sidebar--title"> Видео </h4>
+    <div class="fb-feature-sidebar__sub-wrap padding">
+      
+      {% partial 'bbc/dpos14' %}
+      
+    </div>
+  </div>
+
+  <div class="fb-smore ">
+    <h4 class="fb-smore--title"> История </h4>
+    <div class="fb-smore__sub-wrap padding ">
+      
+      {% partial 'bbc/dpos15' %}
+
+    </div>
+  </div>{% endfor %}
+
+
+  <!--
+-->
+
+</div>
+
+ {% partial 'footer2' %}

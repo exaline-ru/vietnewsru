@@ -1,0 +1,1530 @@
+body {
+  margin: 0;
+  font-family: "Merriweather",serif;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+  position: relative;
+}
+
+h4 {
+  margin: 4px 0px;
+  font-size: 16px;
+}
+
+.cat {
+  color: #757575;
+  font-family: arial;
+  font-size: 12px;
+  margin: 0px 10px 0px 20px;
+}
+
+.news-times {
+  color: #757575;
+  font-family: arial;
+  font-size: 12px;
+}
+
+.hide-on-mobile {
+  display: none;
+}
+
+.sub-copy-text {
+  font-size: 14px;
+}
+
+.bbc-feature {
+  padding: 0px 16px;
+}
+
+.text {
+  text-align: center;
+  font-family: arial;
+  color: black;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.no-border {
+  border: 0;
+  border-top: 1px solid #dfdfdf;
+}
+
+.hidden {
+  display: none;
+}
+
+.padding {
+  grid-row-gap: 4px;
+  grid-column-gap: 16px;
+}
+
+.orb-module {
+  background-color: white;
+  height: 32px;
+  padding: 0px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sport-header {
+  background-color: #ffd230;
+  height: 62px;
+  line-height: 58px;
+  font-weight: bold;
+  padding: 0px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.sport-top-articles {
+  padding-top: 16px;
+}
+.sport-top-articles__main {
+  height: auto;
+  padding: 16px;
+}
+.sport-top-articles__img {
+  max-height: 300px;
+}
+.sport-top-articles__copy {
+  padding: 8px 0;
+  background-color: white;
+}
+.sport-top-articles__sub-wrapper {
+  padding: 16px 16px 0 16px;
+  position: relative;
+}
+.sport-top-articles__sub {
+  height: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.sport-top-articles__sub-img {
+  max-width: 40%;
+  height: 100%;
+  float: left;
+}
+.sport-top-articles__sub-img img {
+  max-height: 130px;
+}
+.sport-top-articles__sub-copy {
+  font-family: "Merriweather",serif;
+    color: #222222;
+    font-size: 15px;
+  max-width: 60%;
+  min-height: 95px;
+  position: relative;
+  background-color: white;
+  float: left;
+}
+.sport-top-articles__sub-copy h4 {
+  padding: 0 8px;
+}
+.sport-top-articles--header {
+  font-size: 20px;
+}
+.sport-top-articles--header h3 {
+  margin: 0;
+  padding: 0;
+}
+.sport-top-articles--meta {
+  margin-top: 4px;
+}
+.sport-top-articles--meta::first-child {
+  border-right: black 12px solid;
+}
+
+.small-card-wrapper,
+.smaller-card-wrapper {
+  padding: 0 16px;
+}
+
+.fb-scores {
+  padding: 0 16px;
+}
+.fb-scores--title {
+  padding: 8px 0;
+  font-size: 18px;
+}
+.fb-scores--more {
+  padding: 24px 0;
+}
+.fb-scores--more a {
+  color: black;
+}
+.fb-scores__header {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  height: 37px;
+  overflow: hidden;
+  padding-right: 90px;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 24px;
+}
+.fb-scores__header li {
+  font-size: 18px;
+  padding: 8px 8px;
+  display: inline-block;
+  font-weight: 900;
+}
+.fb-scores__header li:first-child {
+  border-bottom: 2px solid black;
+}
+.fb-scores__more {
+  position: absolute;
+  right: 16px;
+  top: 4px;
+  padding: 4px 4px;
+  border-bottom: 1px solid green;
+}
+.fb-scores--date {
+  height: 32px;
+  width: 100%;
+  text-align: center;
+  background-color: lightgray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+.fb-scores__item {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fb-scores__item--name-left {
+  width: 35%;
+  text-align: right;
+  float: left;
+}
+.fb-scores__item--time {
+  width: 20%;
+  text-align: center;
+  float: left;
+  font-weight: bold;
+  background-color: gray;
+  color: white;
+  margin: 0 5%;
+  padding: 4px 0;
+}
+.fb-scores__item--name-right {
+  width: 35%;
+  text-align: left;
+  float: left;
+}
+
+.fb-fixtures {
+  background-color: #F7F7F7;
+  position: relative;
+  padding-bottom: 24px;
+  padding: 16px;
+}
+.fb-fixtures--title {
+  padding: 8px 0;
+  font-size: 18px;
+}
+.fb-fixtures__tabs {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+.fb-fixtures__tabs li {
+  font-size: 18px;
+  padding: 8px 8px;
+  font-weight: 900;
+  background-color: white;
+  margin-bottom: 2px;
+  position: relative;
+}
+
+.fb-av {
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+.fb-av--title {
+  font-size: 18px;
+}
+.fb-av__main {
+  padding: 8px 0;
+}
+.fb-av__main-copy {
+  font-weight: bold;
+  margin-bottom: 4;
+}
+.fb-av__sub {
+  width: 49%;
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+}
+
+.fb-av__sub-img {
+  height: 70px;    
+}
+
+.fb-av__sub-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.fb-av__sub-copy {
+  background-color: white;
+  position: relative;
+  top: -4px;
+  font-weight: bold;
+}
+
+.fb-comm {
+  clear: both;
+  padding: 16px;
+}
+.fb-comm--title {
+  padding: 8px 0;
+  font-size: 18px;
+}
+.fb-comm__list {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+.fb-comm__list li {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  font-weight: 900;
+  background-color: #ededed;
+  margin-bottom: 2px;
+  height: 56px;
+  align-items: center;
+}
+
+.fb-feature {
+  padding: 0px 16px;
+}
+.fb-feature--title {
+  padding: 8px 0;
+  font-size: 18px;
+}
+.fb-feature .sport-top-articles__sub {
+  padding: 0;
+}
+
+.fb-feature-2 {
+  padding: 0px 16px;
+}
+.fb-feature-2--title {
+  padding: 8px 0;
+  font-size: 18px;
+}
+.fb-feature-2 .sport-top-articles__sub {
+  padding: 0;
+}
+
+.fb-inspired {
+  background-color: black;
+  color: white;
+  padding: 16px;
+}
+.fb-inspired--title {
+  padding: 0px 0;
+  font-size: 24px;
+}
+.fb-inspired--sub-title {
+  margin: 0 0;
+  font-size: 16px;
+}
+.fb-inspired input {
+  width: 90%;
+  padding: 8px 0;
+  margin: 0 0;
+  margin: 18px 0;
+}
+.fb-inspired__sub {
+  width: 48%;
+  display: inline-block;
+}
+.fb-inspired__sub-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.fb-inspired__sub-copy {
+  padding: 8px 0 16px 0;
+}
+
+.fb-around {
+  padding: 0 16px;
+  margin-bottom: 36px;
+}
+.fb-around--title {
+  padding: 8px 0;
+  font-size: 24px;
+}
+.fb-around .sport-top-articles__sub {
+  padding: 0;
+}
+
+.fb-feature-sidebar {
+  background-color: #ededed;
+  position: relative;
+  padding: 16px;
+}
+.fb-feature-sidebar--title {
+  font-size: 18px;
+}
+.fb-feature-sidebar__sub {
+  width: 48%;
+  display: inline-block;
+}
+.fb-feature-sidebar__sub-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.fb-feature-sidebar__sub-copy {
+  padding: 8px 0 16px 0;
+  font-weight: bold;
+}
+
+.fb-smore {
+  padding: 0 16px;
+}
+.fb-smore--title {
+  padding: 8px 0;
+  font-family: "Merriweather",serif;
+  font-size: 15px;
+}
+.fb-smore__sub {
+  width: 48%;
+  display: inline-block;
+  margin-bottom: 8px;
+  position: relative;
+}
+.fb-smore__sub-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.fb-smore__sub-copy {
+  position: relative;
+  top: -3px;
+  padding: 8px 0 16px 0;
+  background-color: #F7F7F7;
+  padding: 8px 8px;
+  font-weight: bold;
+  max-height: 130px;
+}
+.fb-smore .meta {
+  left: 0;
+}
+
+.fb-news {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+.fb-news__sub {
+  display: inline-block;
+  height: auto;
+  background-color: white;
+  margin: 4px 0;
+}
+.fb-news__sub-copy {
+  padding-bottom: 0;
+  float: none;
+  width: 100%;
+  min-height: 55px;
+}
+.fb-news__sub-main {
+  width: 100%;
+}
+.fb-news__sub-img {
+  float: none;
+}
+.fb-news .sub-item {
+  width: 49%;
+}
+
+.fb-bar {
+  padding: 0 16px;
+}
+.fb-bar__item {
+  display: inline-block;
+  width: 30%;
+  height: 32px;
+}
+
+footer {
+  background-color: #ededed;
+  border-top: 3px solid #ffd230;
+  position: relative;
+}
+footer .fb-footer {
+  padding: 0 16px;
+}
+footer .fb-footer--title {
+  padding: 8px 0;
+  font-size: 24px;
+}
+footer .fb-footer__sub {
+  width: 100%;
+  margin-bottom: 8px;
+  position: relative;
+}
+footer .fb-footer__sub-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .fb-footer__sub-copy {
+  position: relative;
+  top: -3px;
+  padding: 8px 0 16px 0;
+  background-color: #ededed;
+  padding: 8px 8px;
+  font-weight: bold;
+}
+footer .fb-footer-links {
+  padding: 0px 16px;
+}
+footer .fb-footer-links__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 170px;
+  font-size: 14px;
+}
+footer .fb-footer-links__list li {
+  display: inline-block;
+  width: 50%;
+}
+
+.smaller-card-wrapper {
+  display: none;
+}
+
+.info-square {
+  text-align: center;
+  width: auto;
+  margin-right: 8px;
+  padding: 4px;
+  color: white;
+  font-size: 13px;
+  background-color: blue;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+}
+
+.meta {
+  margin-top: 4px;
+  left: 8px;
+  position: relative;
+}
+
+.meta-1 {
+  text-align: center;
+  width: auto;
+  margin-right: 2px;
+  padding: 4px;
+  color: white;
+  font-size: 13px;
+  background-color: darkgray;
+  display: inline-block;
+}
+
+.button {
+  width: 280px;
+  font-size: 18px;
+  height: auto;
+  background-color: #ededed;
+  color: #252525;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+  margin-top: 35px;
+}
+
+.copy {
+  font-size: 14px;
+  padding-top: 8px;
+}
+
+@supports (display: grid) {
+  @media (min-width: 599px) {
+    .text {
+      font-size: 18px;
+    }
+
+    .hidden {
+      display: block;
+    }
+
+    .hidden-medium {
+      display: none !important;
+    }
+
+    .bbc {
+      display: grid;
+      grid-template-columns: 16px auto 16px;
+      grid-template-rows: 0 0 auto;
+      grid-row-gap: 8px;
+      grid-column-gap: 16px;
+    }
+
+    .orb-module {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+    }
+
+    .sport-header {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+      height: 90px;
+    }
+
+    .sport-top-articles {
+      padding: 0;
+      display: grid;      
+      grid-template-columns: 100%;
+      grid-template-rows: 275px;
+      grid-row-gap: 4px;
+      grid-column-gap: 4px;
+    }
+    .sport-top-articles__main {
+      display: grid;
+      grid-template-columns: 33% 33% auto;
+      grid-template-rows: auto;
+      grid-row: 3;
+      grid-column: 2/3;
+      padding: 0;
+    }
+    .sport-top-articles__img {      
+  height: 275px;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    .sport-top-articles__copy {          
+      grid-row: 1;
+      grid-column: 3;
+      background-color: #F7F7F7;
+      position: relative;
+      padding: 0px 0px 35px 10px;
+    }
+    .sport-top-articles--header {
+      font-family: "Merriweather",serif;
+      color: #222222;
+      font-size: 20px;
+      margin-top: 8px;
+    }
+    .sport-top-articles--meta {
+      position: absolute;
+      bottom: 4px;
+      left: 8px;
+    }
+    .sport-top-articles__sub {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto auto;
+      background-color: white;
+      min-height: 130px;
+      height: auto;
+      align-content: baseline;
+    }
+    .sport-top-articles__sub-copy {
+      max-width: 100%;
+      grid-column: 1;
+      grid-row: 2;
+      float: none;
+    }
+    .sport-top-articles__sub-copy .meta {
+      left: 0;
+    }
+    .sport-top-articles__sub-wrapper {
+      padding: 0;
+      grid-column: 2;
+      grid-row: 4;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto;
+    }
+    .sport-top-articles__sub-wrapper h4 {
+      line-height: 24px;
+      padding: 0;
+    }
+    .sport-top-articles__sub-img {
+      min-width: 100%;
+      min-height: 100px;
+      grid-column: 1;
+      grid-row: 1;
+      float: none;
+    }
+    .sport-top-articles__sub-img img {
+      max-height: initial;
+    }
+
+    .small-card-wrapper {
+      display: grid;
+      grid-column: 2;
+      grid-row: 5;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+      padding: 0;
+    }
+    .small-card-wrapper .sport-top-articles__sub {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 40% 60%;
+      grid-template-rows: auto;
+      height: auto;
+      border: 0;
+      min-height: 85px;
+    }
+    .small-card-wrapper .sport-top-articles__sub-copy {
+      max-width: 100%;
+      grid-column: 2;
+      grid-row: 1;
+      float: none;
+      min-height: 65px;
+    }
+    .small-card-wrapper .sport-top-articles__sub-copy .meta {
+      left: 8px;
+    }
+    .small-card-wrapper .sport-top-articles__sub-copy h4 {
+      margin: 0;
+    }
+    .small-card-wrapper .sport-top-articles__sub-img {
+      min-width: 100%;
+      min-height: 85px;
+      grid-column: 1;
+      grid-row: 1;
+      float: none;
+    }
+    .small-card-wrapper .sport-top-articles__sub-img img {
+      max-height: initial;
+    }
+
+    .smaller-card-wrapper {
+      display: grid;
+      grid-column: 2;
+      grid-row: 6;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+      padding: 0;
+    }
+    .smaller-card-wrapper .sport-top-articles__sub {
+      margin: 0;
+      padding: 0;
+      display: block;
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      min-height: 85px;
+    }
+    .smaller-card-wrapper .sport-top-articles__sub-copy {
+      max-width: 100%;
+      grid-column: 1;
+      grid-row: 1;
+      float: none;
+      min-height: 70px;
+    }
+    .smaller-card-wrapper .sport-top-articles__sub-img {
+      min-width: 100%;
+      grid-column: 1;
+      grid-row: 1;
+      float: none;
+    }
+    .smaller-card-wrapper .sport-top-articles__sub-img img {
+      max-height: initial;
+    }
+    .smaller-card-wrapper .sport-top-articles__sub h4 {
+      padding: 0;
+      margin: 0;
+    }
+
+    .fb-scores {
+      padding: 0;
+      grid-column: 2;
+      grid-row: 7;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 36px auto;
+    }
+    .fb-scores--title {
+      text-align: left;
+    }
+    .fb-scores__table {
+      display: grid;
+      grid-row-gap: auto;
+    }
+    .fb-scores__item {
+      display: grid;
+      justify-content: initial;
+      align-items: center;
+      grid-template-columns: auto 85px auto;
+      grid-template-rows: auto;
+      grid-column-gap: 8px;
+    }
+    .fb-scores__item--name-left {
+      width: 100%;
+      text-align: right;
+    }
+    .fb-scores__item--time {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      background-color: gray;
+      color: white;
+      margin: 0;
+      padding: 4px 0;
+    }
+    .fb-scores__item--name-right {
+      width: 100%;
+      text-align: left;
+    }
+
+    .fb-news {
+      padding: 0;
+      grid-column: 2;
+      grid-row: 8;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: 100px 100px;
+      grid-column-gap: 8px;
+      padding-bottom: 24px;
+    }
+    .fb-news__sub {
+      padding: 0;
+      margin: 0;
+    }
+    .fb-news__sub-main {
+      grid-column: 1;
+      grid-row: 1/2;
+      width: 100%;
+    }
+    .fb-news .sub-item {
+      grid-column-gap: 8px;
+      display: grid;
+      grid-template-columns: 40% auto;
+      grid-column: 2;
+      width: 100%;
+    }
+
+    .fb-fixtures {
+      grid-column: 2;
+      grid-row: 9;
+      padding: 0 0 16px 0px;
+    }
+    .fb-fixtures__tabs li {
+      padding: 8px 8px;
+    }
+    .fb-fixtures--meta {
+      margin-top: 4px;
+    }
+    .fb-fixtures::after {
+      content: ' ';
+      position: absolute;
+      width: 200vw;
+      height: 100%;
+      background: #ededed;
+      left: -50vw;
+      top: 0;
+      z-index: -1;
+    }
+
+    .fb-av {
+      grid-column: 2;
+      grid-row: 10;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 36px auto auto;
+      padding: 0;
+    }
+    .fb-av--title {
+      grid-column: 1 / 5;
+    }
+    .fb-av__main {
+      background-color: white;
+      padding: 0;
+      grid-row: 2 / 4;
+      grid-column: 1;
+      grid-column: 1 / 3;
+    }
+    .fb-av__main-copy {
+      display: block;
+    }
+    .fb-av__sub {
+      width: 100%;
+    }
+    .fb-av__sub-wrap {
+      grid-column: 1 / 3;
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-column-gap: 8px;
+    }
+    .fb-av__sub-copy {
+      padding-top: 8px;
+    }
+    .fb-av .grid-wrap {
+      grid-column: 2 / 3;
+      grid-row: 1;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-column-gap: 8px;
+    }
+    .fb-av .grid-wrap-2 {
+      grid-column: 1 / 3;
+      grid-row: 3;
+      display: grid;
+      grid-template-columns: auto;
+      grid-column-gap: 8px;
+    }
+
+    .fb-comm {
+      grid-column: 2;
+      grid-row: 11;
+      padding: 0;
+    }
+
+    .fb-feature {
+      padding: 0;
+      grid-column: 2;
+      grid-row: 12;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 36px auto auto;
+    }
+    .fb-feature h4 {
+      grid-column: 1 / 5;
+      padding: 0;
+    }
+
+    .fb-inspired {
+      grid-column: 2;
+      grid-row: 13;
+      display: grid;
+      grid-template-columns: auto 33% 33%;
+      grid-template-rows: auto auto auto;
+    }
+    .fb-inspired--title {
+      grid-column: 1 / 4;
+    }
+    .fb-inspired span {
+      display: block;
+    }
+    .fb-inspired__sub {
+      width: 100%;
+    }
+    .fb-inspired__sub-wrap {
+      grid-column: 2/4;
+      grid-row: 1;
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+    .fb-inspired__sub-title {
+      grid-column: 1/4;
+    }
+
+    .fb-feature-2 {
+      padding: 0;
+      grid-column: 2;
+      grid-row: 14;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 36px auto auto;
+    }
+    .fb-feature-2 h4 {
+      grid-column: 1 / 5;
+      padding: 0;
+    }
+
+    .fb-feature-sidebar {
+      padding: 0;
+      grid-column: 2;
+      grid-row: 15;
+      display: grid;
+      grid-template-rows: 36px auto auto;
+      position: relative;
+    }
+    .fb-feature-sidebar__sub {
+      width: 100%;
+      padding-bottom: 16px;
+    }
+    .fb-feature-sidebar__sub-wrap {
+      display: grid;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+    }
+    .fb-feature-sidebar__sub-copy-2 {
+      font-size: 14px;
+    }
+    .fb-feature-sidebar::after {
+      content: ' ';
+      position: absolute;
+      width: 200vw;
+      height: 100%;
+      background: #ededed;
+      left: -50vw;
+      top: 0;
+      background-color: #ededed;
+      z-index: -1;
+    }
+
+    .fb-smore {
+      grid-column: 2;
+      grid-row: 16;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+      padding: 0;
+    }
+    .fb-smore--title {
+      grid-column: 1 / 4;
+    }
+    .fb-smore__sub {
+      position: relative;
+      width: 100%;
+    }
+    .fb-smore__sub-wrap {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+    }
+    .fb-smore__sub-image {
+          height: 100%;
+  margin: 0;
+  overflow: hidden;
+    }
+
+    footer {
+      grid-column: 1/3;
+      grid-row: 17;
+    }
+    footer .fb-footer {
+      padding: 0 16px;
+    }
+    footer .fb-footer--title {
+      padding: 8px 0;
+      font-size: 24px;
+    }
+    footer .fb-footer__sub {
+      width: 100%;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    footer .fb-footer__sub-wrap {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    footer .fb-footer__sub-copy {
+      position: relative;
+      top: -3px;
+      padding: 8px 0 16px 0;
+      background-color: #ededed;
+      padding: 8px 8px;
+      font-weight: bold;
+    }
+    footer .fb-footer-links {
+      padding: 0px 16px;
+    }
+    footer .fb-footer-links__list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 170px;
+      font-size: 14px;
+    }
+    footer .fb-footer-links__list li {
+      display: inline-block;
+      width: 50%;
+    }
+  }
+  @media (min-width: 899px) {
+    .hidden-medium {
+      display: none !important;
+    }
+
+    .bbc {
+      max-width: 1280px;
+      grid-template-columns: 16px 66% auto 16px;
+      grid-template-rows: 0 0 repeat(43, 65px);
+      margin: auto;
+      grid-row-gap: 8px;
+      grid-column-gap: 16px;
+    }
+
+    .fb-scores {
+      grid-column: 3;
+      grid-row: 3/9;
+      align-content: baseline;
+      background-color: white;
+    }
+    .fb-scores__header {
+      margin: 0;
+    }
+    .fb-scores--more {
+      padding: 0;
+      margin: 0;
+    }
+    .fb-scores li {
+      font-size: 14px;
+      padding: 8px 8px;
+      display: inline-block;
+      font-weight: 900;
+    }
+
+    .small-card-wrapper {
+      grid-column: 2;
+      grid-row: 10 / 17;
+      grid-template-columns: auto auto;
+    }
+
+    .smaller-card-wrapper {
+      grid-column: 2;
+      grid-row: 17 / 20;
+      grid-template-columns: auto auto;
+    }
+
+    .sport-top-articles__main {
+      grid-row-start: 3;
+      grid-row-end: 7;
+      grid-column: 2/3;
+    }
+    .sport-top-articles__main img {
+      height: 100%;
+    }
+    .sport-top-articles__sub {
+      height: auto;
+    }
+    .sport-top-articles__sub-wrapper {
+      grid-template-columns: auto auto auto;
+      grid-column: 2;
+      grid-row: 7/10;
+      grid-row-gap: 16px;
+    }
+
+    .fb-news {
+      grid-column: 3;
+      grid-row: 9 / 14;
+      display: block;
+    }
+
+    .fb-fixtures {
+      grid-column: 3;
+      grid-row: 14 / 19;
+    }
+    .fb-fixtures::after {
+      content: ' ';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ededed;
+      left: -8px;
+      top: 0;
+      z-index: -1;
+      padding-right: 16px;
+    }
+
+    .fb-av {
+      grid-row: 20 / 26;
+    }
+
+    .fb-comm {
+      grid-column: 3;
+      grid-row: 19 /26;
+    }
+
+    .fb-feature {
+      grid-column: 2;
+      grid-row: 27 / 36;
+      padding: 0;
+    }
+
+    .fb-inspired {
+      grid-column: 2;
+      grid-row: 36 / 40;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto;
+    }
+    .fb-inspired__sub {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto;
+    }
+    .fb-inspired__sub-wrap {
+      grid-column: 2/4;
+      grid-row: 1;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+    }
+    .fb-inspired__sub-title {
+      grid-column: 1/4;
+      padding: 0;
+      margin: 0;
+      align-self: end;
+    }
+    .fb-inspired__sub-copy {
+      padding: 0px 4px 16px 8px;
+    }
+
+    .fb-feature-2 {
+      grid-row: 40/44;
+    }
+
+    .fb-feature-sidebar {
+      padding: 0;
+      grid-column: 3;
+      grid-row: 26 / 34;
+    }
+    .fb-feature-sidebar__sub {
+      width: 100%;
+    }
+    .fb-feature-sidebar__sub-wrap {
+      grid-template-columns: auto;
+    }
+    .fb-feature-sidebar::after {
+      content: ' ';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ededed;
+      left: -8px;
+      top: 0;
+      z-index: -1;
+      padding-right: 16px;
+    }
+
+    .fb-smore {
+      grid-column: 2/4;
+      grid-row: 44 / 50;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-template-rows: 36px auto;
+      padding: 0;
+    }
+    .fb-smore--title {
+      grid-column: 1/5;
+      font-size: 18px;
+      padding: 0;
+    }
+    .fb-smore__sub-wrap {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-template-rows: auto auto;
+    }
+
+    footer {
+      grid-column: 1/5;
+      grid-row: 50;
+      overflow: hidden;
+    }
+  }
+  @media (min-width: 1100px) {
+    .hidden-medium {
+      display: initial !important;
+    }
+
+    .bbc {
+      grid-template-columns: 0 17.75% 17.75% 17.75% 17.75% auto 0;
+      grid-template-rows: 0 0 repeat(40, 65px);
+      margin: auto;
+      grid-row-gap: 8px;
+      grid-column-gap: 16px;
+    }
+
+    .orb-module {
+      grid-column: 1/8;
+      grid-row: 1 / 3;
+      padding: 0;
+    }
+
+    .sport-header {
+      grid-column: 1/8;
+      grid-row: 2 / 3;
+      padding: 0;
+    }
+
+    .fb-scores {
+      grid-column: 6;
+      grid-row: 3/9;
+      align-content: flex-start;
+    }
+    .fb-scores--title {
+      padding: 0;
+    }
+    .fb-scores ul {
+      margin-bottom: 0;
+    }
+    .fb-scores ul li {
+      font-size: 14px;
+    }
+    .fb-scores--more {
+      padding: 8px 0;
+    }
+
+    .small-card-wrapper {
+      grid-column: 2 /5;
+      grid-row: 11 / 18;
+      grid-template-columns: auto auto auto auto;
+    }
+    .small-card-wrapper .sport-top-articles__sub {
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+    }
+    .small-card-wrapper .sport-top-articles__sub-wrapper {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      height: auto;
+      border: 0;
+      min-height: 85px;
+      margin-top: 0px;
+    }
+    .small-card-wrapper .sport-top-articles__sub-img {
+      min-width: 100%;
+      min-height: 100px;
+      grid-column: 1;
+      grid-row: 1;
+      float: none;
+    }
+    .small-card-wrapper .sport-top-articles__sub-copy {
+      min-width: 100%;
+      min-height: 85px;
+      grid-column: 1;
+      grid-row: 2;
+      float: none;
+      margin: 0;
+    }
+
+    .smaller-card-wrapper {
+      grid-column: 5 /5;
+      grid-row: 11 / 18;
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+    }
+
+    .sport-top-articles__main {
+      grid-column: 2/5;
+      grid-row-start: 3;
+      grid-row-end: 7;
+    }
+    .sport-top-articles__main img {
+      min-height: 100%;
+      width: 100%;
+    }
+    .sport-top-articles__sub-wrapper {
+      grid-column: 2/6;
+      grid-row: 3/11;
+      grid-template-columns: auto auto auto auto;
+    }
+    .sport-top-articles__sub-wrapper .sport-top-articles-dpos-1 {
+      grid-column: 4;
+      grid-row: 1;
+    }
+    .sport-top-articles__sub-wrapper .sport-top-articles-dpos-2 {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .sport-top-articles__sub-wrapper .sport-top-articles-dpos-3 {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    .sport-top-articles__sub-wrapper .sport-top-articles-dpos-4 {
+      grid-column: 3;
+      grid-row: 2;
+    }
+    .sport-top-articles__sub-wrapper .sport-top-articles-dpos-5 {
+      grid-column: 4;
+      grid-row: 2;
+    }
+
+    .fb-news {
+      grid-column: 6;
+      grid-row: 9 / 14;
+      padding-bottom: 0;
+    }
+
+    .fb-fixtures {
+      grid-column: 6;
+      grid-row: 14 / 19;
+    }
+
+    .fb-av {
+      grid-row: 18 / 23;
+      grid-column: 2/6;
+      display: grid;
+      grid-template-columns: 33% auto auto auto auto;
+      padding: 0;
+    }
+    .fb-av--title {
+      grid-column: 1 / 6;
+    }
+    .fb-av__main {
+      grid-row: 2 / 4;
+      grid-column: 1 / 2;
+    }
+
+    .fb-comm {
+      grid-column: 6;
+      grid-row: 19 /26;
+    }
+
+    .fb-feature {
+      grid-column: 2 / 6;
+      grid-row: 23 / 32;
+    }
+
+    .fb-inspired {
+      grid-column: 2/6;
+      grid-row: 32 / 35;
+    }
+    .fb-inspired__copy {
+      padding-right: 16px;
+    }
+    .fb-inspired__sub {
+      width: 100%;
+      display: flex;
+    }
+    .fb-inspired__sub-wrap {
+      grid-column: 2/4;
+      grid-row: 1;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: 70px 75px;
+    }
+    .fb-inspired__sub-title {
+      grid-column: 1/4;
+      padding: 0;
+      margin: 0;
+      align-self: end;
+    }
+
+    .fb-feature-2 {
+      grid-row: 35/39;
+      grid-column: 2 / 6;
+    }
+
+    .fb-feature-sidebar {
+      position: relative;
+      padding: 0;
+      grid-column: 6;
+      grid-row: 26 / 34;
+    }
+    .fb-feature-sidebar__sub {
+      width: 100%;
+    }
+    .fb-feature-sidebar__sub-wrap {
+      grid-template-columns: auto;
+    }
+    .fb-feature-sidebar::after {
+      content: ' ';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ededed;
+      left: -8px;
+      top: 0;
+      z-index: -1;
+      padding-right: 16px;
+    }
+
+    .fb-smore {
+      grid-column: 2/7;
+      grid-row: 39 / 43;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: 36px auto;
+      padding: 0;
+    }
+    .fb-smore--title {
+      grid-column: 1/4;
+      font-size: 18px;
+    }
+    .fb-smore__sub {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      background-color: #F7F7F7;
+      overflow: hidden;
+    }
+    .fb-smore__sub-img {
+      position: relative;
+  width: 100%;
+  max-height: 100px;
+    }
+    .fb-smore__sub-img:after {
+      content: '';      
+      width: 100px;
+      background-color: #F7F7F7;
+      height: 70px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+    
+    .fb-smore__sub-copy {
+      position: relative;
+      padding: 8px 16px;
+      background-color: #F7F7F7;
+      font-weight: bold;
+    }
+    .fb-smore__sub-wrap {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+      grid-column: 1/4;
+    }
+
+    footer {
+      margin-top: 24px;
+      grid-column: 1/8;
+      grid-row: 43;
+      overflow: hidden;
+    }
+  }
+}

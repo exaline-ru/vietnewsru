@@ -1,0 +1,25 @@
+title = "Forum"
+url = "/forum/topic/:slug"
+layout = "tailwind-category"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[forumTopic]
+slug = "{{ :slug }}"
+postsPerPage = 20
+memberPage = "forum/member"
+channelPage = "forum/channel"
+includeStyles = 1
+==
+{% partial 'tailwind/header5' %}
+<div class="max-w-screen-xl mx-auto bg-white">
+
+<h1>{{ topic.subject }}</h1>
+{% component 'forumTopic' %}
+
+</div>
+
+{% partial 'tailwind/footer2' %}

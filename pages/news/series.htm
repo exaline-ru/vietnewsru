@@ -1,0 +1,224 @@
+title = "Подборка новостей"
+url = "/news/:series/:page?"
+layout = "tailwind-category"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[postsInSeries]
+series = "{{ :series }}"
+orderBy = "published_at desc"
+page = "{{ :page }}"
+resultsPerPage = 12
+postPage = "news/news"
+categoryPage = "news/category"
+==
+<?php
+function onEnd() {
+
+    // get the post component
+    $_post = $this->components['postsInSeries'];
+    $_post = $_post->series; // post is the alias of my component
+
+    // get the title
+    $_title = $_post->title;
+
+    // update the page title
+    $this->page->title = $_title;
+
+}
+?>
+==
+{% partial 'tailwind/header5' %} 
+
+
+<!-- component -->
+<div class="max-w-screen-xl mx-auto bg-white">
+
+   <main class="mt-10" itemscope itemtype="http://schema.org/NewsArticle">{% set posts = postsInSeries.series %}
+  
+   <!-- Page heading -->	
+		<h2 class="text-4xl font-semibold text-gray-700 leading-tight">
+			Подборка новостей: <strong>"{{ postsInSeries.series.title }}"</strong>
+		</h2>
+
+      <div class="block lg:flex lg:space-x-2 px-2 lg:p-0 mt-10 mb-10">
+        <!-- post cards -->
+        <div class="w-full lg:w-2/3">         
+          
+          <div class="" x-bind:class="{'w-full m-4 mb-0': layout === 'list', 'w-1/4 p-2': layout === 'grid'}">
+      <article class="bg-white p-4 shadow">
+        <!-- Component Code -->
+<div class="relative">
+  
+ {# <span itemprop="datePublished" content="{{ post.published_at|date('yy-m-d') }}">{{ post.published_at|date('yy-m-d') }}</span>
+                                    <span itemprop="dateModified" content="{{ post.updated_at|date('yy-m-d') }}">{{ post.updated_at|date('yy-m-d') }}</span>
+                                    <span itemprop="description">{{ post.summary|raw }}</span>                                    
+                                    <span itemprop="author">Vietnews.ru</span><br>
+                                    <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ post.url }}"/>
+#}
+                                    
+                                    <div class="post-video" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                    <meta itemprop="height" content="180">
+                                    <meta itemprop="width" content="250">
+                                    <meta itemprop="url" content="{{ post.subtitle }}">
+                                    
+  <div class="max-w-3xl mx-auto">
+  
+    <div class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+    
+        
+     {% for post in postsInSeries.posts %}
+<div class="rounded w-full lg:flex mb-10"><a href="{{ post.url }}">
+    <div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+      style="background-image: url('{{ post.subtitle }}')" title="{{ post.title }}">
+    </div></a>
+    <div class="bg-white rounded px-4 flex flex-col justify-between leading-normal">
+      <div>
+        <div class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </div>
+        <p class="text-gray-700 text-base">
+          {{ html_strip(post.summary) }}
+        </p>
+      </div>
+      <div class="flex mt-3">
+        {#<img src="https://randomuser.me/api/portraits/women/54.jpg"
+          class="h-10 w-10 rounded-full mr-2 object-cover" />#}
+        <div>{% if post.categories.count %} {% endif %}{% for category in post.categories %}
+          <a href="{{ category.url }}" class="font-semibold text-gray-700 text-sm capitalize"> {{ category.name }}, </a>{% if not loop.last %} {% endif %}{% endfor %} <span><p class="text-gray-600 text-xs"> {{ post.published_at|date('d-m-Y') }} </p></span>
+          
+        </div>
+      </div> 
+      
+      
+      
+    </div>
+</div>
+{% endfor %}
+
+<!-- Pagination -->
+{% if postsInSeries.posts.lastPage > 1 %}
+<nav id="{{ postsWithTag.alias }}-pagination" aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="flex list-reset border border-grey-light rounded w-auto font-sans">
+        {% if postsInSeries.posts.currentPage > 1 %}
+        <li class="page-item"><a href="{{ '' | page({ page: postsInSeries.posts.currentPage - 1 }) }}" aria-label="Previous" class="block hover:text-white hover:bg-blue text-blue border-r border-grey-light px-3 py-2"><span aria-hidden="true">«</span><span class="sr-only"><< </span></a></li>
+        {% endif %}
+
+        {% if postsInSeries.posts.lastPage > postsInSeries.posts.currentPage %}
+        <li class="page-item">
+            <a href="{{ '' | page({ page: postsInSeries.posts.currentPage+1 }) }}" class="block hover:text-white hover:bg-blue text-blue px-3 py-2" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only"> >></span></a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}		
+
+<br>
+                
+                {% partial 'tailwind/right-reclama1' %}
+                <br>
+              <div class="border border-dotted"></div><br>
+              
+             
+            <p class="text-gray-600">
+              
+              </p>
+          
+              </div>
+          
+            </div>
+       </div>
+ 
+  
+</div>
+      </article>
+    </div>
+
+        </div>
+
+        <!-- right sidebar -->
+        <div class="w-full lg:w-1/3 px-3"><br>
+        
+                            <form id="widget-search-form-sidebar" class="w-full max-w-sm" method="GET" action="{{ searchForm.resultPage|page }}">
+						<div class="flex items-center border-b border-teal-500 py-2">
+						  <input type="text" aria-required="true" name="q" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Поиск ...">
+						  <div class="input-group-append">
+							<button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">Поиск</button>
+						  </div>
+						</div>
+					</form>
+          <!-- topics -->
+          <div class="sticky top-0 mb-4">
+          <br>
+            <h5 class="font-bold text-lg uppercase text-gray-700"> Популярные сегодня </h5><br>
+            {% partial 'tab/news-tw' %}<br>
+            
+            <!-- divider -->
+          <div class="border border-dotted"></div>
+
+          <!-- subscribe -->
+          <div class="p-1 mt-4 mb-4">
+            <h5 class="font-bold text-lg uppercase text-gray-700 mb-2"> Подписка </h5>
+            <p class="text-gray-600">
+              Получите все последние материалы, доставленные на электронную почту несколько раз в месяц.
+            </p>
+            <div>
+				<form name="form-subscribe-andradedev" id="form-subscribe-andradedev" data-request="{{ formSubscribe }}::onAddSubscriber" data-request-update="'{{formSubscribe}}::alert': '#result'">
+					<input class="text-gray-700 bg-gray-100 rounded-t hover:outline-none p-2 w-full mt-4 border" type="email" name="email" placeholder="Э.почта" required>
+
+					<button class="px-4 py-2 bg-indigo-600 text-gray-200 rounded-b w-full capitalize tracking-wide">
+						Подписать!
+					</button>
+				</form>
+			<div id="result"></div>            
+          </div>
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+            
+           {% partial 'tailwind/right-reclama1' %}
+                            <br>
+            <h5 class="font-bold text-lg uppercase text-gray-700"> Самые читаемые </h5><br>
+            {% partial 'tab/news-tw2' %}<br>                
+                            
+          </div>
+          
+          
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+
+          <!-- subscribe -->
+         {# <div class="p-1 mt-4 mb-4">
+            <h5 class="font-bold text-lg uppercase text-gray-700 mb-2"> Subscribe </h5>
+            <p class="text-gray-600">
+              Subscribe to our newsletter. We deliver the best health related articles to your inbox
+            </p>
+            <input placeholder="your email address"
+              class="text-gray-700 bg-gray-100 rounded-t hover:outline-none p-2 w-full mt-4 border" />
+            <button class="px-4 py-2 bg-indigo-600 text-gray-200 rounded-b w-full capitalize tracking-wide">
+              Subscribe
+            </button>
+          </div> #}
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+
+        </div>
+
+      </div>
+    </main>
+    <!-- main ends here -->
+    
+    {% partial 'tailwind/block-category4' %}
+    {% partial 'tailwind/business' %}
+    
+    {% if backendUser %}
+	{% component 'registerVisit' %}
+	{% endif %}
+    </div>
+    {% partial 'tailwind/footer2' %}

@@ -1,0 +1,80 @@
+title = "Test producers"
+url = "/test/producers"
+layout = "producer"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[AllProducer]
+include_categories = 1
+limit = 4
+producer_page_slug = "slug"
+
+[ProducerCategoryList]
+producer_page_slug = "slug"
+==
+{% put styles %}
+    <style>
+
+        .our-producers {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url({{ 'assets/images/gardens.jpg' | theme }});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+{% endput %}
+<div class="our-producers d-flex flex-column flex-wrap align-items-stretch py-5 px-3">
+
+    <div class="d-flex flex-column align-self-sm-start justify-content-start m-2">
+        <h1 class="headline-light text-uppercase text-primary w-25">
+            <span class="text-white">OUR</span>
+        PRODUCERS</h1>
+        <a href="{{ "our-producers" | page }}" class="title-link big hover-move-right text-decoration-none">VIEW ALL PRODUCERS <i class="fas fa-chevron-right mx-2 "></i></a>
+    </div>
+    <div class="d-flex flex-row flex-wrap">
+        
+
+{% if producers.count() > 0 %}
+    {% for producer in producers %}
+        <a href="{{ AllProducer.getProducerPageUrl(producer.slug) }}" target="_blank"  class="d-flex flex-grow-1 text-decoration-none">
+            <producer-card
+                width="320px"
+                origin="{{ producer.origin }}"
+                name="{{ producer.name }}"
+               {# image="{{ producer.featured_image | media |  lazyload(350, null, {quality: '15', blur : 15})  }}" #}
+                data-image="{{producer.featured_image | media}}"
+
+            >
+            </producer-card>
+        </a>
+    {% endfor %}
+{% else %}
+    <div class="alert alert-info d-flex flex-column w-100">
+        <h3>Info</h3>
+        There is no producers right now, you can add it via producers management  page.
+    </div>
+
+{% endif %}
+
+        {% component 'ProducerCategoryList' %}
+    </div>
+</div>
+
+{% put styles %}
+    <style>
+
+
+        .announcements {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url({{ 'assets/images/contact.jpg' | theme }}) ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+    </style>
+{% endput %}
+
+{% partial "godspeed-flametree-theme!!ProductsMegaMenu" %}

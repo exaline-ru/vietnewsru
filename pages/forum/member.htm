@@ -1,0 +1,30 @@
+title = "Forum"
+url = "/forum/member/:slug"
+layout = "tailwind-category"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[forumMember]
+slug = "{{ :slug }}"
+viewMode = "view"
+channelPage = "forum/channel"
+topicPage = "forum/topic"
+includeStyles = 1
+
+[account]
+paramCode = "code"
+forceSecure = 0
+requirePassword = 0
+==
+{% partial 'tailwind/header5' %}
+<div class="max-w-screen-xl mx-auto bg-white">
+{% component 'account' %}
+<h1>{{ member.username }}</h1>
+{% component 'forumMember' %}
+
+</div>
+
+{% partial 'tailwind/footer2' %}

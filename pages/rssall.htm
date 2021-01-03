@@ -1,0 +1,46 @@
+title = "rss"
+url = "/rssall"
+description = "Анонс новостей | Vietnews.ru"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "xml"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 50
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:yandex="http://news.yandex.ru" version="2.0">
+    <channel>
+        <title>VietNews.ru | Все о Вьетнаме</title>
+        <link>https://vietnews.ru</link>
+        <description>VietNews.ru | Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Туризм во Вьетнаме. Экономика Вьетнама. Кухня Вьетнама. История Вьетнама. Культура Вьетнама. Инвестиция во Вьетнаме...</description>
+        <image>
+            <url>https://vietnews.ru/favicon.ico</url>
+            <title>VietNews.ru | Все о Вьетнаме</title>
+            <link>https://vietnews.ru</link>
+        </image>
+		<atom:link href="https://vietnews.ru/rssall" rel="self" type="application/rss+xml" />
+        <language>ru-RU</language>
+        {% for post in posts %}
+             <item>
+                <title>{{ post.title }}</title>
+                <link>{{ post.url }}</link>
+                <pubDate>{{ post.published_at|date('D, d M Y H:i:s') }}</pubDate>
+                <description><![CDATA[{{ html_strip( post.summary ) }}]]></description>
+                {% if post.featured_images.count %}{% for image in post.featured_images %}
+                <media:content url="{{ image.path }}" medium="image"/>
+                {% endfor %}
+                {% elseif post.subtitle == true %}
+                <media:content url="{{ post.subtitle }}" medium="image"/>
+                {% endif %}
+                <guid>{{ post.url }}</guid>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

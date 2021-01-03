@@ -1,0 +1,51 @@
+[relatedPosts]
+slug = "{{ :slug }}"
+limit = 12
+orderBy = "published_at desc"
+postPage = "news/news"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/category"
+==
+<div class="row p-t-35">{% if relatedPosts.posts %}
+    {% for post in relatedPosts.posts %}
+						<div class="col-sm-6 p-r-25 p-r-15-sr991">
+							<!-- Item latest -->	
+							<div class="flex-wr-sb-s m-b-30">{% if post.featured_images.count %}						
+								<a href="{{ post.url }}" class="size-w-1 wrap-pic-w hov1 trans-03"> {% for image in post.featured_images %}
+									<img data-src="{{ image.filename}}" src="{{ image.path }}" alt="{{ image.description }}"
+                    style="max-width: 100%" class="lazyload" />{% endfor %}
+								</a>
+								{% elseif post.subtitle==true %}
+								<a href="{{ post.url }}" class="size-w-1 wrap-pic-w hov1 trans-03"> 
+									<img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                    style="max-width: 100%" class="lazyload" /></a>{% endif %} 
+
+								<div class="size-w-2">
+									<h5 class="p-b-5">
+										<a href="{{ post.url }}" class="f1-s-5 cl3 hov-cl10 trans-03">
+											{{ post.title }}
+										</a>
+									</h5>
+
+									<span class="cl8">
+										{% if post.categories.count %} {% endif %}
+                                        {% for category in post.categories %}
+                                            <a href="https://vietnews.ru/category/{{ category.slug }}" class="f1-s-6 cl8 hov-cl10 trans-03">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                                        {% endfor %}
+
+										<span class="f1-s-3 m-rl-3">
+											-
+										</span>
+
+										<span class="f1-s-3">
+											</i> {{ post.published_at.diffForHumans() }} 
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>{% endfor %}{% endif %}
+						
+					</div>

@@ -1,0 +1,556 @@
+title = "Главная"
+url = "/test/test-home"
+layout = "bootstrap4-tailwind"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[topPosts]
+period = 1
+category = 0
+postPerPage = 5
+postPage = "news/news"
+slug = "{{ :slug }}"
+
+[formSubscribe]
+urlToUnsubscribe = "unsubscribe"
+urlToProfile = "subscriber-profile"
+geo = "disabled"
+thanksMessage = "Спасибо за подписку!"
+errorMessage = "Электронная почта уже существует!"
+
+[section]
+columns = 2
+section = 1
+contentPage = 404
+
+[galleryvideos]
+noPostsMessage = "fszteam.youtubevimeovideosgallery::lang.settings.no_posts_found"
+videosGallery = 1
+videoPage = 404
+postsPerPage = 10
+sortOrder = "created_at desc"
+==
+<?php
+function onEnd()
+{
+    if ($this->post) {
+        $this['backendUser'] = BackendAuth::getUser();
+    } 
+}
+?>
+==
+{% partial 'headline2' %}
+{% partial 'feature-home' %}
+	<!-- Post -->
+	<section class="bg0 p-t-70">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8">
+					<div class="p-b-20">					    
+					    <!-- Entertainment -->
+						<div class="tab01 p-b-20">
+							<div class="tab01-head how2 how2-cl1 bocl12 flex-s-c m-r-10 m-r-0-sr991">
+								<!-- Brand tab -->
+								<h3 class="f1-m-2 cl12 tab01-title">
+									Общество
+								</h3>
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" data-toggle="tab" href="#tab1-1" role="tab">Все</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab1-2" role="tab">Россия и Вьетнам</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab1-3" role="tab">Наука и Технология</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab1-4" role="tab">Спорт</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab1-5" role="tab">СМИ о Вьетнаме</a>
+									</li>
+
+									<li class="nav-item-more dropdown dis-none">
+										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-ellipsis-h"></i>
+										</a>
+
+										<ul class="dropdown-menu">
+											
+										</ul>
+									</li>
+								</ul>
+
+								<!--  -->
+								<a href="category/society" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+									Смотреть все
+									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
+								</a>
+							</div>
+								
+
+							<!-- Tab panes -->
+							<div class="tab-content p-t-35">
+															<!-- - -->
+								<div class="tab-pane fade show active" id="tab1-1" role="tabpanel">
+							    {% partial 'cat/obshestvo' %}
+							  </div>  
+							</div
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab1-2" role="tabpanel">
+									{% partial 'cat/ruvn' %}
+								</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab1-3" role="tabpanel">
+									{% partial 'cat/nauka' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab1-4" role="tabpanel">
+									{% partial 'cat/sport' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab1-5" role="tabpanel">
+									{% partial 'cat/mediaovietnam' %}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Business -->
+						<div class="tab01 p-b-20">
+							<div class="tab01-head how2 how2-cl2 bocl12 flex-s-c m-r-10 m-r-0-sr991">
+								<!-- Brand tab -->
+								<h3 class="f1-m-2 cl13 tab01-title">
+									Экономика
+								</h3>
+
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" data-toggle="tab" href="#tab2-1" role="tab">Все</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab2-2" role="tab">Бизнес</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab2-3" role="tab">Закон</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab2-4" role="tab">Политика</a>
+									</li>
+
+									<li class="nav-item-more dropdown dis-none">
+										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-ellipsis-h"></i>
+										</a>
+
+										<ul class="dropdown-menu">
+											
+										</ul>
+									</li>
+								</ul>
+
+								<!--  -->
+								<a href="category/economy" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+									Смотреть все
+									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
+								</a>
+							</div>
+								
+
+							<!-- Tab panes -->
+							<div class="tab-content p-t-35">
+							<!-- - -->							
+								<div class="tab-pane fade show active" id="tab2-1" role="tabpanel">
+								{% partial 'cat/economy' %}
+								</div>
+							</div>	
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab2-2" role="tabpanel">
+									{% partial 'cat/business' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab2-3" role="tabpanel">
+									{% partial 'cat/law' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab2-4" role="tabpanel">
+									{% partial 'cat/politic' %}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Travel -->
+						<div class="tab01 p-b-20">
+							<div class="tab01-head how2 how2-cl3 bocl12 flex-s-c m-r-10 m-r-0-sr991">
+								<!-- Brand tab -->
+								<h3 class="f1-m-2 cl14 tab01-title">
+									Туризм
+								</h3>
+
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" data-toggle="tab" href="#tab3-1" role="tab">Все</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab3-2" role="tab">Культура</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab3-3" role="tab">История</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab3-4" role="tab">Фото</a>
+									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tab3-5" role="tab">Видео</a>
+									</li>
+
+									<li class="nav-item-more dropdown dis-none">
+										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-ellipsis-h"></i>
+										</a>
+
+										<ul class="dropdown-menu">
+											
+										</ul>
+									</li>
+								</ul>
+
+								<!--  -->
+								<a href="category/travel" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+									Смотреть все
+									<i class="fs-12 m-l-5 fa fa-caret-right"></i>
+								</a>
+							</div>
+								
+
+							<!-- Tab panes -->
+							<div class="tab-content p-t-35">
+							<!-- - -->
+								<div class="tab-pane fade show active" id="tab3-1" role="tabpanel">
+								  {% partial 'cat/travel' %}
+								</div>
+						     </div>	
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab3-2" role="tabpanel">
+									{% partial 'cat/culture' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab3-3" role="tabpanel">
+									{% partial 'cat/history' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab3-4" role="tabpanel">
+									{% partial 'cat/photo' %}
+									</div>
+								</div>
+
+								<!-- - -->
+								<div class="tab-pane fade" id="tab3-5" role="tabpanel">
+									{% partial 'cat/video' %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-10 col-lg-4">
+					<div class="p-l-10 p-rl-0-sr991 p-b-20">
+						<!--  -->
+						<div>
+							<div class="how2 how2-cl4 flex-s-c">
+							<h3 class="f1-m-2 cl3 tab01-title">
+								Курс RUB - VND
+								</h3>
+							</div>
+							    
+							        {% partial 'rub-vnd' %}
+							    
+							
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Самые читаемые на сегодня
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+							
+							    {% set mostVisitedPosts = topPosts.mostVisitedPosts %}                               
+                                		{% for post in mostVisitedPosts %}
+                                <li class="flex-wr-sb-s p-b-30">{% if post.featured_images.count %}
+                                	<a href="{{ post.url }}" class="size-w-10 wrap-pic-w hov1 trans-03">{% for image in post.featured_images %}	
+                                		<img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" 
+                                                    style="max-width: 100%" class="lazyload"/>{% endfor %}
+                                								</a>
+                                		{% elseif post.subtitle == true %}
+								<a href="{{ post.url }}" class="size-w-10 wrap-pic-w hov1 trans-03">
+								<img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                                                    style="max-width: 100%" class="lazyload" /> </a>  
+							{% endif %}							
+                                
+                                	<div class="size-w-11">
+                                		<h6 class="p-b-4">
+                                			<a href="{{ post.url }}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                				{{ post.title }}
+                                			</a>
+                                		</h6>
+                                
+                                		<span class="cl8 txt-center p-b-24"> {% if post.categories.count %}{% for category in post.categories %}
+                                			<a href="category/{{ category.slug }}" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                				{{ category.name }}
+                                			</a>{% if not loop.last %}, {% endif %}
+                                                {% endfor %}{% endif %}
+                                
+                                			<span class="f1-s-3 m-rl-3">
+                                				::
+                                			</span>
+                                
+                                			<span class="f1-s-3">
+                                				{{ post.published_at.diffForHumans() }} 
+                                			</span>
+                                		</span>
+                                	</div>
+                                	</li>	{% endfor %}                                								    
+								
+							</ul>
+						</div>
+						
+						
+						<div>
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Самые читаемые на сайте
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+								{% partial 'home-popular2' %}	
+							</ul>
+						</div>					
+
+						<!--  -->
+						<div class="flex-c-s p-t-8">
+							<!--<a href="https://exaline.ru">
+								<img class="max-w-full" src="{{'assets/images/exaline_300x300.jpg'|theme }}" alt="Exaline.ru">
+							</a>-->
+							
+                                <!-- Vietnews-300x250 -->
+                                <ins class="adsbygoogle"
+                                     style="display:inline-block;width:300px;height:250px"
+                                     data-ad-client="ca-pub-8101715655477045"
+                                     data-ad-slot="2143459603"></ins>
+                                
+						</div>
+						
+						
+						
+						<!--  -->
+						<!--<div class="p-t-50">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Мы в соцсети
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+								<!--<li class="flex-wr-sb-c p-b-20">
+									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-facebook fs-16 cl0 hov-cl0">
+										<span class="fab fa-facebook-f"></span>
+									</a>
+
+									<div class="size-w-3 flex-wr-sb-c">
+										<span class="f1-s-8 cl3 p-r-20">
+											Fans
+										</span>
+
+										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+											Like
+										</a>
+									</div>
+								</li>-->
+
+								<!--<li class="flex-wr-sb-c p-b-20">
+									<a href="https://twitter.com/vietnewsru" class="size-a-8 flex-c-c borad-3 size-a-8 bg-twitter fs-16 cl0 hov-cl0">
+										<span class="fab fa-twitter"></span>
+									</a>
+
+									<div class="size-w-3 flex-wr-sb-c">
+										<span class="f1-s-8 cl3 p-r-20">
+											Followers
+										</span>
+
+										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+											Follow
+										</a>
+									</div>
+								</li>-->
+
+								<!--<li class="flex-wr-sb-c p-b-20">
+									<a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-youtube fs-16 cl0 hov-cl0">
+										<span class="fab fa-youtube"></span>
+									</a>
+
+									<div class="size-w-3 flex-wr-sb-c">
+										<span class="f1-s-8 cl3 p-r-20">
+											Подписчики
+										</span>
+
+										<a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+											Подписки
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Banner -->
+	<div class="container">
+		<div class="flex-c-c">			
+		{% component 'section' %}
+			{#<a href="https://exaline.ru">
+				<img class="max-w-full" src="{{'assets/images/banner-04.png'|theme }}" alt="IMG">
+			</a>#}
+			
+			
+		</div>
+		{% set videos = galleryvideos.videos %}
+{% for video in videos %}
+    {% if loop.first %}
+         <div class="row">
+    {% endif %}
+            <div class="{% if videos |length > 1 %} col-sm-3 {% else %} col-sm-12 {% endif %}">
+        		<div class="card" style="width:100%;margin-bottom: 20px;margin-left: 5px;margin-right: 5px;{% if videos |length > 1 %} height: 100%;{% endif %}">
+        		  {% if video.source=='youtube' %}
+                    <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/{{video.vid}}?rel=0' frameborder='0' allowfullscreen></iframe></div>		  
+        		  {% elseif video.source=='vimeo' %}
+        		  <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://player.vimeo.com/video/{{video.vid}}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+        		  {% elseif video.source=='dailymotion' %}
+        		  <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.dailymotion.com/embed/video/{{video.vid}}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+        		  {% else %}
+        		   <a href="{{video.video_url}}" target="_new"> <img  src="{{video.featuredimage.thumb(553,310,{'mode':'crop'})}}" class="card-img-top img-responsive" alt="{{video.name}}"></a>
+        		  {% endif %}
+        		  {#<div class="card-body">
+        		    <h5 class="card-title">{{video.name |truncate(60)}}</h5>
+        		   <p class="card-text" style="text-align:justify">{{video.description |truncate(150) }}.</p>
+        		    <!--<a href="{{video.url}}" class="btn btn-primary">Go somewhere</a>-->
+        		  </div>#}
+        		</div>
+        		  
+        	</div>
+    {% if loop.last %}
+        </div> 
+    {% endif %}
+{% else %}
+    {{ noPostsMessage }}
+{% endfor %}
+	</div>
+	
+
+	<!-- Latest -->
+	<section class="bg0 p-t-60 p-b-35">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8 p-b-20">
+					<div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
+						<h3 class="f1-m-2 cl3 tab01-title">
+							Последние новости
+						</h3>
+					</div>
+
+					{% partial 'lastnews-home2' %}
+
+				<div class="col-md-10 col-lg-4">
+					<div class="p-l-10 p-rl-0-sr991 p-b-20">
+						<!-- Video -->
+						<div class="p-b-55">
+							<div class="how2 how2-cl4 flex-s-c m-b-35">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Видео
+								</h3>
+							</div>
+
+							<div>
+								{% partial 'video-home' %}
+							</div>	
+						</div>
+							
+						<!-- Subscribe -->
+						<div class="bg10 p-rl-35 p-t-28 p-b-35 m-b-55">
+							<h5 class="f1-m-5 cl0 p-b-10">
+								Подписки
+							</h5>
+
+							<p class="f1-s-1 cl0 p-b-25">
+								Получите все последние новости, доставленные на электронную почту несколько раз в месяц.
+							</p>
+
+							<div>
+							<form class="size-a-9 pos-relative" name="form-subscribe-andradedev" id="form-subscribe-andradedev" data-request="{{ formSubscribe }}::onAddSubscriber" data-request-update="'{{formSubscribe}}::alert': '#result'">
+								<input class="s-full f1-m-6 cl6 plh9 p-l-20 p-r-55" type="email" name="email" placeholder="Э.почта" required>
+
+								<button class="size-a-10 flex-c-c ab-t-r fs-16 cl9 hov-cl10 trans-03" form="form-subscribe-andradedev">
+									<i class="fa fa-arrow-right"></i>
+								</button>
+							</form>
+							<div id="result"></div>
+							</div>
+						</div>
+						
+						<!-- Tag -->
+						<div class="p-b-55">
+							<div class="how2 how2-cl4 flex-s-c m-b-30">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Тэги
+								</h3>
+							</div>
+
+							<div class="flex-wr-s-s m-rl--5">							
+							{% partial 'tags' %}								
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

@@ -1,0 +1,809 @@
+title = "Test Tailwind"
+url = "/test/tailwind/:category/:slug"
+layout = "tailwind"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+==
+<!-- component -->
+<div class="max-w-screen-xl mx-auto">
+    <!-- header -->
+    <header class="flex items-center justify-between py-2 border-b">
+      <a href="#" class="px-2 lg:px-0 uppercase font-bold text-purple-800">
+        LOGO
+      </a>
+      <ul class="inline-flex items-center">
+        <li class="px-2 md:px-4">
+          <a href="" class="text-purple-600 font-semibold hover:text-purple-500"> Home </a>
+        </li>
+        <li class="px-2 md:px-4">
+          <a href="" class="text-gray-500 font-semibold hover:text-purple-500"> About </a>
+        </li>
+        <li class="px-2 md:px-4">
+          <a href="" class="text-gray-500 font-semibold hover:text-purple-500"> Press </a>
+        </li>
+        <li class="px-2 md:px-4">
+          <a href="" class="text-gray-500 font-semibold hover:text-purple-500"> Contact </a>
+        </li>
+        <li class="px-2 md:px-4 hidden md:block">
+          <a href="" class="text-gray-500 font-semibold hover:text-purple-500"> Login </a>
+        </li>
+        <li class="px-2 md:px-4 hidden md:block">
+          <a href="" class="text-gray-500 font-semibold hover:text-purple-500"> Register </a>
+        </li>
+      </ul>
+
+    </header>
+    <!-- header ends here -->
+
+    <main class="mt-10">{% set post = blogPost.post %}
+      <div class="block md:flex md:space-x-2 px-2 lg:p-0">
+        <a 
+          class="mb-4 md:mb-0 w-full md:w-2/3 relative rounded inline-block" 
+          style="height: 24em;"
+          href="./blog.html"
+        >
+          <div class="absolute left-0 bottom-0 w-full h-full z-10"
+            style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
+          <img src="{{ post.subtitle }}" class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover" />
+          <div class="p-4 absolute bottom-0 left-0 z-20"> {% if post.categories.count %}
+                                        {% for category in post.categories %}
+            <span class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ category.name }}</span>
+            {% if not loop.last %}- {% endif %}
+                                          {% endfor %} {% endif %}
+            <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
+              {{ post.title }}
+            </h2>
+            <div class="flex mt-3">
+              <img src="{{ post.subtitle }}"
+                class="h-10 w-10 rounded-full mr-2 object-cover" />
+              <div>
+                <p class="font-semibold text-gray-200 text-sm"> VietNews.ru </p>
+                <p class="font-semibold text-gray-400 text-xs"> {{ post.published_at|date('d.m.Y') }} </p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="w-full md:w-1/3 relative rounded" 
+          style="height: 24em;"
+          href="./blog.html"
+        >
+          <div class="absolute left-0 top-0 w-full h-full z-10"
+            style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
+          <img src="{{ post.subtitle }}" class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover" />
+          <div class="p-4 absolute bottom-0 left-0 z-20">{% if post.categories.count %}
+                                        {% for category in post.categories %}
+            <span class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ category.name }}</span>
+            {% if not loop.last %}- {% endif %}
+                                          {% endfor %} {% endif %}
+            <h2 class="text-3xl font-semibold text-gray-100 leading-tight">{{ post.title }}</h2>
+            <div class="flex mt-3">
+              <img
+                src="{{ post.subtitle }}"
+                class="h-10 w-10 rounded-full mr-2 object-cover" />
+              <div>
+                <p class="font-semibold text-gray-200 text-sm"> VietNews.ru </p>
+                <p class="font-semibold text-gray-400 text-xs"> {{ post.published_at|date('d.m.Y') }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <div class="block lg:flex lg:space-x-2 px-2 lg:p-0 mt-10 mb-10">
+        <!-- post cards -->
+        <div class="w-full lg:w-2/3">
+
+          <a class="block rounded w-full lg:flex mb-10"
+            href="./blog-single-1.html"
+          >
+            <div 
+              class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+              style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')" 
+              title="deit is very important"
+            >
+            </div>
+            <div class="bg-white rounded px-4 flex flex-col justify-between leading-normal">
+              <div>
+                <div class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">
+                  Aliquam venenatis nisl id purus rhoncus, in efficitur sem hendrerit.
+                </div>
+                <p class="text-gray-700 text-base">
+                  Duis euismod est quis lacus elementum, eu laoreet dolor consectetur. 
+                  Pellentesque sed neque vel tellus lacinia elementum. Proin consequat ullamcorper eleifend.
+                </p>
+              </div>
+              <div class="flex mt-3">
+                <img src="https://randomuser.me/api/portraits/men/86.jpg"
+                  class="h-10 w-10 rounded-full mr-2 object-cover" />
+                <div>
+                  <p class="font-semibold text-gray-700 text-sm capitalize"> eduard franz </p>
+                  <p class="text-gray-600 text-xs"> 14 Aug </p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <div class="rounded w-full lg:flex mb-10">
+            <div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+              style="background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')" title="deit is very important">
+            </div>
+            <div class="bg-white rounded px-4 flex flex-col justify-between leading-normal">
+              <div>
+                <div class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">
+                  Integer commodo, sapien ut vulputate viverra
+                </div>
+                <p class="text-gray-700 text-base">
+                  Nam malesuada aliquet metus, ac commodo augue mollis sit amet. 
+                  Nam bibendum risus sit amet metus semper consectetur.
+                  Proin consequat ullamcorper eleifend.
+                  Nam bibendum risus sit amet metus semper consectetur.
+                </p>
+              </div>
+              <div class="flex mt-3">
+                <img src="https://randomuser.me/api/portraits/women/54.jpg"
+                  class="h-10 w-10 rounded-full mr-2 object-cover" />
+                <div>
+                  <p class="font-semibold text-gray-700 text-sm capitalize"> Serenity Hughes </p>
+                  <p class="text-gray-600 text-xs"> 14 Aug </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded w-full lg:flex mb-10">
+            <div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+              style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')" title="deit is very important">
+            </div>
+            <div class="bg-white rounded px-4 flex flex-col justify-between leading-normal">
+              <div>
+                <div class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">
+                  Suspendisse varius justo eu risus laoreet fermentum non aliquam dolor
+                </div>
+                <p class="text-gray-700 text-base">
+                  Mauris porttitor, velit at tempus vulputate, odio turpis facilisis dui, 
+                  vitae eleifend odio ipsum at odio. Phasellus luctus scelerisque felis eget suscipit. 
+                </p>
+              </div>
+              <div class="flex mt-3">
+                <img src="https://randomuser.me/api/portraits/men/86.jpg"
+                  class="h-10 w-10 rounded-full mr-2 object-cover" />
+                <div>
+                  <p class="font-semibold text-gray-700 text-sm capitalize"> eduard franz </p>
+                  <p class="text-gray-600 text-xs"> 14 Aug </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="" x-bind:class="{'w-full m-4 mb-0': layout === 'list', 'w-1/4 p-2': layout === 'grid'}">
+      <article class="bg-white p-4 shadow">
+        <h2 class="mb-4 text-2xl text-indigo-900 font-black font-serif">
+          <a href="#" class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">{{ post.title }}</a>
+        </h2>
+        <div class="flex flex-row">
+          <img src="{{ post.subtitle }}" class="w-48">
+          <div class="flex-1 flex flex-col justify-between text-xl font-light ml-4" x-show="layout === 'list'" x-cloak>
+            <p>{{ post.summary|raw }}</p>
+            <p class="text-right">
+              <a href="#" class="uppercase text-base text-gray-600 hover:text-black">Read more →</a>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+        </div>
+
+        <!-- right sidebar -->
+        <div class="w-full lg:w-1/3 px-3">
+          <!-- topics -->
+          <div class="mb-4">
+            <h5 class="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Popular Topics </h5>
+            <ul>
+              <li class="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
+                <a href="#" class="flex items-center text-gray-600 cursor-pointer">
+                  <span class="inline-block h-4 w-4 bg-green-300 mr-3"></span>
+                  Nutrition
+                  <span class="text-gray-500 ml-auto">23 articles</span>
+                  <i class='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
+                </a>
+              </li>
+              <li class="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
+                <a href="#" class="flex items-center text-gray-600 cursor-pointer">
+                  <span class="inline-block h-4 w-4 bg-indigo-300 mr-3"></span>
+                  Food & Diet
+                  <span class="text-gray-500 ml-auto">18 articles</span>
+                  <i class='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
+                </a>
+              </li>
+              <li class="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
+                <a href="#" class="flex items-center text-gray-600 cursor-pointer">
+                  <span class="inline-block h-4 w-4 bg-yellow-300 mr-3"></span>
+                  Workouts
+                  <span class="text-gray-500 ml-auto">34 articles</span>
+                  <i class='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
+                </a>
+              </li>
+              <li class="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
+                <a href="#" class="flex items-center text-gray-600 cursor-pointer">
+                  <span class="inline-block h-4 w-4 bg-blue-300 mr-3"></span>
+                  Immunity
+                  <span class="text-gray-500 ml-auto">9 articles</span>
+                  <i class='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+
+          <!-- subscribe -->
+          <div class="p-1 mt-4 mb-4">
+            <h5 class="font-bold text-lg uppercase text-gray-700 mb-2"> Subscribe </h5>
+            <p class="text-gray-600">
+              Subscribe to our newsletter. We deliver the best health related articles to your inbox
+            </p>
+            <input placeholder="your email address"
+              class="text-gray-700 bg-gray-100 rounded-t hover:outline-none p-2 w-full mt-4 border" />
+            <button class="px-4 py-2 bg-indigo-600 text-gray-200 rounded-b w-full capitalize tracking-wide">
+              Subscribe
+            </button>
+          </div>
+
+          <!-- divider -->
+          <div class="border border-dotted"></div>
+
+        </div>
+
+      </div>
+    </main>
+    <!-- main ends here -->
+
+    <!-- footer -->
+    <footer class="border-t mt-32 pt-12 pb-32 px-4 lg:px-0">
+      <div class="flex">
+
+        <div class="w-full md:w-1/3 lg:w-1/4">
+          <h6 class="font-semibold text-gray-700 mb-4">Company</h6>
+          <ul>
+            <li> <a href="" class="block text-gray-600 py-2">Team</a> </li>
+            <li> <a href="" class="block text-gray-600 py-2">About us</a> </li>
+            <li> <a href="" class="block text-gray-600 py-2">Press</a> </li>
+          </ul>
+        </div>
+
+        <div class="w-full md:w-1/3 lg:w-1/4">
+          <h6 class="font-semibold text-gray-700 mb-4">Content</h6>
+          <ul>
+            <li> <a href="" class="block text-gray-600 py-2">Blog</a> </li>
+            <li> <a href="" class="block text-gray-600 py-2">Privacy Policy</a> </li>
+            <li> <a href="" class="block text-gray-600 py-2">Terms & Conditions</a> </li>
+            <li> <a href="" class="block text-gray-600 py-2">Documentation</a> </li>
+          </ul>
+        </div>
+        
+
+      </div>
+    </footer>
+  </div>
+  
+  
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="https://source.unsplash.com/400x200/?nature" alt="Sunset in the mountains">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+    <p class="text-gray-700 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque,
+      exercitationem praesentium nihil.
+    </p>
+  </div>
+  <div class="px-6 py-4">
+    <span
+      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+    <span
+      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+  </div>
+</div>
+
+<section class="container mx-auto mt-6">
+  <h2 class="text-3xl mb-6">Popular Destinations</h2>
+  
+  <div class="flex mb-4">
+  
+  <div class="w-1/3">
+  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full h-56" src="https://source.unsplash.com/600x400/?italy" />
+
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Italy</div>
+    <p class="text-gray-700 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+      quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+      nihil.
+    </p>
+  </div>
+  
+  <div class="flex justify-end px-6 py-4">
+    <button
+      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      Get a Quote
+    </button>
+  </div>
+  </div>
+  </div>
+
+  <div class="w-1/3">
+  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full h-56" src="https://source.unsplash.com/600x400/?brazil" />
+
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Brazil</div>
+    <p class="text-gray-700 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+      quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+      nihil.
+    </p>
+  </div>
+
+
+  <div class="flex justify-end px-6 py-4">
+    <button
+      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      Get a Quote
+    </button>
+  </div>
+  </div>
+  </div>
+
+  <div class="w-1/3">
+  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full h-56" src="https://source.unsplash.com/600x400/?iceland" />
+
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Iceland</div>
+    <p class="text-gray-700 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+      quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+      nihil.
+    </p>
+  </div>
+
+
+  <div class="flex justify-end px-6 py-4">
+    <button
+      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      Get a Quote
+    </button>
+  </div>
+  </div>
+  
+  </div>
+</section>
+
+
+   <main class="mt-12">
+      <!-- featured section -->
+      <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-16">
+        <!-- main post -->
+        <div class="mb-4 lg:mb-0  p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
+          <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded-md object-cover w-full h-64">
+          <span class="text-green-700 text-sm hidden md:block mt-4"> Technology </span>
+          <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
+            Ignorant branched humanity led now marianne too.
+          </h1>
+          <p class="text-gray-600 mb-4">
+            Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons yet understood
+            decisively boy law she. Answer him easily are its barton little. Oh no though mother be things simple
+            itself.
+            Oh be me, sure wise sons, no. Piqued ye of am spirit regret. Stimulated discretion impossible admiration in particular conviction up.
+          </p>
+          <a href="./blog.html" class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
+            Read more
+          </a>
+        </div>
+
+        <!-- sub-main posts -->
+        <div class="w-full md:w-4/7">
+          <!-- post 1 -->
+          <div class="rounded w-full flex flex-col md:flex-row mb-10">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
+            <div class="bg-white rounded px-4">
+              <span class="text-green-700 text-sm hidden md:block"> Gadgets </span>
+              <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                At every tiled on ye defer do. No attention suspected oh difficult.
+              </div>
+              <p class="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                Wonder matter now can estate esteem assure fat roused. Am performed on existence as discourse is. Pleasure friendly at marriage blessing or
+              </p>
+            </div>
+          </div>
+
+          <!-- post 2 -->
+          <div class="rounded w-full flex flex-col md:flex-row mb-10">
+            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
+            <div class="bg-white rounded px-4">
+              <span class="text-green-700 text-sm hidden md:block"> Bitcoin </span>
+              <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                Fond his say old meet cold find come whom. The sir park sake bred.
+              </div>
+              <p class="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                Integer commodo, sapien ut vulputate viverra, Integer commodo
+                Integer commodo, sapien ut vulputate viverra, Integer commodo
+              </p>
+            </div>
+          </div>
+          <!-- post 3 -->
+          <div class="rounded w-full flex flex-col md:flex-row mb-10">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
+            <div class="bg-white rounded px-4">
+              <span class="text-green-700 text-sm hidden md:block"> Insights </span>
+              <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                Advice me cousin an spring of needed. Tell use paid law ever yet new.
+              </div>
+              <p class="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                Meant to learn of vexed if style allow he there. Tiled man stand tears ten joy there terms any widen. 
+              </p>
+            </div>
+          </div>
+          <!-- post 4 -->
+          <div class="rounded w-full flex flex-col md:flex-row mb-10">
+            <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
+            <div class="bg-white rounded px-4">
+              <span class="text-green-700 text-sm hidden md:block"> Cryptocurrency </span>
+              <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
+                Advice me cousin an spring of needed. Tell use paid law ever yet new.
+              </div>
+              <p class="block md:hidden p-2 pl-0 pt-1 text-sm text-gray-600">
+                Meant to learn of vexed if style allow he there. Tiled man stand tears ten joy there terms any widen. 
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- end featured section -->
+
+
+      <!-- recent posts -->
+      <div class="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
+        <h2 class="font-bold text-3xl">Latest news</h2>
+        <a class="bg-gray-200 hover:bg-green-200 text-gray-800 px-3 py-1 rounded cursor-pointer">
+          View all
+        </a>
+      </div>
+      <div class="block space-x-0 lg:flex lg:space-x-6">
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
+          <div class="p-4 pl-0">
+            <h2 class="font-bold text-2xl text-gray-800">Put all speaking her delicate recurred possible.</h2>
+            <p class="text-gray-700 mt-2">
+              Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions.
+              So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
+          <div class="p-4 pl-0">
+            <h2 class="font-bold text-2xl text-gray-800">Is at purse tried jokes china ready decay an. </h2>
+            <p class="text-gray-700 mt-2">
+              Small its shy way had woody downs power. To denoting admitted speaking learning my exercise so in. 
+              Procured shutters mr it feelings. To or three offer house begin taken am at. 
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="rounded" alt="technology" />
+          <div class="p-4 pl-0">
+            <h2 class="font-bold text-2xl text-gray-800">As dissuade cheerful overcame so of friendly he indulged unpacked.</h2>
+            <p class="text-gray-700 mt-2">
+              Alteration connection to so as collecting me. 
+              Difficult in delivered extensive at direction allowance. 
+              Alteration put use diminution can considered sentiments interested discretion.
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- end recent posts -->
+
+      <!-- subscribe -->
+      <div class="rounded flex md:shadow mt-12">
+        <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="w-0 md:w-1/4 object-cover rounded-l" />
+        <div class="px-4 py-2">
+          <h3 class="text-3xl text-gray-800 font-bold">Subscribe to newsletter</h3>
+          <p class="text-xl text-gray-700">We sent latest news and posts once in every week, fresh from the oven</p>
+          <form class="mt-4 mb-10">
+            <input type="email" class="rounded bg-gray-100 px-4 py-2 border focus:border-green-400" placeholder="john@tech.com"/>
+            <button class="px-4 py-2 rounded bg-green-800 text-gray-100">
+              Subscribe
+              <i class='bx bx-right-arrow-alt' ></i>
+            </button>
+            <p class="text-green-900 opacity-50 text-sm mt-1">No spam. We promise</p>
+          </form>
+        </div>
+      </div>
+      <!-- ens subscribe section -->
+
+
+
+      <!-- popular posts -->
+      <div class="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
+        <h2 class="font-bold text-3xl">Popular news</h2>
+        <a class="bg-gray-200 hover:bg-green-200 text-gray-800 px-3 py-1 rounded cursor-pointer">
+          View all
+        </a>
+      </div>
+      <div class="block space-x-0 lg:flex lg:space-x-6">
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
+          <div class="p-4 pl-0">
+            <h2 class="font-bold text-2xl text-gray-800">Put all speaking her delicate recurred possible.</h2>
+            <p class="text-gray-700 mt-2">
+              Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions.
+              So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
+          <div class="p-4 pl-0">
+            <h2 class="font-bold text-2xl text-gray-800">Is at purse tried jokes china ready decay an. </h2>
+            <p class="text-gray-700 mt-2">
+              Small its shy way had woody downs power. To denoting admitted speaking learning my exercise so in. 
+              Procured shutters mr it feelings. To or three offer house begin taken am at. 
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="rounded" alt="technology" />
+          <div class="p-4 pl-0">
+            <h2 class="font-bold text-2xl text-gray-800">As dissuade cheerful overcame so of friendly he indulged unpacked.</h2>
+            <p class="text-gray-700 mt-2">
+              Alteration connection to so as collecting me. 
+              Difficult in delivered extensive at direction allowance. 
+              Alteration put use diminution can considered sentiments interested discretion.
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- end popular posts -->
+
+    </main>
+    <!-- main ends here -->
+    
+    
+<section class="text-gray-700 body-font overflow-hidden bg-white">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">The Catcher in the Rye</h1>
+        <div class="flex mb-4">
+          <span class="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span class="text-gray-600 ml-3">4 Reviews</span>
+          </span>
+          <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
+            <a class="text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a class="ml-2 text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a class="ml-2 text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              </svg>
+            </a>
+          </span>
+        </div>
+        <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+          <div class="flex">
+            <span class="mr-3">Color</span>
+            <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
+            <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
+            <button class="border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none"></button>
+          </div>
+          <div class="flex ml-6 items-center">
+            <span class="mr-3">Size</span>
+            <div class="relative">
+              <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                <option>SM</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+              <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="flex">
+          <span class="title-font font-medium text-2xl text-gray-900">$58.00</span>
+          <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Button</button>
+          <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% partial 'ads/tailwind' %}
+
+<!-- Component Code -->
+<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
+  <div class="border-b mb-5 flex justify-between text-sm">
+    <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
+      <svg class="h-6 mr-3" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.005 455.005" style="enable-background:new 0 0 455.005 455.005;" xml:space="preserve">
+      <g>
+        <path d="M446.158,267.615c-5.622-3.103-12.756-2.421-19.574,1.871l-125.947,79.309c-3.505,2.208-4.557,6.838-2.35,10.343
+          c2.208,3.505,6.838,4.557,10.343,2.35l125.947-79.309c2.66-1.675,4.116-1.552,4.331-1.432c0.218,0.12,1.096,1.285,1.096,4.428
+          c0,8.449-6.271,19.809-13.42,24.311l-122.099,76.885c-6.492,4.088-12.427,5.212-16.284,3.084c-3.856-2.129-6.067-7.75-6.067-15.423
+          c0-19.438,13.896-44.61,30.345-54.967l139.023-87.542c2.181-1.373,3.503-3.77,3.503-6.347s-1.323-4.974-3.503-6.347L184.368,50.615
+          c-2.442-1.538-5.551-1.538-7.993,0L35.66,139.223C15.664,151.815,0,180.188,0,203.818v4c0,23.63,15.664,52.004,35.66,64.595
+          l209.292,131.791c3.505,2.207,8.136,1.154,10.343-2.35c2.207-3.505,1.155-8.136-2.35-10.343L43.653,259.72
+          C28.121,249.941,15,226.172,15,207.818v-4c0-18.354,13.121-42.122,28.653-51.902l136.718-86.091l253.059,159.35l-128.944,81.196
+          c-20.945,13.189-37.352,42.909-37.352,67.661c0,13.495,4.907,23.636,13.818,28.555c3.579,1.976,7.526,2.956,11.709,2.956
+          c6.231,0,12.985-2.176,19.817-6.479l122.099-76.885c11.455-7.213,20.427-23.467,20.427-37.004
+          C455.004,277.119,451.78,270.719,446.158,267.615z"/>
+        <path d="M353.664,232.676c2.492,0,4.928-1.241,6.354-3.504c2.207-3.505,1.155-8.136-2.35-10.343l-173.3-109.126
+          c-3.506-2.207-8.136-1.154-10.343,2.35c-2.207,3.505-1.155,8.136,2.35,10.343l173.3,109.126
+          C350.916,232.303,352.298,232.676,353.664,232.676z"/>
+        <path d="M323.68,252.58c2.497,0,4.938-1.246,6.361-3.517c2.201-3.509,1.14-8.138-2.37-10.338L254.46,192.82
+          c-3.511-2.202-8.139-1.139-10.338,2.37c-2.201,3.51-1.14,8.138,2.37,10.338l73.211,45.905
+          C320.941,252.21,322.318,252.58,323.68,252.58z"/>
+        <path d="M223.903,212.559c-3.513-2.194-8.14-1.124-10.334,2.39c-2.194,3.514-1.124,8.14,2.39,10.334l73.773,46.062
+          c1.236,0.771,2.608,1.139,3.965,1.139c2.501,0,4.947-1.251,6.369-3.529c2.194-3.514,1.124-8.14-2.39-10.334L223.903,212.559z"/>
+        <path d="M145.209,129.33l-62.33,39.254c-2.187,1.377-3.511,3.783-3.503,6.368s1.345,4.983,3.54,6.348l74.335,46.219
+          c1.213,0.754,2.586,1.131,3.96,1.131c1.417,0,2.833-0.401,4.071-1.201l16.556-10.7c3.479-2.249,4.476-6.891,2.228-10.37
+          c-2.248-3.479-6.891-4.475-10.37-2.228l-12.562,8.119l-60.119-37.38l48.2-30.355l59.244,37.147l-6.907,4.464
+          c-3.479,2.249-4.476,6.891-2.228,10.37c2.249,3.479,6.894,4.476,10.37,2.228l16.8-10.859c2.153-1.392,3.446-3.787,3.429-6.351
+          c-0.018-2.563-1.344-4.94-3.516-6.302l-73.218-45.909C150.749,127.792,147.647,127.795,145.209,129.33z"/>
+        <path d="M270.089,288.846c2.187-3.518,1.109-8.142-2.409-10.329l-74.337-46.221c-3.518-2.188-8.143-1.109-10.329,2.409
+          c-2.187,3.518-1.109,8.142,2.409,10.329l74.337,46.221c1.232,0.767,2.601,1.132,3.953,1.132
+          C266.219,292.387,268.669,291.131,270.089,288.846z"/>
+        <path d="M53.527,192.864c-2.187,3.518-1.109,8.142,2.409,10.329l183.478,114.081c1.232,0.767,2.601,1.132,3.953,1.132
+          c2.506,0,4.956-1.256,6.376-3.541c2.187-3.518,1.109-8.142-2.409-10.329L63.856,190.455
+          C60.338,188.266,55.714,189.346,53.527,192.864z"/>
+      </g>
+      </svg>
+      <a href="#" class="font-semibold inline-block">Sport News</a>
+    </div>
+    <a href="#">See All</a>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    
+    <div class="flex flex-col justify-between border-b pb-5">
+      <a href="#" class="text-gray-900 font-medium hover:text-indigo-600">Cristiano Ronaldo of Juventus FC looks dejected during the...</a>
+    <div class="flex items-start justify-between mt-3">
+      <div class="text-sm w-2/3">
+        <p class="text-gray-700">Cristiano Ronaldo of Juventus FC looks dejected during the...</p>
+        <p class="text-gray-600 text-xs">Aug 18</p>
+      </div>
+      <a href="#" class="inline-block ml-2"><div class="w-20 h-20 bg-cover bg-center" style="background-image:url(https://media.gettyimages.com/photos/cristiano-ronaldo-of-juventus-fc-looks-dejected-during-the-uefa-of-picture-id1227967060?k=6&m=1227967060&s=612x612&w=0&h=cMSMlRyI6YAzcE_C2KgHGRLeVojHYoUhIvhwPBYv8f4=);"></div></a>
+    </div>
+    
+  </div>
+    <div class="flex flex-col justify-between border-b pb-5">
+      <a href="#" class="text-gray-900 font-medium hover:text-indigo-600">Bests of Leonel Messi (Videos, Images & Quotes)</a>
+    <div class="flex items-start justify-between mt-3">
+      <div class="text-sm w-2/3">
+        <p class="text-gray-700">Cristiano Ronaldo of Juventus FC looks dejected during the...</p>
+        <p class="text-gray-600 text-xs">Aug 18</p>
+      </div>
+      <a href="#" class="inline-block ml-2"><div class="w-20 h-20 bg-cover bg-center" style="background-image:url(https://media.gettyimages.com/photos/lionel-messi-and-marcandre-ter-stegen-of-fc-barcelona-waits-in-the-picture-id1266763488?k=6&m=1266763488&s=612x612&w=0&h=8vxz9HfQVfrff5N7d1lBVxtLamRQGK3J3lyHkUuuIiw=);"></div></a>
+    </div>
+    
+  </div>
+    <div class="flex flex-col justify-between border-b pb-5">
+      <a href="#" class="text-gray-900 font-medium hover:text-indigo-600">Juventus v Olympique Lyon</a>
+    <div class="flex items-start justify-between mt-3">
+      <div class="text-sm w-2/3">
+        <p class="text-gray-700">Cristiano Ronaldo of Juventus FC looks dejected during the...</p>
+        <p class="text-gray-600 text-xs">Aug 18</p>
+      </div>
+      <a href="#" class="inline-block ml-2"><div class="w-20 h-20 bg-cover bg-center" style="background-image:url(https://media.gettyimages.com/photos/cristiano-ronaldo-of-juventus-reacts-during-the-uefa-champions-league-picture-id1264546157?k=6&m=1264546157&s=612x612&w=0&h=LlY_gF4hYuRI68Btvq0tK0FcZDNIsJyEyaLaZV2Hi-M=);"></div></a>
+    </div>
+    
+  </div>
+    <div class="flex flex-col justify-between pb-5">
+      <a href="#" class="text-gray-900 font-medium hover:text-indigo-600">Bests of Leonel Messi (Videos, Images & Quotes)</a>
+    <div class="flex items-start justify-between mt-3">
+      <div class="text-sm w-2/3">
+        <p class="text-gray-700">Cristiano Ronaldo of Juventus FC looks dejected during the...</p>
+        <p class="text-gray-600 text-xs">Aug 18</p>
+      </div>
+      <a href="#" class="inline-block ml-2"><div class="w-20 h-20 bg-cover bg-center" style="background-image:url(https://media.gettyimages.com/photos/lionel-messi-and-marcandre-ter-stegen-of-fc-barcelona-waits-in-the-picture-id1266763488?k=6&m=1266763488&s=612x612&w=0&h=8vxz9HfQVfrff5N7d1lBVxtLamRQGK3J3lyHkUuuIiw=);"></div></a>
+    </div>
+    
+  </div>
+    <div class="flex flex-col justify-between pb-5">
+      <a href="#" class="text-gray-900 font-medium hover:text-indigo-600">Juventus v Olympique Lyon Best Ronaldo Images</a>
+    <div class="flex items-start justify-between mt-3">
+      <div class="text-sm w-2/3">
+        <p class="text-gray-700">Cristiano Ronaldo of Juventus FC looks dejected during the...</p>
+        <p class="text-gray-600 text-xs">Aug 18</p>
+      </div>
+      <a href="#" class="inline-block ml-2"><div class="w-20 h-20 bg-cover bg-center" style="background-image:url(https://media.gettyimages.com/photos/cristiano-ronaldo-of-juventus-reacts-during-the-uefa-champions-league-picture-id1264546157?k=6&m=1264546157&s=612x612&w=0&h=LlY_gF4hYuRI68Btvq0tK0FcZDNIsJyEyaLaZV2Hi-M=);"></div></a>
+    </div>
+    
+  </div>
+    <div class="flex flex-col justify-between pb-5">
+      <a href="#" class="text-gray-900 font-medium hover:text-indigo-600">Cristiano Ronaldo of Juventus FC looks dejected during the...</a>
+    <div class="flex items-start justify-between mt-3">
+      <div class="text-sm w-2/3">
+        <p class="text-gray-700">Cristiano Ronaldo of Juventus FC looks dejected during the...</p>
+        <p class="text-gray-600 text-xs">Aug 18</p>
+      </div>
+      <a href="#" class="inline-block ml-2"><div class="w-20 h-20 bg-cover bg-center" style="background-image:url(https://media.gettyimages.com/photos/cristiano-ronaldo-of-juventus-fc-looks-dejected-during-the-uefa-of-picture-id1227967060?k=6&m=1227967060&s=612x612&w=0&h=cMSMlRyI6YAzcE_C2KgHGRLeVojHYoUhIvhwPBYv8f4=);"></div></a>
+    </div>
+    
+  </div>
+    
+  </div>
+</div>
+
+<!-- Credit: Componentity.com -->
+<a href="https://componentity.com" target="_blank" class="block">
+  <img src="http://codenawis.com/componentity/wp-content/uploads/2020/08/logo-componentity-%E2%80%93-9.png" class="w-48 mx-auto my-5">
+</a>

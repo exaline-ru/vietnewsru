@@ -1,0 +1,33 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "sobytie"
+postsPerPage = 3
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<!-- Component Code -->
+
+  <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-5">
+    {% set posts = blogPosts.posts %}
+					{% for post in posts %}
+    <div class="relative w-full flex items-end justify-start text-left bg-cover bg-center lazyload" style="height: 250px; background-image:url({{ post.subtitle }});">
+  <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900"></div>
+      <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+        <a href="../category/sobytie" class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Событие</a>
+      <div class="text-white font-regular flex flex-col justify-start">
+        <span class="text-3xl leading-0 font-semibold">{{ post.published_at|date('d') }}</span>
+        <span class="-mt-3">{{ post.published_at|date('F') }}</span>
+      </div>
+      </div>
+  <main class="p-5 z-10">
+    <a href="{{ post.url }}" class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">{{ post.title }}
+    </a>
+      </main>
+  
+</div>{% endfor %}
+
+  </div>

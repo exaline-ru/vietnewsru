@@ -1,0 +1,39 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "topnews"
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/category"
+==
+{% set posts = blogPosts.posts %}{% for post in posts %}
+
+    <div class="sport-top-articles__img">
+      <a href="{{ post.url }}"><img src="{{ post.subtitle }}" style="width: 660px; height: 400px;" alt="{{ post.title }}" border="0"> </a>
+    </div>
+    <div class="sport-top-articles__copy">
+      <div class="sport-top-articles--header">
+        <h3> <a href="{{ post.url }}" class="text-secondary">{{ post.title }}</a> </h3>
+        <div class="copy hidden">
+          {{ post.summary }}
+        </div>
+      </div>
+      <div class="sport-top-articles--meta">
+        <span class=""> {{ post.published_at.diffForHumans() }} </span>
+      <span>|</span>
+      <span class="">  {% if post.categories.count %} {% endif %}
+            {% for category in post.categories %}
+    <a class="text-secondary" href="{{ category.url }}"> {{ category.name }} </a>
+            {% endfor %} </span>
+      </div>
+    </div>
+    <hr>
+{% endfor %}

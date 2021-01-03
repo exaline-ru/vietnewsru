@@ -1,0 +1,22 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "photo"
+postsPerPage = 2
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/category"
+==
+{% set posts = blogPosts.posts %}{% for post in posts %}
+<div class="fb-inspired__sub ">
+        <div class="fb-inspired__sub-img"> <a href="{{ post.url }}"><img src="{{ post.subtitle }}" alt="bg" border="0"> </a>  </div>
+        <div class="fb-inspired__sub-copy"> <a href="{{ post.url }}" class="text-secondary">{{ post.title }}</a> </div>
+      </div>    
+{% endfor %}

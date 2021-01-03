@@ -1,0 +1,139 @@
+title = "test grid11-1"
+url = "/test/grid11-1"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 11
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "news/news"
+
+[popularPosts]
+category = "{{ :category }}"
+postsLimit = 4
+noPostsMessage = "No posts found"
+postPage = "news/news"
+==
+<link href="{{ 'assets/css/grid11.css'|theme }}" rel="stylesheet" />
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>VietNews.ru</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Playfair+Display+SC:wght@900&family=Playfair+Display:ital,wght@0,800;1,800&family=Manrope:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
+
+</head>
+
+<body>
+  <div class="main__wrapper">
+    <main>
+      <h1>VietNews.ru - Все о Вьетнаме. Вьетнам сегодня</h1>
+      <aside>
+        <div>
+          <div class="issue">VietNews.ru </div>
+          <div class="date">{{ node.getCreatedTime()|localizeddate('long', 'none', 'ru', 'Europe/Moscow', 'EEEE, dd MMMM YYYY') }}</div>
+          <div class="edition">Вьетнамские новости</div>
+        </div>
+      </aside>{{ rusdate }}
+      {% for post in blogPosts.posts %}{% if loop.index ==1 %}
+      <h2 class="title--large main-title">{{post.title}}</h2>
+      <div class="main-text multi-column">
+        <p>{{ html_limit(post.content_html|raw,700,'...') }}</p>
+      </div><a class="terrarium" href="{{post.title}}" target="_blank">
+        <figure><img src="{{ post.subtitle }}" />
+          <figcaption>{{post.title}}</figcaption>
+        </figure>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==3 %}
+      <a class="item-with-image plan span--2 long--2" href="{{post.url}}" target="_blank"><img src="{{ post.subtitle }}" />
+        <h4>{{post.title}}</h4>
+        <div class="multi-column">
+          <p>{{post.summary}}</p>
+        </div>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==4 %}
+      <a class="hogwarts" href="{{post.url}}" target="_blank">
+        <div class="hogwarts__title">{{post.title}}</div>
+        <div class="hogwarts__image"> <span>Limited time offer</span><img src="{{ post.subtitle }}" /></div>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==5 %}
+      <a class="item-with-image pasta with-border" href="{{post.url}}" target="_blank">
+        <h4>{{post.title}}</h4>
+        <p>{{post.summary}}</p>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==6 %}
+      <a class="item-with-image magazine with-border" href="{{post.url}}" target="_blank">
+        <h4>{{post.title}}</h4>
+        <p>{{post.summary}}</p>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==7 %}
+      <a class="item-with-image style" href="{{post.url}}" target="_blank">
+        <h4>{{post.title}}</h4>
+        <p>{{post.summary}}</p>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==8 %}
+      <a class="item-with-image toggles" href="{{post.url}}" target="_blank"><img src="{{ post.subtitle }}" />
+        <h4>{{post.title}}</h4>
+        <p>{{post.summary}}</p>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==9 %}
+      <a class="menu" href="{{post.url}}" target="_blank">
+        <figure><img src="{{ post.subtitle }}" />
+          <figcaption>{{post.title}}</figcaption>
+        </figure>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==10 %}
+      <a class="social" href="{{post.url}}" tagrget="_blank"><img class="social__image" src="{{ post.subtitle }}" />
+        <div class="social__subtitle">{{post.title}}</div>
+        <div class="social__content">{{post.summary}}</div>
+      </a>{% endif %}{% endfor %}
+      {% for post in blogPosts.posts %}{% if loop.index ==11 %}
+      <div class="item-with-image cssgrid-collection"><a class="cssgrid-collection__image" href="{{ post.url }}" target="_blank"><img src="{{ post.subtitle }}" /></a>
+        <div class="cssgrid-collection__content">
+          <h4> <a href="https://codepen.io/collection/DQvYpQ" target="_blank">{{ post.title }}</a></h4>
+          <div class="multi-column-3">
+            <p>{{ html_limit(post.content_html|raw,800) }}</p>
+          </div>
+        </div>
+      </div>{% endif %}{% endfor %}
+      <div class="sidebar">
+        <h3 class="title--big">Самые читаемые</h3>
+        {% set posts = popularPosts.posts %}
+        {% for post in posts %}
+        {% if loop.index ==1 %}
+        <a class="codepen-item pie" href="{{post.url}}" target="_blank"><img class="pie__image" src="{{ post.subtitle }}" />
+          <div class="pie__subtitle">{{post.title}} </div>
+          <div class="pie__content">
+            <h4>{{post.title}}</h4>
+            <p>No man is left behind. There's infinite pie with this one div and a repeating background.</p>
+          </div>
+        </a>{% elseif loop.index == 2 %}
+        <a class="sidebar-item captcha" href="{{post.url}}" target="_blank">
+          <h5>{{post.title}}</h5>
+          <p>{{ post.summary|raw }}</p>
+        </a>{% elseif loop.index == 3 %}
+        <a class="sidebar-item slack-ui with-border" href="{{post.url}}" target="_blank">
+          <h5>{{post.title}}</h5>
+          <p>{{ post.summary|raw }}</p>
+        </a>{% elseif loop.index == 4 %}       
+        <a class="workout" href="{{post.url}}" target="_blank">
+          <div class="workout__image"><img src="{{ post.subtitle }}" alt="Workout" /></div>
+          <div class="workout__blurb">Always failing to keep track of your workouts? </div>
+          <div class="workout__title">{{post.title}}</div>
+        </a>{% endif %}{% endfor %}
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

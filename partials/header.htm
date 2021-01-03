@@ -1,0 +1,385 @@
+==
+<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<div class="topbar">
+				<div class="content-topbar container h-100">
+					<div class="left-topbar">
+						<span class="left-topbar-item flex-wr-s-c">
+							<span>
+								Москва, Mск  
+							</span>
+
+							<a class="left-topbar-item">
+							<i class="fas fa-clock"></i> 
+							</a>
+
+							<span>
+								{{ node.getCreatedTime()|localizeddate('long', 'none', 'ru', 'Europe/Moscow', 'dd MMMM YYYY') }}
+							</span>
+						</span>
+
+						<!--<a href="#" class="left-topbar-item">
+							О нас
+						</a>-->
+
+						<a href="mailto:info@vietnews.ru" class="left-topbar-item">
+							Контакт
+						</a>
+
+						<!--<a href="#" class="left-topbar-item">
+							Регистрация
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Вход
+						</a>-->
+					</div>
+
+					<div class="right-topbar">
+						<a href="https://www.facebook.com/vietnews.ru/">
+							<span class="fab fa-facebook-f"></span>
+						</a>
+
+						<a href="https://tưitter.com/vietnewsru">
+							<span class="fab fa-twitter"></span>
+						</a>
+
+						<a href="https://vk.com/vietnewsru">
+							<span class="fab fa-vk"></span>
+						</a>
+
+						<a href="https://vietnews.ru/rss.xml">
+							<span class="fas fa-rss"></span>
+						</a>
+
+						<!--<a href="#">
+							<span class="fab fa-youtube"></span>
+						</a>-->
+					</div>
+				</div>
+			</div>
+
+			<!-- Header Mobile -->
+			<div class="wrap-header-mobile">
+				<!-- Logo moblie -->		
+				<div class="logo-mobile">
+					<a href="{{ 'home'|page }}"><img src="{{'assets/images/icons/logo_ru.png'|theme }}" alt="Vietnews.ru"></a>
+				</div>
+
+				<!-- Button show menu -->
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Menu Mobile -->
+			<div class="menu-mobile">
+				<ul class="topbar-mobile">
+					<li class="left-topbar">
+						<span class="left-topbar-item flex-wr-s-c">
+							<span>
+								Москва, МСК
+							</span>
+
+							<img class="m-b-1 m-rl-8" src="{{'assets/images/icons/icon-night.png'|theme }}" alt="IMG">
+
+							<span>
+								{{ node.getCreatedTime()|date('d F Y H:s', 'Europe/Moscow') }}
+							</span>
+						</span>
+					</li>
+
+					<li class="left-topbar">
+						<a href="#" class="left-topbar-item">
+							О нас
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Контакт
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Регистрация
+						</a>
+
+						<a href="#" class="left-topbar-item">
+							Вход
+						</a>
+					</li>
+
+					<li class="right-topbar">
+						
+						<a href="https://vietnews.ru/rss">
+							<span class="fa fa-rss"></span>
+						</a>
+						
+						<a href="https://www.facebook.com/vietnews.ru/">
+							<span class="fab fa-facebook-f"></span>
+						</a>
+
+						<a href="https://twitter.com/vietnewsru">
+							<span class="fab fa-twitter"></span>
+						</a>
+
+						<a href="#">
+							<span class="fab fa-pinterest-p"></span>
+						</a>
+
+						<a href="#">
+							<span class="fab fa-vimeo-v"></span>
+						</a>
+
+						<a href="#">
+							<span class="fab fa-youtube"></span>
+						</a>
+					</li>
+				</ul>
+
+				<ul class="main-menu-m">
+					<li>
+						<a href="{{ 'home'|page }}">Главная</a>
+					</li>
+
+					<li>
+						<a href="https://vietnews.ru/category/economy">Экономика</a>
+					</li>
+
+					<li>
+						<a href="https://vietnews.ru/category/culture">Культура</a>
+					</li>
+
+					<li>
+						<a href="https://vietnews.ru/category/science-and-technology">Технология</a>
+					</li>
+
+					<li>
+						<a href="https://vietnews.ru/category/travel">Туризм</a>
+					</li>
+
+					<li>
+						<a href="https://vietnews.ru/category/society">Общество</a>
+					</li>
+
+					<li>
+						<a href="https://vietnews.ru/category/video">Видео</a>
+					</li>
+
+					<li>
+						<a href="https://vn.vietnews.ru">Tiếng Việt</a>
+						<ul class="sub-menu-m">							
+							<!--<li><a href="#">О нас</a></li>-->
+							<li><a href="{{ 'contact'|page }}">Контакт</a></li>
+						</ul>
+
+						<span class="arrow-main-menu-m">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</span>
+					</li>
+				</ul>
+			</div>
+			
+			<!--  -->
+			<div class="wrap-logo container">
+				<!-- Logo desktop -->		
+				<div class="logo">
+					<a href="{{ 'home'|page }}"><img src="{{'assets/images/logo_ru.png'|theme }}" alt="VietNews.ru"></a>
+				</div>	
+
+				<!-- Banner -->
+				<div class="banner-header">
+					<a href="https://exaline.ru"><img src="{{'assets/images/exaline-for-vietnews.jpg'|theme }}" alt="ТК ЭКСАЛАЙН | ExaLine.ru"></a>
+				</div>
+			</div>	
+			
+			<!--  -->
+			<div class="wrap-main-nav">
+				<div class="main-nav">
+					<!-- Menu desktop -->
+					<nav class="menu-desktop">
+						<a class="logo-stick" href="/">
+							<img src="{{'assets/images/logo_ru.png'|theme }}" alt="Vietnews.ru">
+						</a>
+
+						<ul class="main-menu">
+							<li class="main-menu-active">
+								<a href="{{ 'home'|page }}">Главная</a>								
+							</li>
+
+							<li class="mega-menu-item">
+								<a href="{{ 'home'|page }}">Новости</a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#news-0" role="tab">Все</a>
+										<a class="nav-link" data-toggle="pill" href="#news-1" role="tab">Общество</a>
+										<a class="nav-link" data-toggle="pill" href="#news-2" role="tab">Культура</a>
+										<a class="nav-link" data-toggle="pill" href="#news-3" role="tab">Туризм</a>
+										<a class="nav-link" data-toggle="pill" href="#news-4" role="tab">Технология</a>
+										<a class="nav-link" data-toggle="pill" href="#news-5" role="tab">Спорт</a>
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="news-0" role="tabpanel">
+											{% partial 'topmenu/all' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="news-1" role="tabpanel">
+											{% partial 'topmenu/society' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="news-2" role="tabpanel">
+											{% partial 'topmenu/culture' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="news-3" role="tabpanel">
+											{% partial 'topmenu/travel' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="news-4" role="tabpanel">
+											{% partial 'topmenu/nauka' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="news-5" role="tabpanel">
+											{% partial 'topmenu/sport' %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="mega-menu-item">
+								<a href="https://vietnews.ru/category/economy">Экономика </a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#enter-1" role="tab">Все</a>
+										<a class="nav-link" data-toggle="pill" href="#enter-2" role="tab">Бизнес</a>
+										<a class="nav-link" data-toggle="pill" href="#enter-3" role="tab">Закон</a>
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="enter-1" role="tabpanel">
+											{% partial 'topmenu/economy' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="enter-2" role="tabpanel">
+											{% partial 'topmenu/business' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="enter-3" role="tabpanel">
+											{% partial 'topmenu/zakon' %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="mega-menu-item">
+								<a href="https://vietnews.ru/category/society">Общество</a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#business-1" role="tab">Все</a>
+										<a class="nav-link" data-toggle="pill" href="#business-2" role="tab">Закон</a>
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="business-1" role="tabpanel">
+											{% partial 'topmenu/society' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="business-2" role="tabpanel">
+											{% partial 'topmenu/zakon' %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="mega-menu-item">
+								<a href="https://vietnews.ru/category/travel">Туризм</a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#travel-1" role="tab">Все</a>
+										<a class="nav-link" data-toggle="pill" href="#travel-2" role="tab">Видео</a>
+										<a class="nav-link" data-toggle="pill" href="#travel-3" role="tab">Фото</a>
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="travel-1" role="tabpanel">
+											{% partial 'topmenu/travel' %}
+											</div>
+										</div>
+
+										<div class="tab-pane" id="travel-2" role="tabpanel">
+											{% partial 'topmenu/video' %}
+											</div>
+										</div>
+										<div class="tab-pane" id="travel-3" role="tabpanel">
+											{% partial 'topmenu/photo' %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="mega-menu-item">
+								<a href="https://vietnews.ru/category/culture">Культура</a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#life-1" role="tab">Все</a>
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="life-1" role="tabpanel">
+											{% partial 'topmenu/culture' %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="mega-menu-item">
+								<a href="https://vietnews.ru/category/video">Видео</a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#video-1" role="tab">Все</a>
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="video-1" role="tabpanel">
+											{% partial 'topmenu/video' %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li>
+								<a href="https://vn.vietnews.ru">Tiếng Việt</a>
+								<ul class="sub-menu">
+									<!--<li><a href="#">О нас</a></li>-->
+									<li><a href="{{ 'contact'|page }}">Контакт</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>	
+		</div>
+	</header>

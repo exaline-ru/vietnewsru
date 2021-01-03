@@ -1,0 +1,152 @@
+[viewBag]
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 3
+postPage = "news/news"
+slug = "{{ :slug }}"
+==
+<!-- Footer -->
+	<footer>
+		<div class="bg2 p-t-40 p-b-25">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 p-b-20">
+						<div class="size-h-3 flex-s-c">						    
+							<a href="/">
+								<img class="max-s-full" src="{{'assets/images/logo_ru2.jpg'|theme }}" alt="Vietnews.ru">
+							</a>
+						</div>
+
+						<div>
+							<p class="f1-s-1 cl11 p-b-16">
+								Вьетнам сегодня. Новости Вьетнама.
+							</p>
+
+							<p class="f1-s-1 cl11 p-b-16">
+								Почта по всем вопросам: info@vietnews.ru 
+							</p>
+
+							<div class="p-t-15">
+								<a href="https://www.facebook.com/vietnews.ru/" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+
+								<a href="https://twitter.com/vietnewsru" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-twitter"></span>
+								</a>
+								
+								<a href="https://www.instagram.com/vietnewsru" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+        							<span class="fab fa-instagram"></span>
+        						</a>
+
+								<a href="https://vk.com/vietnewsru" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-vk"></span>
+								</a>
+
+								<a href="https://vietnews.ru/rss.xml" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fas fa-rss"></span>
+								</a>
+
+								<!--<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-youtube"></span>
+								</a>-->
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-lg-4 p-b-20">
+						<div class="size-h-3 flex-s-c">
+							<h5 class="f1-m-7 cl0">
+								ТОП-ТЕМЫ
+							</h5>
+						</div>
+
+						<ul>{% set mostVisitedPosts = topPosts.mostVisitedPosts %}
+						{% for post in mostVisitedPosts %}
+							<li class="flex-wr-sb-s p-b-20">{% if post.featured_images.count %}
+						{% for image in post.featured_images %}
+								<a href="{{post.url}}" class="size-w-4 wrap-pic-w hov1 trans-03">
+									<img src="{{image.path}}" alt="{{post.title}}">
+								</a>{% endfor %}
+							{% elseif post.subtitle == true %}
+								<a href="{{post.url}}" class="size-w-4 wrap-pic-w hov1 trans-03">
+								<img src="{{ post.subtitle }}" alt="{{post.title}}">
+								</a>  
+							{% endif %}	
+
+								<div class="size-w-5">
+									<h6 class="p-b-5">
+										<a href="{{post.url}}" class="f1-s-5 cl11 hov-cl10 trans-03">
+											{{post.title}}
+										</a>
+									</h6>
+
+									<span class="f1-s-3 cl6">
+										{{ post.published_at.diffForHumans() }}
+									</span>
+								</div>
+							</li>
+							{% endfor %}							
+						</ul> 
+					</div>
+
+					<div class="col-sm-6 col-lg-4 p-b-20">
+						<div class="size-h-3 flex-s-c">
+							<h5 class="f1-m-7 cl0">
+								Рубрики
+							</h5>
+						</div>
+
+						<ul class="m-t--12">
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a href="../category/economy" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+									Экономика
+								</a>
+							</li>
+
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a href="../category/travel" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+									Туризм 
+								</a>
+							</li>
+
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a href="../category/culture" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+									Культура
+								</a>
+							</li>
+
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a href="../category/society" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+									Общество
+								</a>
+							</li>
+
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a href="../category/science-and-technology" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
+									Технология
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bg11">
+			<div class="container size-h-4 flex-c-c p-tb-15">
+				<span class="f1-s-1 cl0 txt-center">					
+&copy;2020. All rights reserved. <a href="https://vietnews.ru" class="f1-s-1 cl10 hov-link1" target="_blank">Vietnews.ru</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<span class="fas fa-angle-up"></span>
+		</span>
+	</div>

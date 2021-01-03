@@ -1,0 +1,66 @@
+==
+{% set posts = blogPosts.posts %}
+{% if posts.lastPage > 1 %}
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+        <li class="page-item"><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}" aria-label="Previous" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7"><span aria-hidden="true">«</span><span class="sr-only">Предыдущая</span></a></li>
+        {% endif %}
+
+        {% if posts.lastPage > 7 %}
+
+        {% if posts.currentPage > 3 %}
+        <li class="page-item">
+            <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.firstpage) }) }}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7">1</a>
+        </li>
+        {% if posts.currentPage > 4 %}
+        <li class="page-item">
+            ...
+        </li>
+        {% endif %}
+        {% endif %}
+
+        {% for page in max(1, posts.currentPage - 2)..min(posts.lastPage, posts.currentPage + 2) %}
+        <li class="page-item {{ posts.currentPage == page ? 'active' : null }}">
+            {% if posts.currentPage == page %}
+            {{ page }}
+            {% else %}
+            <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">{{ page }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+        {% if posts.currentPage < posts.lastPage - 3 %}
+        {% if posts.currentPage < posts.lastPage - 4 %}
+        <li class="page-item">
+            ...
+        </li>
+        {% endif %}
+        <li class="page-item">
+            <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.lastPage) }) }}{{ query }}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7">{{ posts.lastPage }}</a>
+        </li>
+        {% endif %}
+
+        {% else %}
+
+        {% for page in 1..posts.lastPage %}
+        <li class="page-item">{{ posts.currentPage == page ? ' pagination__list-item--active' : null }}">
+            {% if posts.currentPage == page %}
+            {{ page }}
+            {% else %}
+            <a href="{{ this.page.baseFileName|page({ (pageNumberParam): page }) }}{{ query }}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7">{{ page }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+        {% endif %}
+
+        {% if posts.lastPage > posts.currentPage %}
+        <li class="page-item">
+            <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only"> >></span></a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

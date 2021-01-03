@@ -1,0 +1,15 @@
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "categories"
+==
+{% if __SELF__.categories|length > 0 %}
+    <ul class="category-list">
+        {% partial __SELF__ ~ "::items"
+            categories = __SELF__.categories
+            currentCategorySlug = __SELF__.currentCategorySlug
+        %}
+    </ul>
+{% else %}
+    <p>Категории не найдены.</p>
+{% endif %}

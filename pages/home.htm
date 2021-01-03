@@ -1,0 +1,49 @@
+title = "Новости Вьетнама"
+url = "/"
+layout = "tailwind-category"
+description = "VietNews.ru - Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Вьетнам туризм. Экономика Вьетнама. Наука и Технология Вьетнама."
+meta_title = "VietNews.ru - Новости Вьетнама - Вьетнам сегодня"
+meta_description = "VietNews.ru - Все о Вьетнаме. Новости Вьетнама. Вьетнам сегодня. Вьетнам туризм. Экономика Вьетнама. Наука и Технология Вьетнама."
+is_hidden = 0
+seo_keywords = "VietNews.ru, Все о Вьетнаме, Новости Вьетнама, Вьетнам сегодня, Вьетнам туризм, Экономика Вьетнама, Наука и Технология Вьетнама, медицина Вьетнама, политика Вьетнама,"
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+==
+{#{% partial 'tailwind/header' %} #}
+{% partial 'tailwind/header5' %}
+<div class="max-w-screen-xl mx-auto bg-white">
+
+{% partial 'tailwind/top-1' %}  
+
+<div class="max-w-screen-xl mx-auto relative  border-b">
+  <div class="sm:flex items-start">    
+    <div class="md:w-4/12 sm:w-6/12 p-4">
+       {% partial 'tailwind/left-home' %}
+    </div>
+    <div class="md:w-8/12 sm:w-6/12 p-8 sm:border-l">
+        {% partial 'tailwind/right-society' %}
+       
+       {% partial 'tailwind/right-economy' %}
+       {% partial 'tailwind/right-travel' %}
+        {% partial 'tailwind/right-reclama1' %}
+         {% partial 'tailwind/right-ruvn' %}
+         {% partial 'tailwind/events' %}
+         {% partial 'tailwind/right-tech' %}
+        
+      
+    </div>
+  </div>    
+</div>
+{% partial 'tailwind/business' %}
+{% partial 'tailwind/block-category4' %}
+{% partial 'tailwind/block-category4-2' %}
+{% partial 'tailwind/expat' %}
+{% partial 'tailwind/series' %}
+{#{% partial 'tailwind/block-category3' %}#}
+{#{% partial 'youtube' %}#}
+{% partial 'tailwind/tags' %}
+</div>
+
+{% partial 'tailwind/footer2' %}

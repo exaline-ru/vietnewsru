@@ -1,0 +1,4 @@
+[viewBag]
+==
+{% set meses = ["Tháng giêng","Tháng hai","Tháng ba","Tháng tư","Tháng năm","Tháng sáu","Tháng bảy","Tháng tám","Tháng chín","Tháng mười","Tháng mười một","Tháng mười hai"] %}
+{{ fecha|date('j') }} {{ meses[fecha|date('n')-1] }} {{ fecha|date('Y') }}

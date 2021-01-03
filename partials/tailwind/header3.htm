@@ -1,0 +1,37 @@
+[viewBag]
+==
+<div class="container mx-auto bg-white p-5">
+    <nav class="flex-row md:justify-between">
+        <div class="flex flex-row justify-between">
+           <a href="/"><img src="{{'assets/images/icons/logo_ru_200x30.png'|theme }}" alt="Vietnews.ru"></a>
+
+           <p id="hamburgerbtn" class="md:hidden white">
+             Рубрики
+           </p>
+        </div>
+       
+        <ul class="hidden md:flex md:flex-row" id="mobileMenu">
+            <li class="pr-5"><a> Services </a></li>
+            <li class="pr-5"><a>Porfolio</a></li>
+            <li class="pr-5"><a>About</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<style>
+    .active{
+        display: block;
+    }    
+</style>
+
+<script>
+    let hamburger = document.getElementById('hamburgerbtn');
+
+    let mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function(){
+        mobileMenu.classList.toggle('active');
+    });
+</script>

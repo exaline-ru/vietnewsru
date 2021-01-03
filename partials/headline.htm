@@ -1,0 +1,47 @@
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 3
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[searchForm]
+resultPage = "news/search"
+categoryFilter = 0
+==
+<!-- Headline -->
+	<div class="container">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+				<span class="text-uppercase cl2 p-r-8">
+					Последние новости:
+				</span>
+				<!--<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">{% set post = blogPost.post %}
+				{% for post in blogPosts.posts %}
+					<span class="dis-inline-block slide100-txt-item animated visible-false">
+						<a href="{{post.url}}" class="f1-s-1 cl10 hov-link1">{{ html_limit(post.title, 50, '...') }}</a>
+					</span>{% endfor %}					
+				</span>-->
+
+				
+			</div>
+
+			<form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
+			<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+				<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Поиск">
+				{% if searchForm.categoryFilter %}
+                <select name="cat[]" class="form-control">
+                {% for key,cat in searchForm.categories %}
+                    <option value="{{ key }}">{{ cat }}</option>
+                {% endfor %}
+                </select>
+                {% endif %}
+				<button type="submit" class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+					<i class="zmdi zmdi-search"></i>
+				</button>
+			</div>
+			</form>
+		</div>
+	</div>

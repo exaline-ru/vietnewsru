@@ -1,0 +1,23 @@
+description = "Самые читаемые"
+
+[popularPosts]
+category = "{{ /category/:slug }}"
+postsLimit = 5
+noPostsMessage = "Новостей не найдено"
+postPage = "news/news"
+==
+{% set posts = popularPosts.posts %}
+{% for post in posts %}
+<div class="post-thumbnail-entry">
+    <img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                                                    style="width: 100px; height: auto" class="lazyload" />
+    <div class="post-thumbnail-content">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <span class="post-date"><i class="icon-clock"></i> {{ post.published_at.diffForHumans() }}</span>
+        {% if post.categories.count %} {% endif %}
+														{% for category in post.categories %}
+        <span class="post-category"><i class="fa fa-tag"></i> {{ category.name }}{% if not loop.last %}, {% endif %}
+														{% endfor %}</span>
+    </div>
+</div>
+{% endfor %}

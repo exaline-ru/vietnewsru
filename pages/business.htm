@@ -1,0 +1,105 @@
+title = "For Business"
+url = "/business"
+layout = "main"
+meta_title = "Home"
+meta_description = "Flametree Co-Op is a non-profit co-op that provides healthy products such as fruits and vegetables."
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+contentType = "html"
+force_show = 0
+
+[ImageSlider]
+label = 1
+
+[VideoSection]
+playlist_name = 1
+autoplay = 0
+
+[AllProducer]
+include_categories = 1
+limit = 3
+producer_page = "producer/products"
+producer_page_slug = "slug"
+
+[TrendingAnnouncement]
+pageNumber = 1
+postsPerPage = 3
+noPostsMessage = "There is no recent posts right now."
+sortOrder = "published_at desc"
+categoryPage = "announcements"
+postPage = "announcements"
+==
+{% put seo %}
+    {% partial "site-title/main" %}
+    <meta name="description" content="{{ this.page.meta_description }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{ this.page.meta_description}}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:description" content="{{this.page.meta_description }}">
+
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content=""/>
+{% endput %}
+
+{% component 'ImageSlider' %}
+
+<div class="d-flex flex-column" id="flametree-who-we-are">
+    <h1 class="headline-light-bold text-uppercase text-primary px-3 py-3 ">Who We Are?</h1>
+    {% component 'VideoSection' %}
+</div>
+
+{% put styles %}
+    <style>
+
+        .our-producers {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url('//vietnews.ru/themes/godspeed-flametree-theme/assets/images/gardens.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+{% endput %}
+<div class="our-producers d-flex flex-column flex-wrap align-items-stretch py-5 px-3">
+
+    <div class="d-flex flex-column align-self-sm-start justify-content-start m-2">
+        <h1 class="headline-light text-uppercase text-primary w-25">
+            <span class="text-white">OUR</span>
+        PRODUCERS</h1>
+        <a href="{{ "our-producers" | page }}" class="title-link big hover-move-right text-decoration-none">VIEW ALL PRODUCERS <i class="fas fa-chevron-right mx-2 "></i></a>
+    </div>
+    <div class="d-flex flex-row flex-wrap">
+       {# {% component 'AllProducer' %} #}
+    </div>
+</div>
+
+{% put styles %}
+    <style>
+
+
+        .announcements {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url('//vietnews.ru/themes/godspeed-flametree-theme/assets/images/contact.jpg') ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+    </style>
+{% endput %}
+<div class="announcements d-flex flex-column justify-content-around py-5 px-3 flex-wrap">
+    <div class="d-flex flex-column align-self-sm-start  justify-content-start m-2 flex-grow-1 ">
+
+        <h3 class="headline-light text-uppercase text-primary  small">Recent Announcements</h3>
+        <a href="{{ 'blog/announcements' | page }}" class="text-decoration-none title-link big hover-move-right">GET MORE ANNOUNCEMENTS<i class="fas fa-chevron-right mx-2 "></i></a>
+    </div>
+        {% component 'TrendingAnnouncement' %}
+
+</div>

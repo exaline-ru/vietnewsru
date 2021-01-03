@@ -1,0 +1,32 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "history"
+postsPerPage = 6
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/category"
+==
+{% set posts = blogPosts.posts %}{% for post in posts %}
+<div class="fb-smore__sub">
+        <div class="fb-smore__sub-img"> <a href="{{ post.url }}"><img src="{{ post.subtitle }}" style="width: 190px; height: 130px" alt="bg" border="0"> </a></div>
+        <div class="fb-smore__sub-copy"> <a href="{{ post.url }}" class="text-secondary">{{ post.title }}</a>
+          <div class="meta">
+            <span class="news-times"> {{ post.published_at.diffForHumans() }} </span>
+      <span></span>
+      {#<span class="">  {% if post.categories.count %} {% endif %}
+            {% for category in post.categories %}
+    <a class="text-secondary" href="{{ category.url }}"> {{ category.name }} </a>
+            {% endfor %} </span>#}
+          </div>
+        </div>
+
+      </div>
+{% endfor %}

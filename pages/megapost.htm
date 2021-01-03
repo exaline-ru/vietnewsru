@@ -1,0 +1,34 @@
+title = "Megapost"
+url = "/megapost"
+layout = "tailwind-category"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
+
+[mpostsPosts]
+slug = "{{ :slug }}"
+mpostsPages = 1
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Отсутсвие постов"
+sortOrder = "published_at desc"
+postFeatured = 0
+postPage = 404
+categoryPage = 404
+
+[mpostsSubscribe]
+
+[mpostsCategories]
+noPostsMessage = "Отсутсвие постов"
+==
+{% partial 'tailwind/header5' %}
+<div class="max-w-screen-xl mx-auto bg-white">
+
+{% component 'mpostsPosts' %}
+{% component 'mpostsCategories' %}
+{% component 'mpostsSubscribe' %}
+
+</div>
+{% partial 'tailwind/footer2' %}

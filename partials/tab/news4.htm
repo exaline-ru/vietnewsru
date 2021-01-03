@@ -1,0 +1,24 @@
+description = "Самые читаемые сегодня"
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 5
+postPage = "news/news"
+slug = "{{ :slug }}"
+==
+{% set mostVisitedPosts = topPosts.mostVisitedPosts %}                               
+{% for post in mostVisitedPosts %}
+<div class="post-thumbnail-entry">
+    <img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                                                    style="width: 100px; height: auto" class="lazyload" />
+    <div class="post-thumbnail-content">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <span class="post-date"><i class="icon-clock"></i> {{ post.published_at.diffForHumans() }}</span>
+        {% if post.categories.count %} {% endif %}
+														{% for category in post.categories %}
+        <span class="post-category"><i class="fa fa-tag"></i> {{ category.name }}{% if not loop.last %}, {% endif %}
+														{% endfor %}</span>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,25 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+{% set post = blogPost.post %} {% for post in blogPosts.posts %}
+<article class="bg-white p-4 border-b">
+        <h4 class="mb-4 text-2sm text-indigo-900 font-black font-serif">
+          <a href="{{ post.url }}" class="mt-3 md:mt-0 hover:text-indigo-600 transition duration-500 ease-in-out text-gray-700 font-bold mb-2">{{ post.title }}</a>
+        </h4>
+        <div class="flex flex-row">
+        {% if post.subtitle == true %}  <a href="{{ post.url }}"><img src="{{ post.subtitle }}" class="w-32 lazyload"></a> {% endif %}
+          <div class="flex-1 flex flex-col justify-between text-sm font-light ml-4" x-show="layout === 'list'" x-cloak>
+            <p class="text-sm font-light">{{ post.summary| truncate(100) }}</p>
+            <p class="text-right">{% if post.categories.count %} {% endif %}{% for category in post.categories %}{% if loop.first %}
+              <a href="{{ category.url }}" class="text-inline text-sm text-gray-600 hover:text-black">{{ category.name }}</a>{% endif %}{% endfor %}
+            </p>
+          </div>
+        </div>
+      </article>{% endfor %}

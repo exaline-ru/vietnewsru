@@ -1,0 +1,49 @@
+description = "Menu-society"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "society"
+postsPerPage = 4
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "news/category"
+postPage = "news/news"
+==
+<div class="row">
+{% set post = blogPosts.posts %}{% for post in blogPosts.posts %}
+												<div class="col-3">
+													<!-- Item post -->	
+													<div>{% if post.featured_images.count %}
+														<a href="{{ post.url }}" class="wrap-pic-w hov1 trans-03">
+															{% for image in post.featured_images %}
+															<img src="{{ image.path }}" class="lazyload" alt="{{ image.description }}">{% endfor %}
+														</a>
+														{% elseif post.subtitle == true %}
+                								<a href="{{ post.url }}" class="wrap-pic-w hov1 trans-03"> 
+                									<img src="{{ post.subtitle }}" alt="{{ image.description }}"
+                                                    style="max-width: 100%" height="100" class="lazyload" /></a>{% endif %}
+
+														<div class="p-t-10">
+															<h5 class="p-b-5">
+																<a href="{{ post.url }}" class="f1-s-5 cl3 hov-cl10 trans-03">
+																	{{ post.title }}
+																</a>
+															</h5>
+
+															<span class="cl8">
+																{% if post.categories.count %} {% endif %}
+        														{% for category in post.categories %}
+        														<a href="{{ category.url }}" class="f1-s-6 cl8 hov-cl10 trans-03">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+        														{% endfor %}
+
+																<span class="f1-s-3 m-rl-3">
+																	-
+																</span>
+
+																<span class="f1-s-3">
+																	{{ post.published_at.diffForHumans() }}
+																</span>
+															</span>
+														</div>
+													</div>
+												</div>{% endfor %}
